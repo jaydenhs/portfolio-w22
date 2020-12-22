@@ -1,16 +1,44 @@
 import React from 'react';
-import { Link } from 'gatsby';
+import { Link, graphql } from 'gatsby';
+import Header from '../components/header'
 
-import Layout from '../components/Layout';
-import BrightTitle from '../components/BrightTitle';
+const BlogIndex = ({ data }) => {
+  const { edges: posts } = data.allMdx;
 
-const IndexPage = () => (
-  <Layout>
-    <BrightTitle>Hello world!</BrightTitle>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
-);
+  return (
+    <div>
+      <Header />
+      <h1>Awesome MDX Blog</h1>
 
-export default IndexPage;
+      <ul>
+        {posts.map(({ node: post }) => (
+          <li key={post.id}>
+            <Link to={post.frontmatter.slug}>
+              <h2>{post.frontmatter.title}</h2>
+            </Link>
+            <p>{post.excerpt}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export const pageQuery = graphql`
+  query blogIndex {
+    allMdx {
+      edges {
+        node {
+          id
+          excerpt
+          frontmatter {
+            title
+            slug
+          }
+        }
+      }
+    }
+  }
+`;
+
+export default BlogIndex;

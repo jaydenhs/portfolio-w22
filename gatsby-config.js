@@ -1,14 +1,19 @@
 module.exports = {
   siteMetadata: {
-    title: `Dark Mode (minimal example)`,
-    description: `An MVP dark-mode, from scratch.`,
-    author: `@gatsbyjs`,
+    title: `Jayden Hsiao's Portfolio`,
+    description: `Product designer and front-end engineer`,
+    author: `Jayden Hsiao`,
   },
   plugins: [
     `gatsby-plugin-styled-components`,
-
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `posts`,
+        path: `${__dirname}/src/posts/`,
+      },
+    },
+    `gatsby-plugin-mdx`,
     // `gatsby-plugin-offline`,
   ],
 };

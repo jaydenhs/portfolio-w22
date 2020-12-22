@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { ThemeContext } from './ThemeContext';
+import { ThemeContext } from './theme-context';
 
-import DarkToggle from './DarkToggle';
+import DarkToggle from './dark-toggle';
 
 const Header = ({ siteTitle }) => {
   return (
