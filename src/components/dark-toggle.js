@@ -63,13 +63,13 @@ const Icon = styled.div(
     box-shadow: ${!darkMode && 'inset 8px -8px 0px 0px var(--color-primary)'};
     &:before {
       content: '';
-      right: -9px;
-      top: -9px;
+      right: 0px;
+      top: 8px;
       border-radius: 50%;
 
       ${tw`absolute w-6 h-6 duration-500`}
       ${darkMode && tw`border-2 border-solid border-primary`}
-      transform: ${darkMode ? 'translate(14px, -14px)' : 'translate(0px, 0px)'};
+      transform: ${darkMode ? 'translate(2px, 2px)' : 'translate(2px, 2px)'};
       opacity: ${darkMode ? '0' : '1'};
     }
     &:after {
