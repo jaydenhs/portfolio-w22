@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
-import Header from '../components/header';
 import Layout from '../components/layout';
 
 const BlogIndex = ({ data }) => {
@@ -8,8 +7,7 @@ const BlogIndex = ({ data }) => {
 
   return (
     <Layout>
-      <h1>Awesome MDX Blogs</h1>
-
+      <h1>Projects</h1>
       <ul>
         {posts.map(({ node: post }) => (
           <li key={post.id}>
@@ -26,7 +24,7 @@ const BlogIndex = ({ data }) => {
 
 export const pageQuery = graphql`
   query blogIndex {
-    allMdx {
+    allMdx(filter: { frontmatter: { section: { eq: "Main" } } }) {
       edges {
         node {
           id

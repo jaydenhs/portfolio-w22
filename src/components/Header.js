@@ -49,17 +49,38 @@ const Wrapper = styled.main.attrs({
 })``;
 
 const ItemWrapper = styled.main.attrs({
-  className: 'space-x-4 ml-auto mr-4 md:space-x-8 md:mr-8',
+  className: 'space-x-4 ml-auto mr-4 md:space-x-16 md:mr-16',
 })``;
 
 //import in Link as GatsbyLink, create styled-component based on that
 const Item = styled(GatsbyLink).attrs({
-  className: `callout text-xl no-underline text-gray-400 transition-all duration-300`,
+  className: `callout text-xl no-underline text-gray-400 transition-all duration-300 pb-4`,
 })`
   //if the current location matches the destination of the link, show that colour
   color: ${props => {
     return props.match ? props.colour : null;
   }};
+  /* transition: 0.3s; */
+  /* z-index: 1; */
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    bottom: 0px;
+    left: -10%;
+    width: 120%;
+    height: 5px;
+    background-color: #dfe2ea;
+    border-radius: 8px 8px 0 0;
+    opacity: 0;
+    transition: z 0.3s;
+  }
+
+  &:not(.is-active):hover:before {
+    opacity: 1;
+    bottom: -2.5px;
+  }
 `;
 
 // TIL you cannot just export default const in the statement like you can for components
