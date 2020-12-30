@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link as GatsbyLink } from 'gatsby';
 import styled, { css } from 'styled-components';
 import tw from 'twin.macro';
@@ -63,8 +63,9 @@ const Header = () => {
 };
 
 const Logo = () => (
-  <svg height="40" width="40">
-    <circle cx="20" cy="20" r="20" fill="var(--color-primary)" />
+  //resize to smaller logo at mobile
+  <svg className="w-8 h-8 md:w-10 md:h-10">
+    <circle cx="50%" cy="50%" r="50%" fill="var(--color-primary)" />
   </svg>
 );
 
@@ -86,7 +87,8 @@ const Wrapper = styled.main.attrs({
 // `;
 
 const ItemWrapper = styled.main.attrs({
-  className: 'space-x-4 ml-auto mr-4 md:space-x-16 md:mr-16',
+  className:
+    'space-x-4 ml-auto mr-4 md:space-x-12 md:mr-12 lg:space-x-16 md:mr-16',
 })``;
 
 //import in Link as GatsbyLink, create styled-component based on that
