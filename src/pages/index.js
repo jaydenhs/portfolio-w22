@@ -1,14 +1,14 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
-import Header from '../components/header'
+import Header from '../components/header';
+import Layout from '../components/layout';
 
 const BlogIndex = ({ data }) => {
   const { edges: posts } = data.allMdx;
 
   return (
-    <div>
-      <Header />
-      <h1>Awesome MDX Blog</h1>
+    <Layout>
+      <h1>Awesome MDX Blogs</h1>
 
       <ul>
         {posts.map(({ node: post }) => (
@@ -20,7 +20,7 @@ const BlogIndex = ({ data }) => {
           </li>
         ))}
       </ul>
-    </div>
+    </Layout>
   );
 };
 

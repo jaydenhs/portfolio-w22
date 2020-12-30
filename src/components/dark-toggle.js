@@ -9,8 +9,8 @@ const Toggle = styled.button`
   opacity: 0.45;
   position: relative;
   border-radius: 5px;
-  width: 40px;
-  height: 25px;
+  width: 32px;
+  height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -83,12 +83,8 @@ const DarkToggle = () => {
       <Toggle
         onClick={() => setColorMode(darkMode ? 'light' : 'dark')}
         type="button"
-        aria-label={
-          darkMode ? `Activate Light Mode` : `Activate Dark Mode`
-        }
-        title={
-          darkMode ? `Activate Light Mode` : `Activate Dark Mode`
-        }
+        aria-label={darkMode ? `Activate Light Mode` : `Activate Dark Mode`}
+        title={darkMode ? `Activate Light Mode` : `Activate Dark Mode`}
       >
         <Icon darkMode={!darkMode} />
       </Toggle>
