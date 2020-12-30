@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link as GatsbyLink } from 'gatsby';
 import styled from 'styled-components';
+import tw from 'twin.macro';
 import DarkToggle from './dark-toggle';
 
 const links = [
@@ -54,27 +55,19 @@ const ItemWrapper = styled.main.attrs({
 
 //import in Link as GatsbyLink, create styled-component based on that
 const Item = styled(GatsbyLink).attrs({
-  className: `callout text-xl no-underline text-gray-400 transition-all duration-300 pb-4`,
+  className: `callout text-xl no-underline text-gray-400 transition-all pb-4 relative`,
 })`
   //if the current location matches the destination of the link, show that colour
-  color: ${props => {
-    return props.match ? props.colour : null;
+  color: ${({ match, colour }) => {
+    return match && colour;
   }};
-  /* transition: 0.3s; */
-  /* z-index: 1; */
-  position: relative;
 
   &:before {
     content: '';
-    position: absolute;
-    bottom: 0px;
     left: -10%;
     width: 120%;
-    height: 5px;
-    background-color: #dfe2ea;
-    border-radius: 8px 8px 0 0;
-    opacity: 0;
-    transition: z 0.3s;
+    background-color: var(--color-gray300);
+    ${tw`h-1 bottom-0 absolute rounded-t-xl opacity-0 duration-300`}
   }
 
   &:not(.is-active):hover:before {

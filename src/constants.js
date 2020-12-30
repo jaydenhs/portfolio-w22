@@ -16,6 +16,10 @@ export const COLORS = {
     dark: 'hsl(190deg, 100%, 40%)', // Cyan
   },
   // Grays, scaling from least-noticeable to most-noticeable
+  gray100: {
+    light: 'hsl(0deg, 0%, 90%)',
+    dark: 'hsl(0deg, 0%, 10%)',
+  },
   gray300: {
     light: 'hsl(0deg, 0%, 70%)',
     dark: 'hsl(0deg, 0%, 30%)',
