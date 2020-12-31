@@ -15,6 +15,18 @@ module.exports = {
     },
     `gatsby-plugin-mdx`,
     'gatsby-plugin-postcss',
+    {
+      resolve: `gatsby-plugin-alias-imports`,
+      options: {
+        alias: {
+          '@src': 'src',
+          '@components': 'src/components',
+          '@pages': 'src/pages',
+          '@utils': 'src/utils',
+        },
+        extensions: ['js'],
+      },
+    },
     // `gatsby-plugin-offline`,
   ],
 };

@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 import { MDXProvider } from '@mdx-js/react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { Link } from 'gatsby';
-import Layout from '../components/layout';
+import Layout from '@components/layout';
 
 const shortcodes = { Link }; // Provide common components here
 

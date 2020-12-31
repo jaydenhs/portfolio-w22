@@ -1,6 +1,6 @@
 import React from 'react';
 import tw from 'twin.macro';
-import { ThemeContext } from './theme-context';
+import { ThemeContext } from '@utils/theme-context';
 
 import styled, { css } from 'styled-components';
 

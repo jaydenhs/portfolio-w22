@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
-import Layout from '../components/layout';
-import MainProjectPreview from '../components/main-project-preview';
+import Layout from '@components/layout';
+import MainProjectPreview from '@components/main-project-preview';
 import styled from 'styled-components';
 
 const IndexPage = props => {
