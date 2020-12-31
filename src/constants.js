@@ -18,6 +18,10 @@ export const COLORS = {
     light: 'hsl(250deg, 100%, 50%)', // Purplish-blue
     dark: 'hsl(190deg, 100%, 40%)', // Cyan
   },
+  surface: {
+    light: 'hsl(0deg, 0%, 10%)', // white
+    dark: '#121212', // dark, dark grey
+  },
 
   // Grays, scaling from least-noticeable to most-noticeable
   gray100: {

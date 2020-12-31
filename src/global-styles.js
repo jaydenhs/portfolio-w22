@@ -14,9 +14,19 @@ const GlobalStyles = createGlobalStyle`
     color: var(--color-text);
   }
 
-  a {
-    color: var(--color-secondary);
+  h1 {
+    font-size: 3rem;
+    font-weight: 700;
   }
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  /* a {
+    color: var(--color-secondary);
+  } */
 `;
 
 export default GlobalStyles;

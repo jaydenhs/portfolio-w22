@@ -6,6 +6,7 @@ module.exports = {
       colors: {
         primary: 'var(--color-primary)',
         secondary: 'var(--color-secondary)',
+        surface: 'var(--color-surface)',
         gray: {
           '100': 'var(--color-gray100)',
           '200': 'var(--color-gray200)',

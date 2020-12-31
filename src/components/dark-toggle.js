@@ -34,21 +34,7 @@ export default DarkToggle;
 
 //styling inspired by https://github.com/LekoArts/gatsby-themes/blob/master/themes/gatsby-theme-minimal-blog/src/components/colormode-toggle.tsx
 const Toggle = styled.button`
-  opacity: 0.45;
-  position: relative;
-  border-radius: 5px;
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: opacity 0.3s ease;
-  border: none;
-  outline: none;
-  background: none;
-  cursor: pointer;
-  padding: 0;
-  appearance: none;
+  ${tw`opacity-75 relative rounded w-8 h-8 flex items-center justify-center transition-opacity duration-300 border-none outline-none bg-transparent cursor-pointer p-0 appearance-none`}
 `;
 
 const Icon = styled.div(
@@ -64,7 +50,7 @@ const Icon = styled.div(
     &:before {
       content: '';
       right: 0px;
-      top: 8px;
+      top: -3.5px;
       border-radius: 50%;
 
       ${tw`absolute w-6 h-6 duration-500`}

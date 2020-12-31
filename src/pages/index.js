@@ -1,30 +1,45 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
 import Layout from '../components/layout';
+import MainProjectPreview from '../components/main-project-preview';
+import styled from 'styled-components';
 
-const BlogIndex = ({ data }) => {
-  const { edges: posts } = data.allMdx;
-
+const IndexPage = props => {
+  const mainProjects = props.data.main.edges;
   return (
     <Layout>
       <h1>Projects</h1>
-      <ul>
-        {posts.map(({ node: post }) => (
-          <li key={post.id}>
-            <Link to={post.frontmatter.slug}>
-              <h2>{post.frontmatter.title}</h2>
-            </Link>
-            <p>{post.excerpt}</p>
-          </li>
+      <MainProjectPreviewWrapper>
+        {mainProjects.map(({ node }, i) => (
+          <MainProjectPreview project={node} key={i} />
         ))}
-      </ul>
+      </MainProjectPreviewWrapper>
     </Layout>
   );
 };
 
+const MainProjectPreviewWrapper = styled.div.attrs({
+  className: 'space-y-4',
+})``;
+
 export const pageQuery = graphql`
-  query blogIndex {
-    allMdx(filter: { frontmatter: { section: { eq: "Main" } } }) {
+  query {
+    main: allMdx(filter: { frontmatter: { section: { eq: "Main" } } }) {
+      edges {
+        node {
+          frontmatter {
+            title
+            slug
+            description
+            category
+            tags
+          }
+        }
+      }
+    }
+    additional: allMdx(
+      filter: { frontmatter: { section: { eq: "Additional" } } }
+    ) {
       edges {
         node {
           id
@@ -39,4 +54,4 @@ export const pageQuery = graphql`
   }
 `;
 
-export default BlogIndex;
+export default IndexPage;

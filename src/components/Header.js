@@ -64,9 +64,11 @@ const Header = () => {
 
 const Logo = () => (
   //resize to smaller logo at mobile
-  <svg className="w-8 h-8 md:w-10 md:h-10">
-    <circle cx="50%" cy="50%" r="50%" fill="var(--color-primary)" />
-  </svg>
+  <GatsbyLink to="/">
+    <svg className="w-8 h-8 md:w-10 md:h-10">
+      <circle cx="50%" cy="50%" r="50%" fill="var(--color-primary)" />
+    </svg>
+  </GatsbyLink>
 );
 
 const Wrapper = styled.main.attrs({
