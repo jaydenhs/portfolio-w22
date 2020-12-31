@@ -3,12 +3,14 @@ import { Link, graphql } from 'gatsby';
 import Layout from '@components/layout';
 import MainProjectPreview from '@components/main-project-preview';
 import styled from 'styled-components';
+import Image from '@utils/gatsby-image-local.js';
 
 const IndexPage = props => {
   const mainProjects = props.data.main.edges;
   return (
     <Layout title="Portfolio">
       <h1>Projects</h1>
+      <Image fileName="wes.png" alt="Illustration of a person reading a book" />
       <MainProjectPreviewWrapper>
         {mainProjects.map(({ node }, i) => (
           <MainProjectPreview project={node} key={i} />
@@ -24,7 +26,10 @@ const MainProjectPreviewWrapper = styled.div.attrs({
 
 export const pageQuery = graphql`
   query {
-    main: allMdx(filter: { frontmatter: { section: { eq: "Main" } } }) {
+    main: allMdx(
+      sort: { fields: frontmatter___rank, order: ASC }
+      filter: { frontmatter: { section: { eq: "Main" } } }
+    ) {
       edges {
         node {
           frontmatter {

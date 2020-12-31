@@ -6,6 +6,7 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-styled-components`,
+    //mdx post generation
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -13,8 +14,15 @@ module.exports = {
         path: `${__dirname}/src/posts/`,
       },
     },
+
+    //local gatsby-image querying
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+
     `gatsby-plugin-mdx`,
     'gatsby-plugin-postcss',
+
+    //creates aliases to simplify imports
     {
       resolve: `gatsby-plugin-alias-imports`,
       options: {
