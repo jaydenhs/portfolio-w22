@@ -21,8 +21,6 @@ module.exports = {
 
     `gatsby-plugin-mdx`,
     'gatsby-plugin-postcss',
-
-    //creates aliases to simplify imports
     {
       resolve: `gatsby-plugin-alias-imports`,
       options: {

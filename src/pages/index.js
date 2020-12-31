@@ -10,7 +10,7 @@ const IndexPage = props => {
   return (
     <Layout title="Portfolio">
       <h1>Projects</h1>
-      <Image fileName="wes.png" alt="Illustration of a person reading a book" />
+
       <MainProjectPreviewWrapper>
         {mainProjects.map(({ node }, i) => (
           <MainProjectPreview project={node} key={i} />
