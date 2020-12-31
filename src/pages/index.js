@@ -7,7 +7,7 @@ import styled from 'styled-components';
 const IndexPage = props => {
   const mainProjects = props.data.main.edges;
   return (
-    <Layout>
+    <Layout title="Portfolio">
       <h1>Projects</h1>
       <MainProjectPreviewWrapper>
         {mainProjects.map(({ node }, i) => (

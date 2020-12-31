@@ -7,13 +7,19 @@ import Layout from '@components/layout';
 
 const shortcodes = { Link }; // Provide common components here
 
-export default function PostLayout({ data: { mdx } }) {
-  console.log({ mdx });
+export default function PostLayout({
+  data: {
+    mdx: {
+      frontmatter: { title },
+      body,
+    },
+  },
+}) {
   return (
-    <Layout>
-      <h1>{mdx.frontmatter.title}</h1>
+    <Layout title={title}>
+      <h1>{title}</h1>
       <MDXProvider components={shortcodes}>
-        <MDXRenderer>{mdx.body}</MDXRenderer>
+        <MDXRenderer>{body}</MDXRenderer>
       </MDXProvider>
     </Layout>
   );

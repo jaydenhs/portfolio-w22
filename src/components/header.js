@@ -10,48 +10,16 @@ const links = [
   { text: 'Resume', url: 'resume', colour: '#000' },
 ];
 
-const Header = () => {
-  const url = window.location.href;
-  var parser = document.createElement('a');
-  parser.href = `${url}`;
-  // const [atTop, setAtTop] = React.useState(parser.pathname === '/');
-
-  // useEffect(() => {
-  //   if (parser.pathname === '/' && linkRefs[0]) {
-  //     // focusNavLink(linkRefs[0].current);
-  //   } else if (location.pathname === '/about' && linkRefs[1]) {
-  //     // focusNavLink(linkRefs[1].current);
-  //   }
-  // }, [location]);
-
-  // const focusNavLink = el => {
-  //   if (navIndicatorRef.current.style.left) {
-  //     navIndicatorRef.current.classList.add(headerStyles.transition);
-  //   } else {
-  //     navIndicatorRef.current.classList.remove(headerStyles.transition);
-  //   }
-
-  //   navIndicatorRef.current.style.width = `${el.offsetWidth}px`;
-  //   navIndicatorRef.current.style.left = `${el.offsetLeft}px`;
-  //   navIndicatorRef.current.style.backgroundColor = el.getAttribute(
-  //     'activeColor'
-  //   );
-  // };
-
+const Header = ({ title }) => {
   return (
     <Wrapper>
       <Logo />
       <ItemWrapper>
-        {links.map((link, index) => {
-          let match = parser.pathname === `/${link.url}`;
+        {links.map(({ text, url, colour }, index) => {
+          let match = title === text;
           return (
-            <Item
-              to={`/${link.url}`}
-              key={index}
-              match={match}
-              colour={link.colour}
-            >
-              {link.text}
+            <Item to={`/${url}`} key={index} match={match} colour={colour}>
+              {text}
             </Item>
           );
         })}
