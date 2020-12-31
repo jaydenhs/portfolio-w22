@@ -3,7 +3,6 @@ import { Link as GatsbyLink } from 'gatsby';
 import styled, { css } from 'styled-components';
 import tw from 'twin.macro';
 import DarkToggle from '@components/dark-toggle';
-import ClientOnly from '@utils/client-only';
 
 const links = [
   { text: 'Portfolio', url: '', colour: `var(--color-primary)` },
@@ -57,9 +56,8 @@ const Header = () => {
           );
         })}
       </ItemWrapper>
-      <ClientOnly>
-        <DarkToggle />
-      </ClientOnly>
+
+      <DarkToggle />
       {/* <FocusIndicator /> */}
     </Wrapper>
   );

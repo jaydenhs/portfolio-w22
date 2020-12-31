@@ -7,25 +7,17 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useStaticQuery, graphql } from 'gatsby';
-
+import ClientOnly from '@utils/client-only';
 import Header from '@components/header';
+import { siteMetadata } from '@root/gatsby-config';
 
 const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `);
-
   return (
     <>
       <div style={{ maxWidth: 1180 }} className="mx-auto px-3 md:px-16">
-        <Header siteTitle={data.site.siteMetadata.title} />
+        <ClientOnly>
+          <Header siteTitle={siteMetadata.title} />
+        </ClientOnly>
         <main>{children}</main>
       </div>
     </>
