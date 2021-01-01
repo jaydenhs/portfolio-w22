@@ -38,6 +38,9 @@ export const pageQuery = graphql`
             description
             category
             tags
+            thumbnail {
+              publicURL
+            }
           }
         }
       }

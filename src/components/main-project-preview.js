@@ -6,9 +6,17 @@ import Image from '@utils/gatsby-image-local.js';
 
 export default function MainProjectPreview({
   project: {
-    frontmatter: { title, slug, description, category, tags },
+    frontmatter: {
+      title,
+      slug,
+      description,
+      category,
+      tags,
+      thumbnail: { publicURL },
+    },
   },
 }) {
+  // console.log(`${thumbnail}`);
   return (
     <ProjectCard to={`${slug}`}>
       <Details>
@@ -19,11 +27,13 @@ export default function MainProjectPreview({
         <p>{description}</p>
       </Details>
       <div className="w-1/2 ml-4">
-        <Image
+        <img src={publicURL} />
+        {/* <Image
           fileName="llama.webp"
           className="w-100"
           alt="Illustration of a person reading a book"
-        />
+        /> */}
+        {/* <img src={Llama} /> */}
       </div>
     </ProjectCard>
   );
