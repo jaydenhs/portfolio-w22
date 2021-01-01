@@ -18,7 +18,7 @@ const Layout = ({ children, title }) => {
         title={`${title} | ${siteMetadata.title}`}
         htmlAttributes={{ lang: 'en' }}
       />
-      <div style={{ maxWidth: 1180 }} className="mx-auto px-5 md:px-16">
+      <div style={{ maxWidth: 960 }} className="mx-auto px-5">
         <Header title={title} />
         <main>{children}</main>
       </div>

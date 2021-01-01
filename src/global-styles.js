@@ -17,11 +17,13 @@ const GlobalStyles = createGlobalStyle`
   h1 {
     font-size: 3rem;
     font-weight: 700;
+    line-height: 1;
   }
 
   h2 {
     font-size: 1.5rem;
     font-weight: 700;
+    line-height: 1.2;
   }
 
   /* a {
