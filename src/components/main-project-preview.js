@@ -2,7 +2,6 @@ import React from 'react';
 import { Link as GatsbyLink } from 'gatsby';
 import styled, { css } from 'styled-components';
 import tw from 'twin.macro';
-import Image from '@utils/gatsby-image-local.js';
 
 export default function MainProjectPreview({
   project: {
@@ -16,19 +15,20 @@ export default function MainProjectPreview({
     },
   },
 }) {
-  // console.log(`${thumbnail}`);
   return (
     <ProjectCard to={`${slug}`}>
       <Wave />
       <Details>
         <h2 className="mb-2">{title}</h2>
-        <p className="uppercase">
-          {category} <span className="px-0.5">•</span> {tags}
+        <p className="uppercase text-md mb-1">
+          <b>{category}</b> <span className="px-0.5">•</span> {tags}
         </p>
         <p>{description}</p>
       </Details>
       <div className="w-1/2 ml-4 z-10">
-        <img src={publicURL} />
+        <video autoPlay="autoplay" loop="loop" muted playsInline>
+          <source src={publicURL} type="video/webm" />
+        </video>
       </div>
     </ProjectCard>
   );
