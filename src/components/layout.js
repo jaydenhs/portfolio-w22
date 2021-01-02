@@ -11,14 +11,19 @@ import Header from '@components/header';
 import Helmet from 'react-helmet';
 import { siteMetadata } from '@root/gatsby-config';
 
-const Layout = ({ children, title }) => {
+const Layout = ({ children, title, maxWidth }) => {
+  console.log({ maxWidth });
+
   return (
     <>
       <Helmet
         title={`${title} | ${siteMetadata.title}`}
         htmlAttributes={{ lang: 'en' }}
       />
-      <div style={{ maxWidth: 960 }} className="mx-auto px-5 pb-10">
+      <div
+        style={{ maxWidth: maxWidth == null && 960 }}
+        className="mx-auto px-5 pb-10"
+      >
         <Header title={title} />
         <main>{children}</main>
       </div>

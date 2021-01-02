@@ -33,6 +33,14 @@ const GlobalStyles = createGlobalStyle`
     letter-spacing: -0.01rem;
   }
 
+  .drop-shadow {
+        /* filter: drop-shadow(rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px); */
+
+    filter: drop-shadow(0px 10px 15px rgba(0, 0, 0, 0.1));
+    /* filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.04)); */
+    /* box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px; */
+  }
+
   /* a {
     color: var(--color-secondary);
   } */

@@ -12,7 +12,8 @@ thumbnail: './images/thumbnail.webm'
 
 import FullBleed from '@components/full-bleed-container';
 import FigmaPreview from '@components/figma-preview';
-import Columns from '@components/columns';
+import Note from '@components/note';
+import PainPoints from '@components/pain-points';
 
 # Redesigning the Renewals
 
@@ -39,8 +40,43 @@ Within the Kitchener-Waterloo lab of the Ontario Digital Service, we conducted m
 Mondays were focused on user research, Tuesdays and Wednesdays on prototyping, Thursdays on user testing, and Fridays on presenting our findings. To ensure thorough and clear communication, every day began with a stand-up and ended with a check-in.
 
 | Role              | Team                           | Tools           | Duration           |
-| :---------------- | :----------------------------- | :-------------- | :----------------- |
+| ----------------- | ------------------------------ | --------------- | ------------------ |
 | Product thinking  | 1 lab leader                   | Figma, Balsamiq | Sept. to Oct. 2019 |
 | Prototyping       | 1 lead designer                | Miro, React     |
 | User research     | 2 developers                   |                 |
 | Developer handoff | 2 product designers (incl. me) |                 |
+
+<Note>
+  Aliquip laboris dolor officia elit occaecat adipisicing reprehenderit eiusmod
+  ut. Dolore amet ad consequat ea pariatur. Excepteur commodo eiusmod proident
+  ut.
+</Note>
+
+# Defining Key Pain Points
+
+During our team's initial meetings with the current stakeholders of the renewal platforms, we were informed that on each of the platforms, there was a Rate Our Service form that users could fill and submit.
+
+Seeing that analyzing this direct and honest feedback would be one of the best ways for our team could begin to empathize with the frustrations of these users, our team seized this opportunity and efficiently categorized over **1,593 submissions** based on topic and frequency.
+
+Our team then identified the most prominent complaints and focused our future redesign efforts on amending these pain points.
+
+| Gather data | Analyze feedback           | Identify pain points |
+| ----------- | -------------------------- | -------------------- |
+|             | 1,593 feedback submissions | 3 pain points        |
+
+# Turning Suffering Into Solutions
+
+From our discussions with subject matter experts and analysis of raw user feedback, our team diagnosed three major issues with the current service:
+
+<PainPoints
+  data={[
+    {
+      image: 'test.png',
+      title: 'Difficult to find the appropriate service',
+      quotes: [
+        "The system only works if you are renewing both [of your cards] at the same time. This means I have to go to a ServiceOntario centre for my health card just because I do not drive. I'm very disappointed.",
+        "If you did not click the correct link at first, it was very difficult to find the option to renew just your driver's licence and not your health card.",
+      ],
+    },
+  ]}
+/>
