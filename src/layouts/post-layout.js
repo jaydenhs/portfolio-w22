@@ -8,9 +8,14 @@ import Layout from '@components/layout';
 
 //move all headings down one hierarchy for simplicity writing mdx (less #'s)
 const components = {
-  h1: props => <h2 {...props} className="text-3xl mb-3" />,
+  h1: props => <h2 {...props} className="text-3xl mt-5 mb-3" />,
   h2: props => <h3 {...props} className="text-2xl mb-2" />,
   h3: props => <h4 {...props} className="text-xl mb-1.5" />,
+  p: props => <p {...props} className="leading-normal mb-2" />,
+  table: props => <table {...props} className="my-2" />,
+  thead: props => <thead {...props} className="uppercase" />,
+  th: props => <th {...props} className="w-1/4 align-top text-gray-800" />,
+  td: props => <td {...props} className="w-1/4 align-top text-gray-700" />,
 };
 
 export default function PostLayout({
@@ -21,7 +26,6 @@ export default function PostLayout({
     },
   },
 }) {
-  console.log({ body });
   return (
     <Layout title={title}>
       <Wrapper>

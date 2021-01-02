@@ -57,8 +57,8 @@ export const COLORS = {
     dark: 'hsl(0deg, 0%, 80%)',
   },
   gray900: {
-    light: 'hsl(0deg, 0%, 90%)',
-    dark: 'hsl(0deg, 0%, 10%)',
+    light: 'hsl(0deg, 0%, 10%)',
+    dark: 'hsl(0deg, 0%, 90%)',
   },
 };
 
