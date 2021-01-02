@@ -3,13 +3,12 @@ import { Link, graphql } from 'gatsby';
 import Layout from '@components/layout';
 import MainProjectPreview from '@components/main-project-preview';
 import styled from 'styled-components';
-import Image from '@utils/gatsby-image-local.js';
 
 const IndexPage = props => {
   const mainProjects = props.data.main.edges;
   return (
     <Layout title="Portfolio">
-      <h1>Projects</h1>
+      <h1 className="mb-5">Projects</h1>
 
       <MainProjectPreviewWrapper>
         {mainProjects.map(({ node }, i) => (

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link as GatsbyLink } from 'gatsby';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import tw from 'twin.macro';
 
 export default function MainProjectPreview({
@@ -35,7 +35,7 @@ export default function MainProjectPreview({
 }
 
 const ProjectCard = styled(GatsbyLink)`
-  ${tw`p-11 w-full block rounded-xl transition-all duration-500 transform no-underline flex items-center`}
+  ${tw`px-11 py-6 w-full block rounded-xl transition-all duration-500 transform no-underline flex items-center`}
   box-shadow: 0px 10px 15px 0px #e0e0e0;
 
   &:hover {
