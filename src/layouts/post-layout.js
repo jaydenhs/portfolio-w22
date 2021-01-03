@@ -41,6 +41,7 @@ export default function PostLayout({
     },
   },
 }) {
+  console.log({ body });
   return (
     <Layout title={title} maxWidth={false}>
       <Wrapper>

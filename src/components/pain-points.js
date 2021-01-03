@@ -2,6 +2,7 @@ import React from 'react';
 import Image from '@utils/gatsby-image-local';
 import styled, { css } from 'styled-components';
 import tw from 'twin.macro';
+import ReactMarkdown from 'react-markdown';
 
 var alternate = false;
 
@@ -27,7 +28,8 @@ const PainPoints = ({ data }) => {
                   alternate = !alternate;
                   return (
                     <SpeechBubble key={index}>
-                      "{node}"
+                      <ReactMarkdown source={`"${node}"`} />
+                      {/* "{node}" */}
                       <SpeechBubbleArrow left={alternate} />
                     </SpeechBubble>
                   );
