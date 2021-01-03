@@ -6,26 +6,18 @@ import styled from 'styled-components';
 import { Link } from 'gatsby';
 import Layout from '@components/layout';
 import tw from 'twin.macro';
-// import Helmet from 'react-helmet';
-// import { siteMetadata } from '@root/gatsby-config';
 
 //move all headings down one hierarchy for simplicity writing mdx (less #'s)
 const components = {
   h1: props => (
     <>
-      <h2 {...props} /> <hr className="mb-3" />
+      <h2 {...props} className="mt-7" /> <hr className="mb-4" />
     </>
   ),
-  h2: props => <h3 {...props} />,
+  h2: props => <h3 {...props} className="mt-4" />,
   h3: props => <h4 {...props} />,
   p: props => <p {...props} />,
-  table: props => (
-    <table
-      {...props}
-      className="my-2 text-left"
-      // style={{ borderSpacing: '1rem 0px', borderCollapse: 'separate' }}
-    />
-  ),
+  table: props => <table {...props} className="my-2 text-left" />,
   thead: props => <thead {...props} className="uppercase" />,
   th: props => (
     <th {...props} className="w-1/4 align-top text-gray-800 pb-0.5" />
@@ -97,16 +89,18 @@ const Wrapper = styled.div`
     grid-column: -2 / -1;
   }
 
+  //provide base styles (applied across both MDX and rendered components)
+
   h1 {
     ${tw`text-4xl mb-2`}
   }
 
   h2 {
-    ${tw`text-3xl mt-7 mb-2`}
+    ${tw`text-3xl mb-2.5`}
   }
 
   h3 {
-    ${tw`text-2xl mb-4 font-bold`}
+    ${tw`text-2xl mb-3 font-bold`}
   }
 
   h4 {

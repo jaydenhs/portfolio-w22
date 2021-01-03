@@ -1,10 +1,10 @@
 import React from 'react';
 
-const FigmaPreview = ({ src }) => {
+const FigmaEmbed = ({ title, src }) => {
   return (
     <iframe
+      title={title}
       width="100%"
-      //   height="600"
       className="h-screen py-4"
       src={src}
       allowfullscreen
@@ -12,4 +12,4 @@ const FigmaPreview = ({ src }) => {
   );
 };
 
-export default FigmaPreview;
+export default FigmaEmbed;

@@ -11,10 +11,11 @@ thumbnail: './images/thumbnail.webm'
 ---
 
 import FullBleed from '@components/full-bleed-container';
-import FigmaPreview from '@components/figma-preview';
+import FigmaEmbed from '@components/figma-embed';
 import Note from '@components/note';
 import PainPoints from '@components/pain-points';
 import Accordion from '@components/accordion';
+import MiroEmbed from '@components/miro-embed';
 
 # Redesigning the Renewals
 
@@ -26,6 +27,7 @@ I was part of an ambitious project to redesign Ontario’s renewal experience fo
 
 <FullBleed>
   {/* <FigmaPreview
+    title = {"Our final Figma prototype for this project"}
     src={
       'https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FOB0XRkMx21yFoSbMihnGZV%2FSO-Renewals%3Fnode-id%3D718%253A29111%26viewport%3D633%252C806%252C0.06604449450969696%26scaling%3Dscale-down'
     }
@@ -34,16 +36,9 @@ I was part of an ambitious project to redesign Ontario’s renewal experience fo
 
 # Project Info
 
-| Role              | Team                           | Tools           | Duration           |
-| ----------------- | ------------------------------ | --------------- | ------------------ |
-| Product thinking  | 1 lab leader                   | Figma, Balsamiq | Sept. to Oct. 2019 |
-| Prototyping       | 1 lead designer                | Miro, React     | (5 weekly sprints)
-| User research     | 2 developers                   |                 |
-| Developer handoff | 2 product designers (incl. me) |                 |
-
 <Note>
 
-<Accordion title={"What did our weekly sprints entail?"}>
+<Accordion title={"What did our weekly sprints entail?"} left={true}>
 
 Mondays were focused on user research, Tuesdays and Wednesdays on prototyping, Thursdays on user testing, and Fridays on presenting our findings.
 
@@ -52,6 +47,13 @@ To ensure thorough and clear communication, every day began with a stand-up and 
 </Accordion>
 
 </Note>
+
+| Role              | Team                           | Tools           | Duration           |
+| ----------------- | ------------------------------ | --------------- | ------------------ |
+| Product thinking  | 1 lab leader                   | Figma, Balsamiq | Sept. to Oct. 2019 |
+| Prototyping       | 1 lead designer                | Miro, React     | (5 weekly sprints)
+| User research     | 2 developers                   |                 |
+| Developer handoff | 2 product designers (incl. me) |                 |
 
 # Defining Key Pain Points
 
@@ -105,3 +107,21 @@ From our discussions with subject matter experts and analysis of raw user feedba
     ]}
   />
 </FullBleed>
+
+# Understanding the User and Project
+
+View the complete research process including site audit, journey maps, premortem, stakeholder analysis, and jurisdictional analysis here.
+
+# Defining the Challenge
+
+Considering how one of our product owner's primary concerns when approaching this project was that our redesign's scope would be too large, our team approached our problem definition with a divergent and convergent thinking process.
+
+## How Might We's
+
+From our initial research, my fellow product designer and I ideated a diverse set of solutions to users' current problems.
+
+<FullBleed>
+{/* <MiroEmbed title={"Miro board showing our ideation of a diverse set of solutions to users' current problems."} board_src={"https://miro.com/app/board/o9J_kuecCiE=/"}/> */}
+</FullBleed>
+
+Whether it was further improving the effectiveness of help modals, reassuring the user of the information they input, or optimizing the Ontario.ca topic page's representation of renewal services, this divergence in our brainstorming then allowed us to converge upon a single problem statement:
