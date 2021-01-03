@@ -12,8 +12,6 @@ import Helmet from 'react-helmet';
 import { siteMetadata } from '@root/gatsby-config';
 
 const Layout = ({ children, title, maxWidth }) => {
-  console.log({ maxWidth });
-
   return (
     <>
       <Helmet

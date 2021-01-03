@@ -3,7 +3,7 @@ import React from 'react';
 const Note = ({ children }) => {
   return (
     <div className="left-col relative w-0 h-0">
-      <div className="p-4 bg-yellow-50 rounded border-2 border-gray-100 absolute">
+      <div className="p-4 pr-0 rounded border-l-4 border-primary absolute">
         {children}
       </div>
     </div>

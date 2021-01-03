@@ -77,6 +77,10 @@ const Wrapper = styled.div`
     grid-column: 2;
   }
 
+  .reading-width {
+    width: min(65ch, 100%);
+  }
+
   .full-bleed {
     width: 100%;
     grid-column: 1 / -1;

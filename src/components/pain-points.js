@@ -7,33 +7,41 @@ var alternate = false;
 
 const PainPoints = ({ data }) => {
   return (
-    <>
-      {data.map(({ image, title, quotes }, index) => {
+    <div className="space-y-10 my-3">
+      {data.map(({ image, title, quotes, result }, index) => {
         return (
-          <div className="flex space-x-8 items-center" key={index}>
+          <div
+            className="flex space-x-8 items-center mx-auto"
+            style={{ maxWidth: '864px' }}
+            key={index}
+          >
             {/* must wrap gatsby-image in div with set width because of flexbox */}
-            <div className="w-1/4">
+            <div className="w-1/3">
               <Image fileName={image} className="w-full drop-shadow" />
             </div>
-            <div className="w-1/2">
+            <div className="reading-width">
               <h3 className="mb-7">{title}</h3>
-              <div className="space-y-8">
+              <div className="space-y-9">
                 {quotes.map((node, index) => {
                   // console.log({ node });
                   alternate = !alternate;
                   return (
                     <SpeechBubble key={index}>
-                      {node}
+                      "{node}"
                       <SpeechBubbleArrow left={alternate} />
                     </SpeechBubble>
                   );
                 })}
               </div>
             </div>
+            <Arrow />
+            <div className="w-1/4">
+              <p>{result}</p>
+            </div>
           </div>
         );
       })}
-    </>
+    </div>
   );
 };
 
@@ -62,7 +70,7 @@ const SpeechBubbleArrow = styled.div(
     &::after {
       border-left: ${!left && '21px solid transparent'};
       border-right: ${left && '21px solid transparent'};
-      border-top: 21px solid #fff;
+      border-top: 21px solid var(--color-background);
       bottom: 4px;
       content: '';
       position: absolute;
@@ -71,5 +79,20 @@ const SpeechBubbleArrow = styled.div(
     }
   `
 );
+
+const Arrow = () => {
+  return (
+    <svg
+      width="74"
+      height="35"
+      viewBox="0 0 74 35"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M0 17.5H45.5" stroke="var(--color-gray200)" stroke-width="14" />
+      <path d="M45.5 35V0L73.5 17.5L45.5 35Z" fill="var(--color-gray200)" />
+    </svg>
+  );
+};
 
 export default PainPoints;

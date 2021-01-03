@@ -37,6 +37,7 @@ export default function MainProjectPreview({
 const ProjectCard = styled(GatsbyLink)`
   ${tw`px-11 py-6 w-full block rounded-xl transition-all duration-500 transform no-underline flex items-center`}
   box-shadow: 0px 10px 15px 0px #e0e0e0;
+  min-height: 90vh;
 
   &:hover {
     ${tw`-translate-y-1.5`}
