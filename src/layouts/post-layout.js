@@ -72,7 +72,7 @@ const Wrapper = styled.div`
     1fr
     min(65ch, 100%)
     1fr;
-  column-gap: 2rem;
+  ${tw`gap-x-0 lg:gap-x-8`}
 
   & > * {
     grid-column: 2;
