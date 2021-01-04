@@ -11,8 +11,9 @@ export const COLORS = {
 
   //rest of constants used within tailwindcss classes
   primary: {
-    light: '#4895EA', // blue
-    dark: '#fbc15e', // orange
+    //use unformatted rgb to enable the use of rgba mixing
+    light: '72,149,234', // blue
+    dark: '251,193,94', // orange
   },
   secondary: {
     light: 'hsl(250deg, 100%, 50%)', // Purplish-blue

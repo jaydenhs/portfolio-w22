@@ -28,8 +28,8 @@ const PainPoints = ({ data }) => {
                   alternate = !alternate;
                   return (
                     <SpeechBubble key={index}>
+                      {/* must use markdown renderer because we're mapping through an array instead of passing in children */}
                       <ReactMarkdown source={`"${node}"`} />
-                      {/* "{node}" */}
                       <SpeechBubbleArrow left={alternate} />
                     </SpeechBubble>
                   );
@@ -62,7 +62,7 @@ const SpeechBubbleArrow = styled.div(
     &::before {
       border-left: ${!left && '30px solid transparent'};
       border-right: ${left && '30px solid transparent'};
-      border-top: 27px solid var(--color-primary);
+      border-top: 27px solid rgb(var(--color-primary));
       bottom: -5px;
       content: '';
       position: absolute;
