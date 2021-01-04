@@ -1,6 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import tw from 'twin.macro';
+import adjustLum from '@utils/adjust-lum';
 
 const Timeline = ({ markers }) => {
   const last_elem = markers.length - 1;
@@ -53,7 +54,8 @@ const TimelineItem = styled.div(
 
 const TimelineContent = styled.div`
   transform: translateX(calc(-50% + 10px));
-  background-color: rgba(var(--color-primary), 0.2);
+  /* background-color: ${adjustSat(`${adjustLum('#4895ea', 150)}`, -20)}; */
+  background-color: ${adjustLum('#4895ea', 20)};
   /* background-color: lighten(#0000ff, 50%); */
   min-width: 160px;
   ${tw`mt-3 rounded px-3 py-3 text-center`}
