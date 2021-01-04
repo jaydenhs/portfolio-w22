@@ -1,11 +1,8 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import tw from 'twin.macro';
-var tinycolor = require('tinycolor2');
 
 const Timeline = ({ markers }) => {
-  var color = tinycolor('var(--color-primary)');
-  console.log({ color });
   const last_elem = markers.length - 1;
   return (
     <div className="mt-8 mb-4">
@@ -57,16 +54,18 @@ const TimelineItem = styled.div(
 const TimelineContent = styled.div`
   transform: translateX(calc(-50% + 10px));
   background-color: rgba(var(--color-primary), 0.2);
+  /* background-color: ${adjustLum(surface, 20)}; */
   min-width: 160px;
   ${tw`mt-3 rounded px-3 py-3 text-center`}
 
-  &:before {
+  //pointer
+  /* &:before {
     content: '';
     background-color: rgba(var(--color-primary), 0.2);
     transform: rotate(-45deg) translateX(-50%);
     margin-left: -0.11rem;
     ${tw`w-2.5 h-2.5 block absolute -top-2 left-1/2`}
-  }
+  } */
 `;
 
 export default Timeline;

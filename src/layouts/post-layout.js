@@ -3,7 +3,6 @@ import { graphql } from 'gatsby';
 import { MDXProvider } from '@mdx-js/react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import styled from 'styled-components';
-import { Link } from 'gatsby';
 import Layout from '@components/layout';
 import tw from 'twin.macro';
 
@@ -33,7 +32,6 @@ export default function PostLayout({
     },
   },
 }) {
-  console.log({ body });
   return (
     <Layout title={title} maxWidth={false}>
       <Wrapper>

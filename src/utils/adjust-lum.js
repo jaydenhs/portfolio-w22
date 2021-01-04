@@ -1,4 +1,5 @@
-export default function adjustLumSat(hex, lum, sat) {
+export default function adjustLum(hex, lum) {
+  console.log({ hex });
   var usePound = false;
 
   if (hex[0] == '#') {
