@@ -4,10 +4,6 @@ import tw from 'twin.macro';
 import Wireframe from '@undraw/wireframe.svg';
 
 const HighlightedSection = ({ children }) => {
-  //   const color = window
-  //     .getComputedStyle(document.documentElement)
-  //     .getPropertyValue('--color-primary');
-  //   console.log({ color });
   return (
     <Wrapper>
       <div className="w-1/2">{children}</div>
@@ -25,7 +21,7 @@ const Wrapper = styled.div`
 
 const BlobBackground = styled.div`
   border-radius: 63% 0% 0% 22% / 50% 10% 10% 50%;
-  background-color: rgba(var(--color-primary), 0.15);
+  background-color: var(--color-secondary);
   ${tw`flex items-center w-1/2 p-4 pl-8`}
 `;
 

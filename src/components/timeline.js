@@ -53,19 +53,19 @@ const TimelineItem = styled.div(
 
 const TimelineContent = styled.div`
   transform: translateX(calc(-50% + 10px));
-  background-color: rgba(var(--color-primary), 0.2);
+  background-color: var(--color-secondary);
   /* background-color: ${adjustLum(surface, 20)}; */
   min-width: 160px;
   ${tw`mt-3 rounded px-3 py-3 text-center`}
 
   //pointer
-  /* &:before {
+  &:before {
     content: '';
-    background-color: rgba(var(--color-primary), 0.2);
+    background-color: var(--color-secondary);
     transform: rotate(-45deg) translateX(-50%);
     margin-left: -0.11rem;
     ${tw`w-2.5 h-2.5 block absolute -top-2 left-1/2`}
-  } */
+  }
 `;
 
 export default Timeline;

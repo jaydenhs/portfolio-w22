@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: 'rgb(var(--color-primary))',
+        primary: 'var(--color-primary)',
         secondary: 'var(--color-secondary)',
         surface: 'var(--color-surface)',
         gray: {

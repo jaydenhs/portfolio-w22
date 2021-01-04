@@ -49,7 +49,7 @@ const PainPoints = ({ data }) => {
 
 const SpeechBubble = styled.div`
   ${tw`border-4 border-solid p-4 relative rounded-2xl`}
-  border-color: rgba(var(--color-primary), 0.4);
+  border-color: var(--color-secondary);
 `;
 
 const SpeechBubbleArrow = styled.div(
@@ -59,12 +59,10 @@ const SpeechBubbleArrow = styled.div(
     position: absolute;
     left: ${left && '15px'};
     right: ${!left && '15px'};
-    opacity: 0.4;
-
     &::before {
       border-left: ${!left && '30px solid transparent'};
       border-right: ${left && '30px solid transparent'};
-      border-top: 27px solid rgb(var(--color-primary));
+      border-top: 27px solid var(--color-secondary);
       bottom: -5px;
       content: '';
       position: absolute;

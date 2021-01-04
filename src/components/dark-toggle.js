@@ -46,8 +46,7 @@ const Icon = styled.div(
 
     transform: ${darkMode ? 'scale(0.55)' : 'scale(1)'};
     overflow: ${darkMode ? 'visible' : 'hidden'};
-    box-shadow: ${!darkMode &&
-      'inset 8px -8px 0px 0px rgb(var(--color-primary))'};
+    box-shadow: ${!darkMode && 'inset 8px -8px 0px 0px var(--color-primary)'};
     &:before {
       content: '';
       right: 0px;
@@ -62,9 +61,9 @@ const Icon = styled.div(
     &:after {
       content: '';
       border-radius: 50%;
-      box-shadow: 0 -23px 0 rgb(var(--color-primary)), 0 23px 0 rgb(var(--color-primary)), 23px 0 0 rgb(var(--color-primary)),
-        -23px 0 0 rgb(var(--color-primary)), 15px 15px 0 rgb(var(--color-primary)), -15px 15px 0 rgb(var(--color-primary)),
-        15px -15px 0 rgb(var(--color-primary)), -15px -15px 0 rgb(var(--color-primary));
+      box-shadow: 0 -23px 0 var(--color-primary), 0 23px 0 var(--color-primary), 23px 0 0 var(--color-primary),
+        -23px 0 0 var(--color-primary), 15px 15px 0 var(--color-primary), -15px 15px 0 var(--color-primary),
+        15px -15px 0 var(--color-primary), -15px -15px 0 var(--color-primary);
 
       ${tw`w-2 h-2 -mt-1 -ml-1 absolute top-1/2 left-1/2`}
       transform: ${darkMode ? 'scale(1)' : 'scale(0)'};
