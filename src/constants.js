@@ -12,7 +12,7 @@ export const COLORS = {
   //rest of constants used within tailwindcss classes
   primary: {
     //use unformatted rgb to enable the use of rgba mixing
-    light: '72,149,234', // blue
+    light: '72,149,234', // blue #4895ea
     dark: '251,193,94', // orange
   },
   secondary: {

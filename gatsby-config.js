@@ -31,6 +31,7 @@ module.exports = {
           '@pages': 'src/pages',
           '@utils': 'src/utils',
           '@posts': 'src/posts',
+          '@undraw': 'static/undraw',
         },
         extensions: ['js'],
       },
