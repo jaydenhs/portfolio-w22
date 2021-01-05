@@ -44,9 +44,10 @@ I was part of an ambitious project to redesign Ontario’s renewal experience fo
 
 <Accordion title={"What did our weekly sprints entail?"} left={true}>
 
-  Mondays were focused on user research, Tuesdays and Wednesdays on prototyping, Thursdays on user testing, and Fridays on presenting our findings.
+Mondays were focused on user research, Tuesdays and Wednesdays on prototyping, Thursdays on user testing, and Fridays on presenting our findings.
 
-  To ensure thorough and clear communication, every day began with a stand-up and ended with a check-in.
+To ensure thorough and clear communication, every day began with a stand-up and ended with a check-in.
+
 </Accordion>
 
 </Note>
@@ -54,7 +55,7 @@ I was part of an ambitious project to redesign Ontario’s renewal experience fo
 | Role              | Team                           | Tools           | Duration           |
 | ----------------- | ------------------------------ | --------------- | ------------------ |
 | Product thinking  | 1 lab leader                   | Figma, Balsamiq | Sept. to Oct. 2019 |
-| Prototyping       | 1 lead designer                | Miro, React     | (5 weekly sprints)
+| Prototyping       | 1 lead designer                | Miro, React     | (5 weekly sprints) |
 | User research     | 2 developers                   |                 |
 | Developer handoff | 2 product designers (incl. me) |                 |
 
@@ -124,18 +125,18 @@ Considering how one of our product owner's primary concerns when approaching thi
 From our initial research, my fellow product designer and I ideated a diverse set of solutions to users' current problems.
 
 <FullBleed>
-{/* <MiroEmbed title={"Miro board showing our ideation of a diverse set of solutions to users' current problems."} board_src={"https://miro.com/app/board/o9J_kuecCiE=/"}/> */}
+  {/* <MiroEmbed title={"Miro board showing our ideation of a diverse set of solutions to users' current problems."} board_src={"https://miro.com/app/board/o9J_kuecCiE=/"}/> */}
 </FullBleed>
 
 Whether it was further improving the effectiveness of help modals, reassuring the user of the information they input, or optimizing the Ontario.ca topic page's representation of renewal services, this divergence in our brainstorming then allowed us to converge upon a single problem statement:
 
 <HighlightedSection>
 
-  ## Problem Statement
+## Problem Statement
 
-  We have observed that the ServiceOntario online renewal flows are **not meeting user needs**, which is causing low completion rates, negative user feedback, inclusion concerns, and low uptake on digital services.
+We have observed that the ServiceOntario online renewal flows are **not meeting user needs**, which is causing low completion rates, negative user feedback, inclusion concerns, and low uptake on digital services.
 
-  How might we design a **one-window digital renewal transaction flow** that promotes usability and inclusion by reducing time on task and increasing positive feedback on eligibility?
+How might we design a **one-window digital renewal transaction flow** that promotes usability and inclusion by reducing time on task and increasing positive feedback on eligibility?
 
 </HighlightedSection>
 
@@ -145,32 +146,65 @@ Especially with a renewal service, there is certainly no lack in the number of p
 
 Thus, we first highlighted the requirements that a user would need to meet to successfully renew their driver's licence or health card.
 
-<TrelloEmbed title={"Trello board showing the requirements that a user would need to meet to successfully renew their driver's licence or health card."} src={"https://trello.com/b/hJOm6Iwx"}/>
+<TrelloEmbed
+  title={
+    "Trello board showing the requirements that a user would need to meet to successfully renew their driver's licence or health card."
+  }
+  src={'https://trello.com/b/hJOm6Iwx'}
+/>
 
 Then, to emphasize an easy and effortless central flow in our redesign, we identified the key set of steps that a user would take to successfully renew their driver's licence or health card.
 
 <FullBleed>
-  <Timeline markers={["User visits platform", "Selects type of identity card to renew", "Enters identity card information", "Answers eligibilty questions", "Pays for renewal", "Receives their renewed identity card!" ]}/>
+  <Timeline
+    markers={[
+      'User visits platform',
+      'Selects type of identity card to renew',
+      'Enters identity card information',
+      'Answers eligibilty questions',
+      'Pays for renewal',
+      'Receives their renewed identity card!',
+    ]}
+  />
 </FullBleed>
 
 # Creating Our Concept
 
 <FullBleed>
-  <Process data={[
-    {
-      title: "Ideation",
-      description: "Our team individually sketched user flows and interfaces in five-minute brainstorming sessions and presented our designs to the group.",
-      image: "process-ideation.png"
-    },
-    {
-      title: "Consolidating Our Ideas",
-      description: "We then combined the strengths of our ideas into a final user flow that represented our team’s vision of the redesigned renewal service’s golden path.",
-      image: "process-consolidate.png"
-    },
-    {
-      title: "Low Fidelity Prototype",
-      description: "With our lead designer, my fellow product designer and I then created a low-fidelity Balsamiq prototype that simulated this ideated flow.",
-      image: "process-lowfi.png"
-    },
-  ]} />
+  <Process
+    data={[
+      {
+        title: 'Ideation',
+        description:
+          'Our team individually sketched user flows and interfaces in five-minute brainstorming sessions and presented our designs to the group.',
+        image: 'process-ideation.png',
+      },
+      {
+        title: 'Consolidating Our Ideas',
+        description:
+          'We then combined the strengths of our ideas into a final user flow that represented our team’s vision of the redesigned renewal service’s golden path.',
+        image: 'process-consolidate.png',
+      },
+      {
+        title: 'Low Fidelity Prototype',
+        description:
+          'With our lead designer, my fellow product designer and I then created a low-fidelity Balsamiq prototype that simulated this ideated flow.',
+        image: 'process-lowfi.png',
+      },
+    ]}
+  />
 </FullBleed>
+
+# Clarity, Clarity, Clarity
+
+Equipped with a low-fidelity prototype of our redesigned renewal platform's ideal user journey, my fellow designers and I traveled to the heart of downtown Toronto to conduct guerilla user testing.
+
+| Team                                    | Interviews                 | Prototype                  | Location                   |
+| --------------------------------------- | -------------------------- | -------------------------- | -------------------------- |
+| Lead designer and two product designers | Eight 15-minute interviews | Balsamiq prototype on iPad | 777 Bay St. ServiceOntario |
+
+<Note left={false}>
+
+This ServiceOntario location was the busiest in the entire province!
+
+</Note>

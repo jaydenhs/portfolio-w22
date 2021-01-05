@@ -7,21 +7,22 @@ import Layout from '@components/layout';
 import tw from 'twin.macro';
 
 //move all headings down one hierarchy for simplicity writing mdx (less #'s)
+//apply all classNames that are specific to content within the flow here
 const components = {
-  h1: props => (
+  h1: (props) => (
     <>
       <h2 {...props} className="mt-7" /> <hr className="mb-4" />
     </>
   ),
-  h2: props => <h3 {...props} className="mt-4" />,
-  h3: props => <h4 {...props} />,
-  p: props => <p {...props} />,
-  table: props => <table {...props} className="my-2 text-left" />,
-  thead: props => <thead {...props} className="uppercase" />,
-  th: props => (
+  h2: (props) => <h3 {...props} className="mt-4" />,
+  h3: (props) => <h4 {...props} />,
+  p: (props) => <p {...props} className="mb-2" />,
+  table: (props) => <table {...props} className="my-2 text-left" />,
+  thead: (props) => <thead {...props} className="uppercase" />,
+  th: (props) => (
     <th {...props} className="w-1/4 align-top text-gray-800 pb-0.5" />
   ),
-  td: props => <td {...props} className="align-top text-gray-700 pr-2" />,
+  td: (props) => <td {...props} className="align-top text-gray-700 pr-2" />,
 };
 
 export default function PostLayout({
@@ -106,6 +107,6 @@ const Wrapper = styled.div`
   }
 
   p {
-    ${tw`leading-normal mb-2`}
+    ${tw`leading-normal`}
   }
 `;
