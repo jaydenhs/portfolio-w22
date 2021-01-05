@@ -229,13 +229,26 @@ Our team then synthesized our findings into prototype iterations to consider in 
 
 # Ensure the user is informed before they begin
 
+<FullBleed>
+
 <BeforeAndAfter
   title={'Ensure the user is informed before they begin'}
   steps={[
     {
+      beforeImage: 'grid.png',
       before: [
-        'I would want to know requirements, fees, what they need to have out, possibly how long it will take to complete.',
-        'I don’t want to go through the whole process just to realize I don’t have the funds to pay for my renewal',
+        {
+          content:
+            'I would want to know requirements, fees, what they need to have out, possibly how long it will take to complete.',
+          x: '50',
+          y: '25',
+        },
+        {
+          content:
+            'I don’t want to go through the whole process just to realize I don’t have the funds to pay for my renewal',
+          x: '100',
+          y: '75',
+        },
       ],
       after: [
         'Show fees for each renewal type',
@@ -245,3 +258,5 @@ Our team then synthesized our findings into prototype iterations to consider in 
     },
   ]}
 />
+
+</FullBleed>
