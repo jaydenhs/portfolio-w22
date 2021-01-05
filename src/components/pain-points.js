@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from '@utils/gatsby-image-local';
+import Image from '@utils/local-img';
 import styled, { css } from 'styled-components';
 import tw from 'twin.macro';
 import ReactMarkdown from 'react-markdown';
