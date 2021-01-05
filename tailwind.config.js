@@ -19,10 +19,13 @@ module.exports = {
           '900': 'var(--color-gray900)',
         },
       },
+      scale: {
+        '-1': '-1',
+      },
     },
   },
   variants: {
-    flexDirection: ['even'],
+    flexDirection: ['responsive', 'even'],
   },
   plugins: [],
 };
