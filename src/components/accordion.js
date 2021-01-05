@@ -7,7 +7,7 @@ const Accordion = ({ title, children }) => {
         <summary className="focus:outline-none focus-visible:ring-2">
           {title}
         </summary>
-        <p>{children}</p>
+        <p className="space-y-2">{children}</p>
       </details>
     </section>
   );

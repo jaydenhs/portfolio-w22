@@ -21,6 +21,7 @@ import TrelloEmbed from '@components/trello-embed';
 import Timeline from '@components/timeline';
 import Process from '@components/process';
 import ImageGrid from '@components/image-grid';
+import BeforeAndAfter from '@components/before-and-after';
 
 # Redesigning the Renewals
 
@@ -41,9 +42,9 @@ I was part of an ambitious project to redesign Ontario’s renewal experience fo
 
 # Project Info
 
-<Note>
+<Note left={true}>
 
-<Accordion title={"What did our weekly sprints entail?"} left={true}>
+<Accordion title={"What did our weekly sprints entail?"}>
 
 Mondays were focused on user research, Tuesdays and Wednesdays on prototyping, Thursdays on user testing, and Fridays on presenting our findings.
 
@@ -212,4 +213,35 @@ This ServiceOntario location was the busiest in the entire province!
 
 <ImageGrid images={['portrait-1.jpg', 'user-testing-1.jpg']} />
 
+<Note left={true}>
+
+  <Accordion title={"Did we target any specific user segments?"}>
+
+Yes, we aimed to talk to demographics who were less familiar with technology, such as seniors.
+
+If our solution made sense to them, then hopefully it would make sense to everyone else!
+
+  </Accordion>
+
+</Note>
+
 Our team then synthesized our findings into prototype iterations to consider in next week's sprint. Here are some highlights:
+
+# Ensure the user is informed before they begin
+
+<BeforeAndAfter
+  title={'Ensure the user is informed before they begin'}
+  steps={[
+    {
+      before: [
+        'I would want to know requirements, fees, what they need to have out, possibly how long it will take to complete.',
+        'I don’t want to go through the whole process just to realize I don’t have the funds to pay for my renewal',
+      ],
+      after: [
+        'Show fees for each renewal type',
+        'Display duration of transaction',
+        'Exhibit what information the user will need',
+      ],
+    },
+  ]}
+/>

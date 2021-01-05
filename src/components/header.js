@@ -5,7 +5,7 @@ import tw from 'twin.macro';
 import DarkToggle from '@components/dark-toggle';
 
 const links = [
-  { text: 'Portfolio', url: '', colour: `var(--color-primary)` },
+  { text: 'Portfolio', url: '', colour: `var(--primary)` },
   { text: 'About', url: 'about', colour: '#fbc15e' },
   { text: 'Resume', url: 'resume', colour: '#000' },
 ];
@@ -35,7 +35,7 @@ const Logo = () => (
   //resize to smaller logo at mobile
   <GatsbyLink to="/">
     <svg className="w-8 h-8 md:w-10 md:h-10">
-      <circle cx="50%" cy="50%" r="50%" fill="var(--color-primary)" />
+      <circle cx="50%" cy="50%" r="50%" className="fill-current text-primary" />
     </svg>
   </GatsbyLink>
 );

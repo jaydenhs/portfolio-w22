@@ -8,7 +8,7 @@ const HighlightedSection = ({ children }) => {
     <Wrapper>
       <div className="w-1/2">{children}</div>
       <BlobBackground>
-        <Undraw name={'wireframe'} fill={'var(--color-primary)'} />
+        <Undraw name={'wireframe'} fill={'var(--primary)'} />
       </BlobBackground>
     </Wrapper>
   );
@@ -21,8 +21,7 @@ const Wrapper = styled.div`
 
 const BlobBackground = styled.div`
   border-radius: 63% 0% 0% 22% / 50% 10% 10% 50%;
-  background-color: var(--color-secondary);
-  ${tw`flex items-center w-1/2 p-4 pl-8`}
+  ${tw`flex items-center w-1/2 p-4 pl-8 bg-primary-light`}
 `;
 
 export default HighlightedSection;

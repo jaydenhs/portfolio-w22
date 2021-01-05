@@ -34,7 +34,6 @@ const Wrapper = styled.div`
 `;
 
 const Arrow = ({ index, nodes }) => {
-  console.log({ nodes });
   return (
     <ArrowWrapper
       even={index % 2 == 1}

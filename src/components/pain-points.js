@@ -48,8 +48,7 @@ const PainPoints = ({ data }) => {
 };
 
 const SpeechBubble = styled.div`
-  ${tw`border-4 border-solid p-4 relative rounded-2xl`}
-  border-color: var(--color-secondary);
+  ${tw`border-4 border-solid p-4 relative rounded-2xl border-primary-light`}
 `;
 
 const SpeechBubbleArrow = styled.div(
@@ -62,7 +61,7 @@ const SpeechBubbleArrow = styled.div(
     &::before {
       border-left: ${!left && '30px solid transparent'};
       border-right: ${left && '30px solid transparent'};
-      border-top: 27px solid var(--color-secondary);
+      border-top: 27px solid var(--primaryLight);
       bottom: -5px;
       content: '';
       position: absolute;
@@ -72,7 +71,7 @@ const SpeechBubbleArrow = styled.div(
     &::after {
       border-left: ${!left && '21px solid transparent'};
       border-right: ${left && '21px solid transparent'};
-      border-top: 21px solid var(--color-background);
+      border-top: 21px solid var(--background);
       bottom: 4px;
       content: '';
       position: absolute;
@@ -91,8 +90,8 @@ const Arrow = () => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <path d="M0 17.5H45.5" stroke="var(--color-gray200)" stroke-width="14" />
-      <path d="M45.5 35V0L73.5 17.5L45.5 35Z" fill="var(--color-gray200)" />
+      <path d="M0 17.5H45.5" stroke="var(--gray200)" stroke-width="14" />
+      <path d="M45.5 35V0L73.5 17.5L45.5 35Z" fill="var(--gray200)" />
     </svg>
   );
 };

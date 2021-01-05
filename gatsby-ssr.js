@@ -33,7 +33,7 @@ function setColorsByTheme() {
   root.style.setProperty(colorModeCssProp, colorMode);
 
   Object.entries(colors).forEach(([name, colorByTheme]) => {
-    const cssVarName = `--color-${name}`;
+    const cssVarName = `--${name}`;
 
     root.style.setProperty(cssVarName, colorByTheme[colorMode]);
   });
@@ -64,13 +64,13 @@ const MagicScriptTag = () => {
 const FallbackStyles = () => {
   // Create a string holding each CSS variable:
   /*
-    `--color-text: black;
-    --color-background: white;`
+    `--text: black;
+    --background: white;`
   */
 
   const cssVariableString = Object.entries(COLORS).reduce(
     (acc, [name, colorByTheme]) => {
-      return `${acc}\n--color-${name}: ${colorByTheme.light};`;
+      return `${acc}\n--${name}: ${colorByTheme.light};`;
     },
     ''
   );

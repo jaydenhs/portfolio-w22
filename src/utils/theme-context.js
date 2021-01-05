@@ -31,7 +31,7 @@ export const ThemeProvider = ({ children }) => {
       localStorage.setItem(COLOR_MODE_KEY, newValue);
 
       Object.entries(COLORS).forEach(([name, colorByTheme]) => {
-        const cssVarName = `--color-${name}`;
+        const cssVarName = `--${name}`;
 
         root.style.setProperty(cssVarName, colorByTheme[newValue]);
       });

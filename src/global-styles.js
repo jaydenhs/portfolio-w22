@@ -10,8 +10,8 @@ const GlobalStyles = createGlobalStyle`
     font-family: 'Lato', serif;
     /* font-family: Lato, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
-    background: var(--color-background);
-    color: var(--color-text);
+    background: var(--background);
+    color: var(--text);
   }
 
   h1 {
@@ -36,10 +36,6 @@ const GlobalStyles = createGlobalStyle`
   .drop-shadow {
     filter: drop-shadow(0px 10px 15px rgba(0, 0, 0, 0.1));
   }
-
-  /* a {
-    color: var(--color-secondary);
-  } */
 `;
 
 export default GlobalStyles;
