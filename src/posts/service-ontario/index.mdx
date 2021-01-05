@@ -19,6 +19,7 @@ import MiroEmbed from '@components/miro-embed';
 import HighlightedSection from '@components/highlighted-section';
 import TrelloEmbed from '@components/trello-embed';
 import Timeline from '@components/timeline';
+import Process from '@components/process';
 
 # Redesigning the Renewals
 
@@ -43,10 +44,9 @@ I was part of an ambitious project to redesign Ontario’s renewal experience fo
 
 <Accordion title={"What did our weekly sprints entail?"} left={true}>
 
-Mondays were focused on user research, Tuesdays and Wednesdays on prototyping, Thursdays on user testing, and Fridays on presenting our findings.
+  Mondays were focused on user research, Tuesdays and Wednesdays on prototyping, Thursdays on user testing, and Fridays on presenting our findings.
 
-To ensure thorough and clear communication, every day began with a stand-up and ended with a check-in.
-
+  To ensure thorough and clear communication, every day began with a stand-up and ended with a check-in.
 </Accordion>
 
 </Note>
@@ -152,3 +152,23 @@ Then, to emphasize an easy and effortless central flow in our redesign, we ident
 <FullBleed>
   <Timeline markers={["User visits platform", "Selects type of identity card to renew", "Enters identity card information", "Answers eligibilty questions", "Pays for renewal", "Receives their renewed identity card!" ]}/>
 </FullBleed>
+
+# Creating Our Concept
+
+<Process data={[
+  {
+    title: "Ideation",
+    description: "Our team individually sketched user flows and interfaces in five-minute brainstorming sessions and presented our designs to the group.",
+    image: "process-ideation.png"
+  },
+  {
+    title: "Consolidating Our Ideas",
+    description: "We then combined the strengths of our ideas into a final user flow that represented our team’s vision of the redesigned renewal service’s golden path.",
+    image: "process-consolidate.png"
+  },
+  {
+    title: "Low Fidelity Prototype",
+    description: "With our lead designer, my fellow product designer and I then created a low-fidelity Balsamiq prototype that simulated this ideated flow.",
+    image: "process-lowfi.png"
+  },
+]} />

@@ -1,14 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
-import Wireframe from '@undraw/wireframe.svg';
+import Undraw from '@components/undraw';
 
 const HighlightedSection = ({ children }) => {
   return (
     <Wrapper>
       <div className="w-1/2">{children}</div>
       <BlobBackground>
-        <img src={Wireframe} />
+        <Undraw name={'wireframe'} fill={'var(--color-primary)'} />
       </BlobBackground>
     </Wrapper>
   );
