@@ -7,21 +7,52 @@ const BeforeAndAfter = ({ title, steps }) => {
   return (
     <div>
       {/* {title} */}
-      {steps.map(({ beforeImage, before, after }, index) => {
+      {steps.map(({ beforeImage, afterImage, before, after }, index) => {
         return (
           <div className="flex space-x-4">
-            <div className="w-1/6 relative">
+            <div className="w-1/5 relative">
               <Image fileName={beforeImage} />
-              {before.map(({ content, x, y }, index) => {
-                return <Bubble content={`"${content}"`} x={x} y={y} />;
+              {before.map(({ x, y }, index) => {
+                return <Annotation x={x} y={y} left={true} key={index} />;
               })}
             </div>
-            {/* <Arrow /> */}
-            {/* <div>
-              {after.map((value, index) => {
-                return <Bubble className="bg-blue-400">{value}</Bubble>;
+            <div className="w-1/4 relative">
+              {before.map(({ content, y, shift }, index) => {
+                return (
+                  <Bubble
+                    y={y}
+                    shift={shift}
+                    key={index}
+                    className="bg-primary-light"
+                  >
+                    "{content}"
+                  </Bubble>
+                );
               })}
-            </div> */}
+            </div>
+            <div className="w-1/12 flex items-center">
+              <Arrow />
+            </div>
+            <div className="w-1/4 relative">
+              {after.map(({ content, y, shift }, index) => {
+                return (
+                  <Bubble
+                    y={y}
+                    shift={shift}
+                    key={index}
+                    className="bg-primary-light"
+                  >
+                    {content}
+                  </Bubble>
+                );
+              })}
+            </div>
+            <div className="w-1/5 relative">
+              <Image fileName={afterImage} />
+              {after.map(({ x, y }, index) => {
+                return <Annotation x={x} y={y} left={false} key={index} />;
+              })}
+            </div>
           </div>
         );
       })}
@@ -32,9 +63,10 @@ const BeforeAndAfter = ({ title, steps }) => {
 const Arrow = () => {
   return (
     <svg
-      width="74"
-      height="35"
+      // width="74"
+      // height="35"
       viewBox="0 0 74 35"
+      className="w-full"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -45,18 +77,32 @@ const Arrow = () => {
 };
 
 const Bubble = styled.div(
-  ({ content, x, y }) => css`
-    content: '';
-    //offset transforms by dot and border width to simplify data input
-    left: calc(${x}% - 0.375rem - 1.5px);
-    top: calc(${y}% - 0.375rem - 1.5px);
-    ${tw`w-4 h-4 block rounded-full absolute border-3 border-primary`}
+  ({ y, shift }) => css`
+    top: calc(${y}%);
+    transform: translate(0, -${100 - shift}%);
+    ${tw`p-4 rounded-lg w-72 absolute z-10`}
+  `
+);
 
-    &:before {
+const Annotation = styled.div(
+  ({ x, y, left }) => css`
+    content: '';
+    // center dot
+    left: calc(${x}%);
+    top: calc(${y}%);
+    transform: translate(-50%, -50%);
+    ${tw`w-4 h-4 block rounded-full absolute border-3 border-primary bg-white bg-opacity-50`}
+
+    &:after {
+      // center line
       content: '';
-      left: 0px;
-      top: 0px;
-      ${tw`absolute w-8 border-solid border-t-3 border-primary`}
+      /* left: calc(100% + 1.5px); */
+      left: ${left && `calc(100% + 1.5px);`};
+      right: ${!left && `calc(100% + 1.5px);`};
+      top: 50%;
+      transform: translate(0%, -50%);
+      width: 8rem;
+      ${tw`absolute border-solid border-t-3 border-primary`}
     }
   `
 );

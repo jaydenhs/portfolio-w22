@@ -230,33 +230,50 @@ Our team then synthesized our findings into prototype iterations to consider in 
 # Ensure the user is informed before they begin
 
 <FullBleed>
-
-<BeforeAndAfter
-  title={'Ensure the user is informed before they begin'}
-  steps={[
-    {
-      beforeImage: 'grid.png',
-      before: [
-        {
-          content:
-            'I would want to know requirements, fees, what they need to have out, possibly how long it will take to complete.',
-          x: '50',
-          y: '25',
-        },
-        {
-          content:
-            'I don’t want to go through the whole process just to realize I don’t have the funds to pay for my renewal',
-          x: '100',
-          y: '75',
-        },
-      ],
-      after: [
-        'Show fees for each renewal type',
-        'Display duration of transaction',
-        'Exhibit what information the user will need',
-      ],
-    },
-  ]}
-/>
+  <BeforeAndAfter
+    title={'Ensure the user is informed before they begin'}
+    steps={[
+      {
+        beforeImage: 'before-1.jpg',
+        afterImage: 'after-1.jpg',
+        before: [
+          {
+            content:
+              'I would want to know requirements, fees, what they need to have out, possibly how long it will take to complete.',
+            x: '70',
+            y: '50',
+            shift: '30',
+          },
+          {
+            content:
+              'I don’t want to go through the whole process just to realize I don’t have the funds to pay for my renewal',
+            x: '62',
+            y: '70',
+            shift: '70',
+          },
+        ],
+        after: [
+          {
+            content: 'Show fees for each renewal type',
+            x: '15',
+            y: '35',
+            shift: '50',
+          },
+          {
+            content: 'Display duration of transaction',
+            x: '20',
+            y: '51',
+            shift: '50',
+          },
+          {
+            content: 'Exhibit what information the user will need',
+            x: '18',
+            y: '76',
+            shift: '50',
+          },
+        ],
+      },
+    ]}
+    />
 
 </FullBleed>
