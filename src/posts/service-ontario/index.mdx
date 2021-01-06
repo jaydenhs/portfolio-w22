@@ -10,6 +10,8 @@ rank: '1'
 thumbnail: './images/thumbnail.webm'
 ---
 
+import Image from '@utils/local-img';
+
 import FullBleed from '@components/full-bleed-container';
 import FigmaEmbed from '@components/figma-embed';
 import Note from '@components/note';
@@ -336,9 +338,9 @@ For our second iteration, our team considered a more realistic approach for our 
 
 It was time for our second round of guerilla user testing sessions! This time, having gained more confidence and practice for the user research methodology, my fellow product designer and I went by ourselves.
 
-| Team                  | Interviews                 | Prototype                  | Location                   |
-| --------------------- | -------------------------- | -------------------------- | -------------------------- |
-| Two product designers | Eight 15-minute interviews | Balsamiq prototype on iPad | 777 Bay St. ServiceOntario |
+| Team                  | Interviews                 | Prototype                  |
+| --------------------- | -------------------------- | -------------------------- |
+| Two product designers | Eight 15-minute interviews | Balsamiq prototype on iPad |
 
 <ImageGrid images={['portrait-2.jpg', 'user-testing-2.jpg']} />
 
@@ -447,8 +449,173 @@ Halfway through our engagement, it was time for our team to translate our Balsam
 
 With ten facilitations of guerilla usability testing sessions under my belt, it was time to help a developer teammate learn these key user research principles during our third round of user testing!
 
-| Team                                   | Interviews                | Prototype               | Location                   |
-| -------------------------------------- | ------------------------- | ----------------------- | -------------------------- |
-| One product designer and one developer | Nine 15-minute interviews | Figma prototype on iPad | 777 Bay St. ServiceOntario |
+<Note left={true}>
+
+  <Accordion title={"Whoa, a developer?"}>
+
+Yes! After two rounds of guerilla user testing, my fellow product designer and I were expected to train the lab's developers
+
+  </Accordion>
+
+</Note>
+
+| Team                                   | Interviews                | Prototype               |
+| -------------------------------------- | ------------------------- | ----------------------- |
+| One product designer and one developer | Nine 15-minute interviews | Figma prototype on iPad |
+
+<ImageGrid images={['user-testing-3.jpg', 'user-testing-4.jpg']} />
 
 Once again, one of our dominant issues was a lack of clarity in the content used in our design. Now with a month of experience in the problem space, our team likely had become so familiar with government terminology that we had not considered how confusing its use would be to our user base.
+
+We noted these findings, and after presenting them at our weekly show and tell, we were able to work with our content designer to implement their feedback.
+
+<Image fileName={'show-and-tell.png'} />
+
+<FullBleed>
+  <BeforeAndAfter
+    title={'Clearer ineligibility states'}
+    steps={[
+      {
+        beforeImage: 'entered-b.png',
+        afterImage: 'entered-a.png',
+        before: [
+          {
+            content:
+              'This error would greatly disappoint me, but I guess I’d just have to deal with it.',
+            x: '70',
+            y: '33',
+            shift: '50',
+          },
+          {
+            content:
+              'Can you provide me with more explanation on why I’m not eligible for online renewal?',
+            x: '75',
+            y: '55',
+            shift: '65',
+          },
+        ],
+        after: [
+          {
+            content: 'Specifically state the issue(s) that caused the error',
+            x: '72',
+            y: '41',
+            shift: '50',
+          },
+          {
+            content:
+              'Inform the user about the necessary resources they will need to complete the process',
+            x: '55',
+            y: '69',
+            shift: '65',
+          },
+        ],
+      },
+    ]}
+  />
+</FullBleed>
+
+<FullBleed>
+  <BeforeAndAfter
+    title={'Describe complex terminology'}
+    steps={[
+      {
+        beforeImage: 'entered-b.png',
+        afterImage: 'entered-a.png',
+        before: [
+          {
+            content: 'Full class portion? That’s very ambiguous and unclear.',
+            x: '70',
+            y: '33',
+            shift: '50',
+          },
+          {
+            content:
+              'I’ve had my licence for over twenty years and I’ve never heard of the term ‘full class portion’ before.',
+            x: '75',
+            y: '55',
+            shift: '65',
+          },
+        ],
+        after: [
+          {
+            content:
+              'Provide a detailed description with example scenarios of applicability',
+            x: '72',
+            y: '41',
+            shift: '50',
+          },
+          {
+            content: 'Supply optional links for further explanation',
+            x: '55',
+            y: '69',
+            shift: '65',
+          },
+        ],
+      },
+    ]}
+  />
+</FullBleed>
+
+<FullBleed>
+  <BeforeAndAfter
+    title={'Starting above the fold'}
+    steps={[
+      {
+        beforeImage: 'entered-b.png',
+        afterImage: 'entered-a.png',
+        before: [
+          {
+            content: 'Where is the start button?',
+            x: '70',
+            y: '33',
+            shift: '50',
+          },
+        ],
+        after: [
+          {
+            content: 'Edit buttons allow users to fix their mistakes',
+            x: '72',
+            y: '41',
+            shift: '50',
+          },
+          {
+            content: 'Can edit contact information directly on the page',
+            x: '55',
+            y: '69',
+            shift: '65',
+          },
+        ],
+      },
+    ]}
+  />
+</FullBleed>
+
+<FullBleed>
+  <BeforeAndAfter
+    title={'Surface helpful information first'}
+    steps={[
+      {
+        beforeImage: 'entered-b.png',
+        afterImage: 'entered-a.png',
+        before: [
+          {
+            content:
+              "I don't know where my 7 digit number on my driver's licence is",
+            x: '70',
+            y: '33',
+            shift: '50',
+          },
+        ],
+        after: [
+          {
+            content:
+              'Placed the hint image before the input field to ensure that the user views the explanation first',
+            x: '72',
+            y: '41',
+            shift: '50',
+          },
+        ],
+      },
+    ]}
+  />
+</FullBleed>

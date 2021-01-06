@@ -11,7 +11,7 @@ const BeforeAndAfter = ({ title, steps }) => {
     <div className="my-4">
       <div className="mx-auto flex flex-col items-center">
         <h2 className="p-3 rounded-full bg-primary text-white mr-2 mb-4">
-          0{increment}
+          {`${increment}`.padStart(2, '0')}
         </h2>
         <h2>{title}</h2>
       </div>

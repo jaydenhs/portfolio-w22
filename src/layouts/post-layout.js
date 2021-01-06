@@ -22,7 +22,7 @@ const components = {
   th: (props) => (
     <th {...props} className="w-1/4 align-top text-gray-800 pb-0.5" />
   ),
-  td: (props) => <td {...props} className="align-top text-gray-700 pr-2" />,
+  td: (props) => <td {...props} className="align-top text-gray-700 pr-4" />,
 };
 
 export default function PostLayout({
