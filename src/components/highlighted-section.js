@@ -3,10 +3,13 @@ import styled from 'styled-components';
 import tw from 'twin.macro';
 import Undraw from '@components/undraw';
 
-const HighlightedSection = ({ children }) => {
+const HighlightedSection = ({ title, children }) => {
   return (
     <Wrapper>
-      <div className="w-1/2">{children}</div>
+      <div className="w-1/2 my-4">
+        <h3 className="mb-3">{title}</h3>
+        <div className="space-y-2">{children}</div>
+      </div>
       <BlobBackground>
         <Undraw name={'wireframe'} fill={'var(--primary)'} />
       </BlobBackground>

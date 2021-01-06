@@ -32,7 +32,7 @@ Ontario’s online renewal platforms were meant to provide an efficient alternat
 I was part of an ambitious project to redesign Ontario’s renewal experience for its over 5 million annual users.­­­
 
 <FullBleed>
-  {/* <FigmaPreview
+  {/* <FigmaEmbed
     title = {"Our final Figma prototype for this project"}
     src={
       'https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FOB0XRkMx21yFoSbMihnGZV%2FSO-Renewals%3Fnode-id%3D718%253A29111%26viewport%3D633%252C806%252C0.06604449450969696%26scaling%3Dscale-down'
@@ -132,9 +132,7 @@ From our initial research, my fellow product designer and I ideated a diverse se
 
 Whether it was further improving the effectiveness of help modals, reassuring the user of the information they input, or optimizing the Ontario.ca topic page's representation of renewal services, this divergence in our brainstorming then allowed us to converge upon a single problem statement:
 
-<HighlightedSection>
-
-## Problem Statement
+<HighlightedSection title={"Problem Statement"}>
 
 We have observed that the ServiceOntario online renewal flows are **not meeting user needs**, which is causing low completion rates, negative user feedback, inclusion concerns, and low uptake on digital services.
 
@@ -229,11 +227,11 @@ Our team then synthesized our findings into prototype iterations to consider in 
 
 <FullBleed>
   <BeforeAndAfter
-    title={"Ensure the user is informed before they begin"}
+    title={'Ensure the user is informed before they begin'}
     steps={[
       {
-        beforeImage: 'clarity-b.png',
-        afterImage: 'clarity-a.png',
+        beforeImage: 'ensure-b.png',
+        afterImage: 'ensure-a.png',
         before: [
           {
             content:
@@ -272,13 +270,12 @@ Our team then synthesized our findings into prototype iterations to consider in 
         ],
       },
     ]}
-    />
-
+  />
 </FullBleed>
 
 <FullBleed>
   <BeforeAndAfter
-    title={"Remove ambiguous language"}
+    title={'Remove ambiguous language'}
     steps={[
       {
         beforeImage: 'ambiguous-b.png',
@@ -321,8 +318,7 @@ Our team then synthesized our findings into prototype iterations to consider in 
         ],
       },
     ]}
-    />
-
+  />
 </FullBleed>
 
 # Designing Alternate Paths
@@ -339,3 +335,120 @@ For our second iteration, our team considered a more realistic approach for our 
 # Extending a Helping Hand
 
 It was time for our second round of guerilla user testing sessions! This time, having gained more confidence and practice for the user research methodology, my fellow product designer and I went by ourselves.
+
+| Team                  | Interviews                 | Prototype                  | Location                   |
+| --------------------- | -------------------------- | -------------------------- | -------------------------- |
+| Two product designers | Eight 15-minute interviews | Balsamiq prototype on iPad | 777 Bay St. ServiceOntario |
+
+<ImageGrid images={['portrait-2.jpg', 'user-testing-2.jpg']} />
+
+Equipped with a much more comprehensive prototype, we were able to gather a richer understanding of the end users' reactions to our newly designed ineligibility errors and transaction summary page.
+
+<FullBleed>
+  <BeforeAndAfter
+    title={'Include next steps after errors'}
+    steps={[
+      {
+        beforeImage: 'include-b.png',
+        afterImage: 'include-a.png',
+        before: [
+          {
+            content:
+              'Okay so I’m clearly ineligible, but could you give me a bit more explanation on next steps now?',
+            x: '65',
+            y: '31',
+            shift: '70',
+          },
+          {
+            content:
+              'Please show more next steps in the error, I would not not how to proceed from here.',
+            x: '50',
+            y: '70',
+            shift: '65',
+          },
+        ],
+        after: [
+          {
+            content:
+              'Direct them to the nearest location to complete the in-person process',
+            x: '8',
+            y: '59',
+            shift: '30',
+          },
+          {
+            content:
+              'Provide an alternate path to continue their online renewal',
+            x: '10',
+            y: '75',
+            shift: '70',
+          },
+        ],
+      },
+    ]}
+  />
+</FullBleed>
+
+<FullBleed>
+  <BeforeAndAfter
+    title={'Allow users to edit previously entered details'}
+    steps={[
+      {
+        beforeImage: 'entered-b.png',
+        afterImage: 'entered-a.png',
+        before: [
+          {
+            content:
+              'I should be able change the information and then hit “save” and come back to the review page.',
+            x: '70',
+            y: '33',
+            shift: '50',
+          },
+          {
+            content:
+              'I should be able to edit my contact information directly on this page.',
+            x: '75',
+            y: '55',
+            shift: '65',
+          },
+        ],
+        after: [
+          {
+            content: 'Edit buttons allow users to fix their mistakes',
+            x: '72',
+            y: '41',
+            shift: '50',
+          },
+          {
+            content: 'Can edit contact information directly on the page',
+            x: '55',
+            y: '69',
+            shift: '65',
+          },
+        ],
+      },
+    ]}
+  />
+</FullBleed>
+
+# Transitioning to High Fidelity
+
+Halfway through our engagement, it was time for our team to translate our Balsamiq prototype to Figma.
+
+<FullBleed>
+  {/* <FigmaEmbed
+    title={'Our first prototype after we translated our Balsamiq designs to Figma'}
+    src={
+      'https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2F1Ow2TgwYiF9wWjoaaHUmXr%2FServiceOntario-Renewals%3Fnode-id%3D38%253A72%26viewport%3D213%252C123%252C0.03455913066864014%26scaling%3Dscale-down&chrome=DOCUMENTATION'
+    }
+  /> */}
+</FullBleed>
+
+# Content is Key
+
+With ten facilitations of guerilla usability testing sessions under my belt, it was time to help a developer teammate learn these key user research principles during our third round of user testing!
+
+| Team                                   | Interviews                | Prototype               | Location                   |
+| -------------------------------------- | ------------------------- | ----------------------- | -------------------------- |
+| One product designer and one developer | Nine 15-minute interviews | Figma prototype on iPad | 777 Bay St. ServiceOntario |
+
+Once again, one of our dominant issues was a lack of clarity in the content used in our design. Now with a month of experience in the problem space, our team likely had become so familiar with government terminology that we had not considered how confusing its use would be to our user base.

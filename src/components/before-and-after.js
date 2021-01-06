@@ -109,7 +109,7 @@ const Annotation = styled.div(
       right: ${!left && `calc(100% + 1.5px);`};
       top: 50%;
       transform: translate(0%, -50%);
-      width: 8rem;
+      width: 16rem;
       ${tw`absolute border-solid border-t-3 border-primary`}
     }
   `

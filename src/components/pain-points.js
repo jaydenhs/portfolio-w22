@@ -21,7 +21,7 @@ const PainPoints = ({ data }) => {
               <Image fileName={image} className="w-full drop-shadow" />
             </div>
             <div className="reading-width">
-              <h3 className="mb-7">{title}</h3>
+              <h3 className="mb-4">{title}</h3>
               <div className="space-y-9">
                 {quotes.map((node, index) => {
                   // console.log({ node });

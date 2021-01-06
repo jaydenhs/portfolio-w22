@@ -17,7 +17,7 @@ const Process = ({ data }) => {
               {/* can't use space-x-# class because the flex direction reverses (margin on wrong side) */}
               <div className="mx-3"></div>
               <div className="w-1/3">
-                <h3>{title}</h3>
+                <h3 className="mb-2">{title}</h3>
                 <p>{description}</p>
               </div>
             </div>
@@ -29,7 +29,7 @@ const Process = ({ data }) => {
 };
 
 const Wrapper = styled.div`
-  ${tw`space-y-8 mx-auto`}
+  ${tw`space-y-8 mx-auto mb-4`}
   max-width: 880px;
 `;
 
