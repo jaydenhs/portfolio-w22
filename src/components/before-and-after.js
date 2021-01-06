@@ -3,13 +3,21 @@ import styled, { css } from 'styled-components';
 import tw from 'twin.macro';
 import Image from '@utils/local-img';
 
+let increment = 0;
+
 const BeforeAndAfter = ({ title, steps }) => {
+  increment++;
   return (
-    <div>
-      {/* {title} */}
+    <div className="my-4">
+      <div className="mx-auto flex flex-col items-center">
+        <h2 className="p-3 rounded-full bg-primary text-white mr-2 mb-4">
+          0{increment}
+        </h2>
+        <h2>{title}</h2>
+      </div>
       {steps.map(({ beforeImage, afterImage, before, after }, index) => {
         return (
-          <div className="flex space-x-4">
+          <div className="flex space-x-4 -mt-24" key={index}>
             <div className="w-1/5 relative">
               <Image fileName={beforeImage} />
               {before.map(({ x, y }, index) => {

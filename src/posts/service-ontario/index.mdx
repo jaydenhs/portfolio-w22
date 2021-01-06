@@ -211,8 +211,6 @@ This ServiceOntario location was the busiest in the entire province!
 
 </Note>
 
-<ImageGrid images={['portrait-1.jpg', 'user-testing-1.jpg']} />
-
 <Note left={true}>
 
   <Accordion title={"Did we target any specific user segments?"}>
@@ -225,17 +223,17 @@ If our solution made sense to them, then hopefully it would make sense to everyo
 
 </Note>
 
-Our team then synthesized our findings into prototype iterations to consider in next week's sprint. Here are some highlights:
+<ImageGrid images={['portrait-1.jpg', 'user-testing-1.jpg']} />
 
-# Ensure the user is informed before they begin
+Our team then synthesized our findings into prototype iterations to consider in next week's sprint. Here are some highlights:
 
 <FullBleed>
   <BeforeAndAfter
-    title={'Ensure the user is informed before they begin'}
+    title={"Ensure the user is informed before they begin"}
     steps={[
       {
-        beforeImage: 'before-1.jpg',
-        afterImage: 'after-1.jpg',
+        beforeImage: 'clarity-b.png',
+        afterImage: 'clarity-a.png',
         before: [
           {
             content:
@@ -277,3 +275,67 @@ Our team then synthesized our findings into prototype iterations to consider in 
     />
 
 </FullBleed>
+
+<FullBleed>
+  <BeforeAndAfter
+    title={"Remove ambiguous language"}
+    steps={[
+      {
+        beforeImage: 'ambiguous-b.png',
+        afterImage: 'ambiguous-a.png',
+        before: [
+          {
+            content:
+              'I would want to know requirements, fees, what they need to have out, possibly how long it will take to complete.',
+            x: '70',
+            y: '50',
+            shift: '30',
+          },
+          {
+            content:
+              'I don’t want to go through the whole process just to realize I don’t have the funds to pay for my renewal',
+            x: '62',
+            y: '70',
+            shift: '70',
+          },
+        ],
+        after: [
+          {
+            content: 'Show fees for each renewal type',
+            x: '15',
+            y: '35',
+            shift: '50',
+          },
+          {
+            content: 'Display duration of transaction',
+            x: '20',
+            y: '51',
+            shift: '50',
+          },
+          {
+            content: 'Exhibit what information the user will need',
+            x: '18',
+            y: '76',
+            shift: '50',
+          },
+        ],
+      },
+    ]}
+    />
+
+</FullBleed>
+
+# Designing Alternate Paths
+
+For our second iteration, our team considered a more realistic approach for our redesign - it was time to integrate in error states and eligibility complexities. Thus, we once again collaborated with stakeholders to ensure that our solution would be able to encompass all of the necessary technical requirements of the previous platform.
+
+<TrelloEmbed
+  title={
+    'Trello board that documents all of the necessary technical requirements of the previous platform.'
+  }
+  src={'https://trello.com/b/uS5f1P3X'}
+/>
+
+# Extending a Helping Hand
+
+It was time for our second round of guerilla user testing sessions! This time, having gained more confidence and practice for the user research methodology, my fellow product designer and I went by ourselves.
