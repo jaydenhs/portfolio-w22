@@ -36,6 +36,7 @@ const BeforeAndAfter = ({ title, steps }) => {
                     y={y}
                     shift={shift}
                     key={index}
+                    left={true}
                     className="bg-primary-light"
                   >
                     "{content}"
@@ -53,6 +54,7 @@ const BeforeAndAfter = ({ title, steps }) => {
                     y={y}
                     shift={shift}
                     key={index}
+                    left={false}
                     className="bg-primary-light"
                   >
                     {content}
@@ -90,10 +92,12 @@ const Arrow = () => {
 };
 
 const Bubble = styled.div(
-  ({ y, shift }) => css`
+  ({ y, shift, left }) => css`
     top: calc(${y}%);
     transform: translate(0, -${100 - shift}%);
-    ${tw`p-4 rounded-lg w-72 absolute z-10`}
+    /* max-width: 18rem; */
+    ${left ? tw`left-0` : tw`right-0`}
+    ${tw`p-4 rounded-lg absolute z-10`}
   `
 );
 

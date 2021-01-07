@@ -36,6 +36,31 @@ const GlobalStyles = createGlobalStyle`
   .drop-shadow {
     filter: drop-shadow(0px 10px 15px rgba(0, 0, 0, 0.1));
   }
+
+  a {
+    /* color: var(--primary); */
+    ${tw`text-primary`}
+    /* text-decoration: none;
+    text-shadow: 0px -2px 0 var(--background), 0px -1px 0 var(--background), 0px 0px 0 var(--background),
+      2px -2px 0 var(--background), 2px -1px 0 var(--background), 2px 0px 0 var(--background), -2px -2px 0 var(--background),
+      -2px -1px 0 var(--background), -2px 0px 0 var(--background), 1px -2px 0 var(--background), 1px -1px 0 var(--background),
+      1px 0px 0 var(--background), -1px -2px 0 var(--background), -1px -1px 0 var(--background), -1px 0px 0 var(--background),
+      0px -2px 0 var(--background), 0px -1px 0 var(--background), 0px 0px 0 var(--background);
+    box-shadow: 0 -1px 0 0 var(--background) inset, 0 -2px 0 0 transparent inset;
+
+    transition: all 0.3s ease-in;
+
+    &:hover {
+      transition: all 0.3s ease-out;
+      box-shadow: 0 0px 0 0 var(--background) inset, 0 -2px 0 0 var(--primary) inset;
+    }
+
+    &::selection {
+      color: var(--background);
+      ${tw`bg-primary`}
+      text-shadow: none;
+    } */
+  }
 `;
 
 export default GlobalStyles;
