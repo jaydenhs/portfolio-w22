@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
-
 @font-face {
   font-family: 'ProximaNova';
   src: url('../static/fonts/proxima-nova-regular.otf') format('opentype');
@@ -14,4 +12,22 @@
   font-family: 'ProximaNova';
   src: url('../static/fonts/proxima-nova-bold.otf') format('opentype');
   font-weight: bold;
+}
+
+/* @font-face {
+  font-family: 'Bookmania';
+  src: url('../static/fonts/bookmania-regular.otf') format('opentype');
+  font-weight: normal;
+} */
+
+/* @font-face {
+  font-family: 'Bookmania';
+  src: url('../static/fonts/bookmania-semibold.otf') format('opentype');
+  font-weight: 600;
+} */
+
+@font-face {
+  font-family: 'Bookmania';
+  src: url('../static/fonts/bookmania-bold.otf') format('opentype');
+  font-weight: 700;
 }

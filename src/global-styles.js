@@ -12,18 +12,21 @@ const GlobalStyles = createGlobalStyle`
     color: var(--text);
   }
 
+  h1, h2 {
+    font-family:'Bookmania';
+    font-weight: 700;
+  }
+
   h1 {
     font-size: 3rem;
-    font-weight: 700;
     line-height: 1.2;
-    letter-spacing: -0.07rem;
+    /* letter-spacing: -0.07rem; */
   }
 
   h2 {
     font-size: 1.5rem;
-    font-weight: 700;
     line-height: 1.2;
-    letter-spacing: -0.03rem;
+    /* letter-spacing: -0.03rem; */
   }
 
   p {
