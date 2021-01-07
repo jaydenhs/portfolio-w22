@@ -1,14 +1,14 @@
 import React from 'react';
-import { Link, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 import Layout from '@components/layout';
 import MainProjectPreview from '@components/main-project-preview';
 import styled from 'styled-components';
 
-const IndexPage = props => {
+const IndexPage = (props) => {
   const mainProjects = props.data.main.edges;
   return (
     <Layout title="Portfolio">
-      <h1 className="mb-5">Projects</h1>
+      <h1 className="mb-5">Work</h1>
 
       <MainProjectPreviewWrapper>
         {mainProjects.map(({ node }, i) => (

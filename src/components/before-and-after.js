@@ -15,9 +15,11 @@ const BeforeAndAfter = ({ title, steps }) => {
   return (
     <div className="my-4">
       <div className="mx-auto flex flex-col items-center">
-        <h2 className="p-3 rounded-full bg-primary text-white mr-2 mb-4">
-          {`${increment}`.padStart(2, '0')}
-        </h2>
+        <span className="flex items-center w-16 h-16 rounded-full bg-primary text-white mr-2 mb-4">
+          <span className="mx-auto pt-0.5 text-3xl font-bold">
+            {`${increment}`.padStart(2, '0')}
+          </span>
+        </span>
         <h2 className="z-20">{title}</h2>
       </div>
       {steps.map(({ beforeImage, afterImage, before, after }, index) => {

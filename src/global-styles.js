@@ -38,7 +38,8 @@ const GlobalStyles = createGlobalStyle`
     filter: drop-shadow(0px 10px 15px rgba(0, 0, 0, 0.1));
   }
 
-  a {
+  //select all non-gatsby-link a tags (since gatsby would start with / to be internal)
+  a:not([href^="/"]) {
     /* color: var(--primary); */
     ${tw`text-primary`}
     /* text-decoration: none;
@@ -61,6 +62,25 @@ const GlobalStyles = createGlobalStyle`
       ${tw`bg-primary`}
       text-shadow: none;
     } */
+  }
+
+  body::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  body {
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary) var(--gray100);
+  }
+
+  body::-webkit-scrollbar-track {
+    background: var(--gray100);
+  }
+
+  body::-webkit-scrollbar-thumb {
+    background-color: var(--primary) ;
+    border-radius: 6px;
+    border: 3px solid var(--gray100);
   }
 `;
 

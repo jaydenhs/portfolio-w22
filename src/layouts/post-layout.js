@@ -14,7 +14,7 @@ const components = {
       <h2 {...props} className="mt-5" /> <hr className="mb-2" />
     </>
   ),
-  h2: (props) => <h3 {...props} className="mt-3 mb-2" />,
+  h2: (props) => <h3 {...props} className="mt-4 mb-0" />,
   h3: (props) => <h4 {...props} className="mb-0.5" />,
   p: (props) => <p {...props} />,
   table: (props) => <table {...props} className="my-1 text-left" />,
