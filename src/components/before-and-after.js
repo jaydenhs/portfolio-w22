@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled, { css } from 'styled-components';
 import tw from 'twin.macro';
 import Image from '@utils/local-img';
@@ -6,14 +6,19 @@ import Image from '@utils/local-img';
 let increment = 0;
 
 const BeforeAndAfter = ({ title, steps }) => {
+  useEffect(() => {
+    //must reset increment or else subsequent loads will start with incremented amount
+    increment = 0;
+  }, []);
   increment++;
+
   return (
     <div className="my-4">
       <div className="mx-auto flex flex-col items-center">
         <h2 className="p-3 rounded-full bg-primary text-white mr-2 mb-4">
           {`${increment}`.padStart(2, '0')}
         </h2>
-        <h2>{title}</h2>
+        <h2 className="z-20">{title}</h2>
       </div>
       {steps.map(({ beforeImage, afterImage, before, after }, index) => {
         return (

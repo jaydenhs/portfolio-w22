@@ -107,6 +107,6 @@ const Wrapper = styled.div`
   }
 
   p {
-    ${tw`leading-normal`}
+    ${tw`leading-relaxed`}
   }
 `;
