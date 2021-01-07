@@ -2,7 +2,11 @@ export const COLORS = {
   //text and bg applied to whole document
   text: {
     light: 'hsl(0deg, 0%, 10%)', // grey-ish
-    dark: 'hsl(0deg, 0%, 90%)', // white
+    dark: 'hsl(0deg, 0%, 88%)', // white
+  },
+  inverted: {
+    light: 'hsl(0deg, 0%, 88%)', // grey-ish
+    dark: 'hsl(0deg, 0%, 10%)', // white
   },
   background: {
     light: 'hsl(0deg, 0%, 100%)', // white

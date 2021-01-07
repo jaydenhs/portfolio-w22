@@ -11,7 +11,7 @@ import tw from 'twin.macro';
 const components = {
   h1: (props) => (
     <>
-      <h2 {...props} className="mt-5" /> <hr className="mb-2" />
+      <h2 {...props} className="mt-7" /> <hr className="mb-2" />
     </>
   ),
   h2: (props) => <h3 {...props} className="mt-4 mb-0" />,

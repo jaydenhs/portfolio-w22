@@ -9,6 +9,7 @@ module.exports = {
           DEFAULT: 'hsl(var(--primaryHS) var(--normal))',
         },
         secondary: 'var(--secondary)',
+        inverted: 'var(--inverted)',
         surface: 'var(--surface)',
         gray: {
           100: 'var(--gray100)',
