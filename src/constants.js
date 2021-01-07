@@ -2,11 +2,7 @@ export const COLORS = {
   //text and bg applied to whole document
   text: {
     light: 'hsl(0deg, 0%, 10%)', // grey-ish
-    dark: 'hsl(0deg, 0%, 88%)', // white
-  },
-  inverted: {
-    light: 'hsl(0deg, 0%, 88%)', // grey-ish
-    dark: 'hsl(0deg, 0%, 10%)', // white
+    dark: 'hsl(0deg, 0%, 90%)', // white
   },
   background: {
     light: 'hsl(0deg, 0%, 100%)', // white
@@ -53,35 +49,35 @@ export const COLORS = {
   // Grays, scaling from least-noticeable to most-noticeable
   gray100: {
     light: 'hsl(0deg, 0%, 90%)',
-    dark: 'hsl(0deg, 0%, 10%)',
+    dark: 'hsl(0deg, 0%, 30%)',
   },
   gray200: {
     light: 'hsl(0deg, 0%, 80%)',
-    dark: 'hsl(0deg, 0%, 20%)',
+    dark: 'hsl(0deg, 0%, 40%)',
   },
   gray300: {
     light: 'hsl(0deg, 0%, 70%)',
-    dark: 'hsl(0deg, 0%, 30%)',
+    dark: 'hsl(0deg, 0%, 50%)',
   },
   gray400: {
     light: 'hsl(0deg, 0%, 60%)',
-    dark: 'hsl(0deg, 0%, 40%)',
+    dark: 'hsl(0deg, 0%, 60%)',
   },
   gray500: {
     light: 'hsl(0deg, 0%, 50%)',
-    dark: 'hsl(0deg, 0%, 50%)',
+    dark: 'hsl(0deg, 0%, 70%)',
   },
   gray600: {
     light: 'hsl(0deg, 0%, 40%)',
-    dark: 'hsl(0deg, 0%, 60%)',
+    dark: 'hsl(0deg, 0%, 75%)',
   },
   gray700: {
     light: 'hsl(0deg, 0%, 30%)',
-    dark: 'hsl(0deg, 0%, 70%)',
+    dark: 'hsl(0deg, 0%, 80%)',
   },
   gray800: {
     light: 'hsl(0deg, 0%, 20%)',
-    dark: 'hsl(0deg, 0%, 80%)',
+    dark: 'hsl(0deg, 0%, 85%)',
   },
   gray900: {
     light: 'hsl(0deg, 0%, 10%)',

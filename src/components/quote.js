@@ -21,7 +21,7 @@ const QuoteText = styled.blockquote`
 
   &:after {
     content: '❞';
-    ${tw`rounded-full text-white bg-primary opacity-50 text-6xl w-24 h-24 text-center absolute left-1/2 transform -translate-x-1/2 top-0 pt-8`}
+    ${tw`rounded-full text-background bg-primary opacity-60 text-6xl w-24 h-24 text-center absolute left-1/2 transform -translate-x-1/2 top-0 pt-8`}
   }
 `;
 
