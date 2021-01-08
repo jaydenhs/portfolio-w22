@@ -25,12 +25,13 @@ const Image = ({ fileName, alt, style, className }) => {
 
   if (extension === 'webm') {
   } else if (extension === 'webp') {
-    const src = allImageSharp.nodes.find(n => n.fluid.originalName === fileName)
-      .original.src;
+    const src = allImageSharp.nodes.find(
+      (n) => n.fluid.originalName === fileName
+    ).original.src;
     return <img src={src} alt={alt} style={style} className={className} />;
   } else {
     const fluid = allImageSharp.nodes.find(
-      n => n.fluid.originalName === fileName
+      (n) => n.fluid.originalName === fileName
     ).fluid;
 
     return (
