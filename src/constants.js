@@ -83,6 +83,11 @@ export const COLORS = {
     light: 'hsl(0deg, 0%, 10%)',
     dark: 'hsl(0deg, 0%, 90%)',
   },
+
+  invert: {
+    light: '',
+    dark: 'invert(1) brightness(1.5)',
+  },
 };
 
 export const COLOR_MODE_KEY = 'color-mode';

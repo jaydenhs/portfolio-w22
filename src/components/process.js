@@ -6,13 +6,14 @@ import tw from 'twin.macro';
 const Process = ({ data }) => {
   return (
     <Wrapper>
-      {data.map(({ title, description, image }, index) => {
+      {data.map(({ title, description, image, style }, index) => {
+        console.log({ style });
         return (
           <>
             <div className="flex items-center even:flex-row-reverse relative">
               <Arrow index={index} nodes={data.length} />
               <div className="w-2/3">
-                <Image fileName={image} />
+                <Image fileName={image} style={style} />
               </div>
               {/* can't use space-x-# class because the flex direction reverses (margin on wrong side) */}
               <div className="mx-3"></div>
