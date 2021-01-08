@@ -26,7 +26,7 @@ const BeforeAndAfter = ({ title, steps }) => {
         return (
           <div className="flex space-x-4 -mt-24" key={index}>
             <div className="w-1/5 relative">
-              <Image fileName={beforeImage} />
+              <Image fileName={beforeImage} className="drop-shadow" />
               {before.map(({ x, y }, index) => {
                 return <Annotation x={x} y={y} left={true} key={index} />;
               })}
@@ -65,7 +65,7 @@ const BeforeAndAfter = ({ title, steps }) => {
               })}
             </div>
             <div className="w-1/5 relative">
-              <Image fileName={afterImage} />
+              <Image fileName={afterImage} className="drop-shadow" />
               {after.map(({ x, y }, index) => {
                 return <Annotation x={x} y={y} left={false} key={index} />;
               })}

@@ -35,7 +35,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   .drop-shadow {
-    filter: drop-shadow(0px 10px 15px rgba(0, 0, 0, 0.1));
+    filter: drop-shadow(0px 10px 8px rgba(0, 0, 0, 0.1));
   }
 
   //select all non-gatsby-link a tags (since gatsby would start with / to be internal)

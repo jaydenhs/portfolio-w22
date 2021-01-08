@@ -5,8 +5,6 @@ const About = () => {
   return (
     <Layout title="About">
       <h1>About Me!</h1>
-
-      <p>Hello?</p>
     </Layout>
   );
 };
