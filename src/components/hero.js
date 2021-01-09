@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
 import Typist from 'react-typist';
@@ -22,24 +22,36 @@ var images = [
   'friend.jpg',
 ];
 
-let num = 1;
+var longest = words.reduce(function (a, b) {
+  return a.length > b.length ? a : b;
+}).length;
+
+let num;
+let avgTypingDelay = 90;
 
 const Hero = () => {
-  const slideRef = useRef(null);
+  const slideRef = useRef();
   const [key, setKey] = useState(0);
 
+  useEffect(() => {
+    num = 1;
+  });
+
   function transition() {
-    //only transition every other slide
-    num % 2 === 0 && slideRef.current.goNext();
+    //only transition every other slide and if slideRef.current exists
+    num % 2 === 0 &&
+      slideRef.current !== null &&
+      slideRef.current.goNext() &&
+      (num = 1);
     num++;
   }
 
   return (
     <HeroWrapper>
-      <div className="w-3/5">
+      <div className="w-3/5 mt-16">
         <h1>Hello! I'm Jayden, a</h1>
-        <Typist
-          avgTypingDelay={90}
+        <TypistWrapper
+          avgTypingDelay={avgTypingDelay}
           stdTypingDelay={10}
           key={key}
           //update key when typing is finished to restart loop
@@ -49,14 +61,20 @@ const Hero = () => {
         >
           {words.map((value, index) => {
             let length = value.length;
+
+            //balance delays so slideshow images all appear for an equal amount of time
+            //non-variable number is the minimum delay (applied to the longest word)
+            let delay =
+              longest * avgTypingDelay + 100 - length * avgTypingDelay;
+
             return (
               <h1 key={index} className="inline">
                 {value}
-                <Typist.Backspace count={length} delay={500} />
+                <Typist.Backspace count={length} delay={delay} />
               </h1>
             );
           })}
-        </Typist>
+        </TypistWrapper>
         <p className="text-xl space-y-2">
           <div>
             Systems Design Engineering student at the University of Waterloo.
@@ -80,21 +98,33 @@ const Hero = () => {
 };
 
 const HeroWrapper = styled.div`
-  height: 83vh;
-  ${tw`flex items-center`}
+  /* height: 83vh; */
+  height: 28rem;
+
+  ${tw`flex items-center relative my-10`}
+`;
+
+const TypistWrapper = styled(Typist)`
+  span {
+    //make cursor larger
+    ${tw`text-primary-light`}
+    font-size: 3.2rem;
+  }
 `;
 
 const StyledImage = styled(Image).attrs({
-  className: 'h-96 object-cover',
+  // className: 'object-cover',
   imgStyle: { objectFit: 'cover', objectPosition: '50% 50%' },
 })`
-  width: 30rem;
+  width: 32rem;
+  height: 28rem;
 `;
 
 const SlideContainer = styled.div`
-  width: 30rem;
+  width: 32rem;
+  height: 28rem;
   opacity: 25%;
-  ${tw`h-96 absolute top-1/2 left-2/3 transform -translate-x-1/2 -translate-y-1/2 overflow-hidden`}
+  ${tw`absolute top-1/2 right-0 transform -translate-y-1/2 overflow-hidden`}
 `;
 
 export default Hero;
