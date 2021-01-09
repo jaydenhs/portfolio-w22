@@ -4,7 +4,7 @@ import Img from 'gatsby-image';
 
 var re = /(?:\.([^.]+))?$/;
 
-const Image = ({ fileName, alt, style, className }) => {
+const Image = ({ fileName, alt, style, imgStyle, className }) => {
   const { allImageSharp } = useStaticQuery(graphql`
     query {
       allImageSharp {
@@ -36,7 +36,13 @@ const Image = ({ fileName, alt, style, className }) => {
 
     return (
       <figure>
-        <Img fluid={fluid} alt={alt} style={style} className={className} />
+        <Img
+          fluid={fluid}
+          alt={alt}
+          style={style}
+          className={className}
+          imgStyle={imgStyle}
+        />
       </figure>
     );
   }
