@@ -48,7 +48,7 @@ const Hero = () => {
 
   return (
     <HeroWrapper>
-      <div className="w-3/5 mt-16">
+      <div className="w-3/5 mt-16 relative z-50">
         <h1>Hello! I'm Jayden, a</h1>
         <TypistWrapper
           avgTypingDelay={avgTypingDelay}
@@ -75,7 +75,7 @@ const Hero = () => {
             );
           })}
         </TypistWrapper>
-        <p className="text-xl space-y-2">
+        <Details>
           <div>
             Systems Design Engineering student at the University of Waterloo.
           </div>
@@ -83,13 +83,13 @@ const Hero = () => {
             Previously a Product Designer at Ontario Digital Service and a UX/UI
             Designer at TD Labs.
           </div>
-        </p>
+        </Details>
       </div>
 
       <SlideContainer>
         <Fade ref={slideRef} transitionDuration={500} arrows={false}>
           {images.map((value, index) => {
-            return <StyledImage fileName={value} />;
+            return <StyledImage fileName={value} key={index} />;
           })}
         </Fade>
       </SlideContainer>
@@ -98,9 +98,7 @@ const Hero = () => {
 };
 
 const HeroWrapper = styled.div`
-  /* height: 83vh; */
   height: 28rem;
-
   ${tw`flex items-center relative my-10`}
 `;
 
@@ -112,19 +110,25 @@ const TypistWrapper = styled(Typist)`
   }
 `;
 
+const Details = styled.p`
+  text-shadow: 0px 0px 3px var(--background), 0px 0px 4px var(--background),
+    0px 0px 5px var(--background);
+  ${tw`text-xl space-y-2`}
+`;
+
+const SlideContainer = styled.div`
+  width: 30rem;
+  height: 28rem;
+  opacity: var(--translucent);
+  ${tw`absolute top-1/2 right-0 transform -translate-y-1/2 overflow-hidden`}
+`;
+
 const StyledImage = styled(Image).attrs({
   // className: 'object-cover',
   imgStyle: { objectFit: 'cover', objectPosition: '50% 50%' },
 })`
-  width: 32rem;
+  width: 30rem;
   height: 28rem;
-`;
-
-const SlideContainer = styled.div`
-  width: 32rem;
-  height: 28rem;
-  opacity: 25%;
-  ${tw`absolute top-1/2 right-0 transform -translate-y-1/2 overflow-hidden`}
 `;
 
 export default Hero;

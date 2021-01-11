@@ -46,6 +46,11 @@ export const COLORS = {
     dark: '#121212', // dark, dark grey
   },
 
+  translucent: {
+    light: '25%', // white
+    dark: '50%', // dark, dark grey
+  },
+
   // Grays, scaling from least-noticeable to most-noticeable
   gray100: {
     light: 'hsl(0deg, 0%, 90%)',
