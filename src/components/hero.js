@@ -89,7 +89,7 @@ const Hero = () => {
       <SlideContainer>
         <Fade ref={slideRef} transitionDuration={500} arrows={false}>
           {images.map((value, index) => {
-            return <StyledImage fileName={value} key={index} />;
+            return <StyledImage src={value} key={index} />;
           })}
         </Fade>
       </SlideContainer>

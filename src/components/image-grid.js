@@ -7,7 +7,7 @@ const ImageGrid = ({ images }) => {
       {images.map((value, index) => {
         return (
           <div className="flex-grow" key={index}>
-            <Image fileName={value} className="w-full object-cover h-60" />
+            <Image src={value} className="w-full object-cover h-60" />
           </div>
         );
       })}

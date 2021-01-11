@@ -4,7 +4,7 @@ import Img from 'gatsby-image';
 
 var re = /(?:\.([^.]+))?$/;
 
-const Image = ({ fileName, alt, style, imgStyle, className }) => {
+const Image = ({ src, alt, style, imgStyle, className }) => {
   const { allImageSharp } = useStaticQuery(graphql`
     query {
       allImageSharp {
@@ -21,18 +21,16 @@ const Image = ({ fileName, alt, style, imgStyle, className }) => {
     }
   `);
 
-  var extension = re.exec(`${fileName}`)[1];
+  var extension = re.exec(`${src}`)[1];
 
   if (extension === 'webm') {
   } else if (extension === 'webp') {
-    const src = allImageSharp.nodes.find(
-      (n) => n.fluid.originalName === fileName
-    ).original.src;
+    const src = allImageSharp.nodes.find((n) => n.fluid.originalName === src)
+      .original.src;
     return <img src={src} alt={alt} style={style} className={className} />;
   } else {
-    const fluid = allImageSharp.nodes.find(
-      (n) => n.fluid.originalName === fileName
-    ).fluid;
+    const fluid = allImageSharp.nodes.find((n) => n.fluid.originalName === src)
+      .fluid;
 
     return (
       <figure>

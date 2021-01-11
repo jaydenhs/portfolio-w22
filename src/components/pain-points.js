@@ -18,7 +18,7 @@ const PainPoints = ({ data }) => {
           >
             {/* must wrap gatsby-image in div with set width because of flexbox */}
             <div className="w-1/3">
-              <Image fileName={image} className="w-full drop-shadow" />
+              <Image src={image} className="w-full drop-shadow" />
             </div>
             <div className="reading-width">
               <h3 className="mb-4">{title}</h3>

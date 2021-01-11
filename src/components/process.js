@@ -13,7 +13,7 @@ const Process = ({ data }) => {
             <div className="flex items-center even:flex-row-reverse relative">
               <Arrow index={index} nodes={data.length} />
               <div className="w-2/3">
-                <Image fileName={image} style={style} />
+                <Image src={image} style={style} />
               </div>
               {/* can't use space-x-# class because the flex direction reverses (margin on wrong side) */}
               <div className="mx-3"></div>
