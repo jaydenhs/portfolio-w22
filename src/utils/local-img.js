@@ -23,7 +23,7 @@ const Image = ({ src, alt, style, imgStyle, className }) => {
 
   var extension = re.exec(`${src}`)[1];
 
-  if (extension === 'webm') {
+  if (extension === 'svg') {
   } else if (extension === 'webp') {
     const src = allImageSharp.nodes.find((n) => n.fluid.originalName === src)
       .original.src;

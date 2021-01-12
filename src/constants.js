@@ -6,7 +6,7 @@ export const COLORS = {
   },
   background: {
     light: 'hsl(0deg, 0%, 100%)', // white
-    dark: 'hsl(250deg, 70%, 7%)', // navy navy blue
+    dark: '#121212', // recommended material design surface colour
   },
 
   //shaders
