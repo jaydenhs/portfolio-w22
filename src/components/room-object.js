@@ -57,17 +57,6 @@ const Tooltip = styled(ReactTooltip)`
   width: max(20%, 12rem);
 `;
 
-const Pointer = styled.span`
-  //center pointer
-  ${tw`absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2`}
-  ${tw`bg-white border-4 border-solid border-primary w-6 h-6 rounded-full z-10`}
-
-  animation: ${glowing} 2.5s infinite;
-  -webkit-animation: ${glowing} 2.5s infinite;
-  -moz-animation: ${glowing} 2.5s infinite;
-  -o-animation: ${glowing} 2.5s infinite;
-`;
-
 const glowing = keyframes`
     0% {
       box-shadow: 0 0 0px 0px;
@@ -78,6 +67,17 @@ const glowing = keyframes`
     100% {
       box-shadow: 0 0 0px 0px;
     }
+`;
+
+const Pointer = styled.span`
+  //center pointer
+  ${tw`absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2`}
+  ${tw`bg-white border-4 border-solid border-primary w-6 h-6 rounded-full z-10`}
+
+  animation: ${glowing} 2.5s infinite;
+  -webkit-animation: ${glowing} 2.5s infinite;
+  -moz-animation: ${glowing} 2.5s infinite;
+  -o-animation: ${glowing} 2.5s infinite;
 `;
 
 export default RoomObject;
