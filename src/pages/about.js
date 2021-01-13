@@ -60,6 +60,7 @@ const About = () => {
         </RoomObject>
 
         <RoomObject src="lamp.svg" width={6.087} left={80.84} top={38.5} />
+        {/* <RoomObject src="shelf_side.svg" width={6.087} left={80.84} top={38.5} /> */}
 
         <RoomObject
           src="sushi.svg"
