@@ -23,6 +23,8 @@ const Image = ({ src, alt, style, imgStyle, className }) => {
   var extension = GetExtension(src);
 
   if (extension === 'svg') {
+    var svg_src = require(`@static/images/about/${src}`);
+    return <img src={svg_src} alt={alt} style={style} className={className} />;
   } else if (extension === 'webp') {
     const src = allImageSharp.nodes.find((n) => n.fluid.originalName === src)
       .original.src;

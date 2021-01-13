@@ -3,22 +3,19 @@ import ReactTooltip from 'react-tooltip';
 import Img from '@utils/local-img';
 import styled, { keyframes } from 'styled-components';
 import tw from 'twin.macro';
-import GetExtension from '@utils/get-extension';
 
-const RoomObject = ({ children, svg, src, tooltip, width, left, top }) => {
+const RoomObject = ({ children, src, tooltip, width, left, top }) => {
   let place = top > 50 ? 'top' : 'bottom';
 
-  let ext = GetExtension(src);
-
-  let notSvg = GetExtension(src) !== 'svg';
-  console.log({ ext, notSvg, src });
-  let url = !notSvg && require(`@static/images/about/${src}`);
+  //generate unique key for tooltip association
+  var crypto = require('crypto');
+  var id = crypto.randomBytes(20).toString('hex');
 
   return (
     <>
       <div
-        data-tip={src}
-        data-for={src}
+        data-tip={id}
+        data-for={id}
         className="absolute h-auto"
         style={{
           width: `${width}%`,
@@ -27,11 +24,11 @@ const RoomObject = ({ children, svg, src, tooltip, width, left, top }) => {
         }}
       >
         {tooltip && <Pointer />}
-        {notSvg ? <Img src={src} /> : <img src={url} />}
+        <Img src={src} />
       </div>
       {tooltip && (
         <Tooltip
-          id={src}
+          id={id}
           aria-haspopup="true"
           place={place}
           type="light"
@@ -66,7 +63,7 @@ const glowing = keyframes`
 const Pointer = styled.span`
   //center pointer
   ${tw`absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2`}
-  ${tw`bg-white border-4 border-solid w-6 h-6 rounded-full z-10`}
+  ${tw`bg-white border-2 border-solid w-4 h-4 rounded-full z-10`}
 
   border-color: #4895ea;
   animation: ${glowing} 2.5s infinite;
