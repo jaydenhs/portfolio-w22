@@ -29,6 +29,18 @@ const About = () => {
           Some of my most treasured memories revolve around food! 😋 So let me
           know if you know any good restaurants, especially for sushi! 🍣
         </RoomObject>
+        <RoomObject
+          src={'diploma.svg'}
+          svg={true}
+          tooltip={true}
+          width={10}
+          left={8.647}
+          top={32.9}
+        >
+          I am part of University of Waterloo's Systems Design Engineering Class
+          of 2024 🔧 - ninety-six brilliant, innovative students who inspire me
+          to do my best everyday! 🎉
+        </RoomObject>
       </div>
       {/* <Img src={'bed.png'} /> */}
     </Layout>

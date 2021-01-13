@@ -1,8 +1,7 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
-
-var re = /(?:\.([^.]+))?$/;
+import GetExtension from '@utils/get-extension';
 
 const Image = ({ src, alt, style, imgStyle, className }) => {
   const { allImageSharp } = useStaticQuery(graphql`
@@ -21,7 +20,7 @@ const Image = ({ src, alt, style, imgStyle, className }) => {
     }
   `);
 
-  var extension = re.exec(`${src}`)[1];
+  var extension = GetExtension(src);
 
   if (extension === 'svg') {
   } else if (extension === 'webp') {
