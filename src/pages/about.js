@@ -29,33 +29,37 @@ const About = () => {
           of 2024 🔧 - ninety-six brilliant, innovative students who inspire me
           to do my best everyday! 🎉
         </RoomObject>
-        {/* <RoomObject src="bed.png" width={36.38} left={27.12} top={27.82} /> */}
-        {/* <RoomObject src="bed.png" width={12.59} left={28.64} top={19.38} /> */}
+
+        <RoomObject src="bed.svg" width={36.38} left={27.12} top={27.82} />
+        <RoomObject src="shelf.svg" width={12.59} left={28.64} top={19.38} />
 
         <RoomObject
-          src="sushi.svg"
+          src="camera.svg"
           tooltip={true}
           width={4.41}
           left={34.23}
-          top={20.99}
+          top={19}
         >
-          <Tooltip_Img src="sushi_tooltip.jpg" />
+          <Tooltip_Img src="camera_tooltip.jpg" />
           Whether it be landscape 🍃, digital manipulation 💻, or fine art 🎨,
           photography has always been one of my favourite methods of artistic
           expression! 📷
         </RoomObject>
+
         <RoomObject
-          src="sushi.svg"
+          src="window.svg"
           tooltip={true}
           width={10.77}
           left={65.1}
           top={21.41}
         >
-          <Tooltip_Img src="sushi_tooltip.jpg" />I have always loved this final
+          <Tooltip_Img src="window_tooltip.jpg" />I have always loved this final
           panel from Calvin and Hobbes 📚 - ever since I read it as a child,
           I've tried to apply this same curiosity to explore myself, my work,
           and the world around me! 🌎
         </RoomObject>
+
+        <RoomObject src="lamp.svg" width={6.087} left={80.84} top={38.5} />
 
         <RoomObject
           src="sushi.svg"
