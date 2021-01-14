@@ -32,7 +32,10 @@ module.exports = {
     },
   },
   variants: {
-    flexDirection: ['responsive', 'even'],
+    extend: {
+      flexDirection: ['even'],
+      translate: ['group-hover'],
+    },
   },
   plugins: [],
 };

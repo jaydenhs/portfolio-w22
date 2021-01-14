@@ -25,9 +25,10 @@ const About = () => {
           left={8.647}
           top={32.9}
         >
-          I am part of University of Waterloo's Systems Design Engineering Class
-          of 2024 🔧 - ninety-six brilliant, innovative students who inspire me
-          to do my best everyday! 🎉
+          <Tooltip_Img src="diploma_tooltip.jpg" />I am part of University of
+          Waterloo's Systems Design Engineering Class of 2024 🔧 - ninety-six
+          brilliant, innovative students who inspire me to do my best everyday!
+          🎉
         </RoomObject>
         <RoomObject src="bed.svg" width={36.38} left={27.12} top={27.82} />
         <RoomObject src="shelf.svg" width={12.59} left={28.64} top={19.38} />
@@ -125,10 +126,10 @@ const About = () => {
               <b>Best Pitch</b> - StarterHacks 2020 💬
             </li>
             <li>
-              <b>First Class Honours</b> - Grade 10 Piano Practical Exam 🎹
+              <b>First Place</b> - UXperience 2020 Designathon 💻
             </li>
             <li>
-              <b>Honourable Mention</b> - Jostens Canada Photo Contest 📷
+              <b>First Class Honours</b> - Grade 10 Piano Practical Exam 🎹
             </li>
           </ul>
         </RoomObject>

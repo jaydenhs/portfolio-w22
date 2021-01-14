@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactTooltip from 'react-tooltip';
 import Img from '@utils/local-img';
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 import tw from 'twin.macro';
 
 const RoomObject = ({
@@ -28,28 +28,29 @@ const RoomObject = ({
   let className_array = Array.isArray(className) ? className : [className];
 
   return (
-    <Wrapper>
-      {src_array.map((value, i) => {
-        console.log({ value });
-        return (
-          <div
-            key={i}
-            data-tip={id}
-            data-for={id}
-            className={`absolute h-auto ${className_array[i]}`}
-            style={{
-              width: `${width_array[i]}%`,
-              left: `${left_array[i]}%`,
-              top: `${top_array[i]}%`,
-            }}
-          >
-            {/* only render glowing pointer once for double tooltips */}
-            {tooltip && i === 0 && <Pointer />}
-            <Img src={value} />
-          </div>
-        );
-      })}
-
+    <>
+      <Wrapper tooltip={tooltip} className="group">
+        {src_array.map((value, i) => {
+          console.log({ value });
+          return (
+            <div
+              key={i}
+              data-tip={id}
+              data-for={id}
+              className={`absolute h-auto ${className_array[i]}`}
+              style={{
+                width: `${width_array[i]}%`,
+                left: `${left_array[i]}%`,
+                top: `${top_array[i]}%`,
+              }}
+            >
+              {/* only render glowing pointer once for double tooltips */}
+              {tooltip && i === src_array.length - 1 && <Pointer />}
+              <Img src={value} />
+            </div>
+          );
+        })}
+      </Wrapper>
       {tooltip && (
         <Tooltip
           id={id}
@@ -61,11 +62,18 @@ const RoomObject = ({
           {children}
         </Tooltip>
       )}
-    </Wrapper>
+    </>
   );
 };
 
-const Wrapper = styled.span``;
+const Wrapper = styled.span(
+  ({ tooltip }) => css`
+    &:hover div {
+      ${tooltip &&
+      tw`transform-gpu transition-transform duration-500 group-hover:-translate-y-2`}
+    }
+  `
+);
 
 const Tooltip = styled(ReactTooltip)`
   border: 5px solid var(--primaryLight) !important;
