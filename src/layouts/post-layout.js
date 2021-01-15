@@ -22,7 +22,9 @@ const components = {
   th: (props) => (
     <th {...props} className="w-1/4 align-top text-gray-800 pb-0.5" />
   ),
-  td: (props) => <td {...props} className="align-top text-gray-700 pr-4" />,
+  td: (props) => (
+    <td {...props} className="align-top text-gray-700 pr-4 pb-1" />
+  ),
 };
 
 export default function PostLayout({
@@ -91,7 +93,7 @@ const Wrapper = styled.div`
   //provide base styles (applied across both MDX and rendered components)
 
   h1 {
-    ${tw`text-4xl`}
+    ${tw`text-4xl mb-3`}
   }
 
   h2 {

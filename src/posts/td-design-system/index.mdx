@@ -1,0 +1,121 @@
+---
+title: 'Redefining the prototyping experience through design systems'
+slug: '/td-design-system'
+description:
+  'At TD Lab, I created a fully-fledged design system to increase the efficiency
+  of our innovation'
+category: 'Case Study'
+tags: 'UI Design, Design-Dev Collaboration'
+section: 'Main'
+rank: '2'
+thumbnail: '../service-ontario/images/thumbnail.webm'
+---
+
+import Image from '@utils/local-img';
+
+import FullBleed from '@components/full-bleed-container';
+import FigmaEmbed from '@components/figma-embed';
+import Note from '@components/note';
+import PainPoints from '@components/pain-points';
+import Accordion from '@components/accordion';
+import MiroEmbed from '@components/miro-embed';
+import HighlightedSection from '@components/highlighted-section';
+import TrelloEmbed from '@components/trello-embed';
+import Timeline from '@components/timeline';
+import Process from '@components/process';
+import ImageGrid from '@components/image-grid';
+import BeforeAndAfter from '@components/before-and-after';
+import Quote from '@components/quote';
+import Learning from '@components/learning';
+
+As a UX/UI design intern at TD's Innovation Lab, I was tasked with rapidly
+prototyping experiences that could impact millions of users.
+
+Within my first week, I quickly realized that there was no complete source or
+conceptual documentation for styles, UI elements, or design patterns. In such an
+agile environment, this led to **severe inefficiencies** in our design
+workflows.
+
+So, I embarked on a self-driven project to create the foundation for TD Lab's
+design system.
+
+# Project Info
+
+| Role               | Team                  | Tools                    | Duration                      |
+| ------------------ | --------------------- | ------------------------ | ----------------------------- |
+| Product management | 1 UX/UI designer (me) | Figma, Sketch, Atlassian | Sep. to Dec. 2020 (part-time) |
+| UI design          | 4 designers           |                          |                               |
+| Dev collaboration  | 2 developers          |                          |                               |
+
+# The Current State
+
+## Observation
+
+My first order of business was to understand how the lab currently designed.
+After a few conversations, it was evident that while the lab did have an minimal
+Sketch pattern library, its unfinished nature resulted in a lot of time being
+spent on creating user interface elements from scratch.
+
+<!-- A designs with symbols from Sketch pattern library -> A updates Sketch pattern
+library -> A sends design file to B and updated pattern library file to the team
+-> B changes file -> B uploads file to Zeplin -> B sends Zeplin link to
+developers -> B sends design file back to A
+
+Sketch's lack of any online synchronization combined with the inherent struggles
+of remote communication led to agonizing difficulty in collaboration, with
+design interns often spending days asking people for the latest files (@me). -->
+
+## Inventory
+
+My next task was to inventory the common UI elements used in the lab's previous
+projects. I collected Sketch project files, analyzed the current pattern
+library, read over the minimal Atlassian documentation we had, and took
+screenshots of previous projects.
+
+## Audit
+
+Once I felt I had captured every button, icon, and design pattern I grouped them
+into categories. Viewing them side-by-side revealed exactly why we needed a
+system. Without any documentation, many of our prototypes lacked in
+accessibility, with elements being used incorrectly and colours not satisfying
+contrast ratios.
+
+<HighlightedSection title={"Problem Statement"}>
+
+We have observed that the TD Lab design library is not meeting user needs, which
+is causing **inefficient** design workflows and poor accessibility in
+prototypes.
+
+How might we build a **design library** that promotes inclusion and innovation
+by improving accessibility documentation and reducing time spent on creating and
+updating interface elements?
+
+</HighlightedSection>
+
+# Identifying Best Practices
+
+To ensure that the design library was future-proof, I started this project with
+some heavy research into design library and UI design best practices.
+
+I studied Apple's Human Interface Guidelines and Google's Material Design
+Guidelines, analyzed design systems from Atlassian, Uber, Github, and Figma, and
+read through countless Medium articles.
+
+# The Structure
+
+Inspired by Dropbox's design system, I decided to structure the design library
+in a two-tiered hierarchy:
+
+By creating separate UI Kits that inherit from Global Styles, we get the best of
+both worlds - the consistency of having shared styles with the flexibility of
+being able to toggle on specific UI kits based on the project scope.
+
+Let's take a look at what each of those files contained:
+
+# Global Styles
+
+This file was responsible for
+
+# Components
+
+# Learnings
