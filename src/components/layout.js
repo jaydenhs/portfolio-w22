@@ -23,7 +23,7 @@ const Layout = ({ children, title, maxWidth }) => {
           <Header title={title} />
         </div>
         <main
-          style={{ maxWidth: maxWidth === null ? 960 : 1440 }}
+          style={{ maxWidth: maxWidth == null ? 960 : 1440 }}
           className="mx-auto"
         >
           {children}
