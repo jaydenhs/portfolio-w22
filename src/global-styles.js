@@ -5,15 +5,13 @@ import { createGlobalStyle } from 'styled-components';
 const GlobalStyles = createGlobalStyle`
   body {
     box-sizing: border-box;
-    font-family: 'ProximaNova', serif;
-    /* font-family: Lato, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
+    font-family: "Proxima Nova", "Open Sans", "Gill Sans MT", "Gill Sans", Corbel, Arial, sans-serif;
     background: var(--background);
     color: var(--text);
   }
 
   h1, h2 {
-    font-family:'Bookmania';
+    font-family:'Bookmania', Georgia, 'Times New Roman', Times, serif;
     font-weight: 700;
   }
 

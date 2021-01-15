@@ -45,6 +45,7 @@ const RoomObject = ({
               }}
             >
               {/* only render glowing pointer once for double tooltips */}
+              {/* render it on the last object so point stays at the highest z-index on hover */}
               {tooltip && i === src_array.length - 1 && <Pointer />}
               <Img src={value} />
             </div>

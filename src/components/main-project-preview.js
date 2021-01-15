@@ -25,19 +25,23 @@ export default function MainProjectPreview({
         </p>
         <p>{description}</p>
       </Details>
-      <div className="w-1/2 ml-4 z-10">
+      <VideoWrapper>
         <video autoPlay="autoplay" loop="loop" muted playsInline>
           <source src={publicURL} type="video/webm" />
         </video>
-      </div>
+      </VideoWrapper>
     </ProjectCard>
   );
 }
 
+const VideoWrapper = styled.div`
+  ${tw`w-1/2 ml-4 z-10`}
+`;
+
 const ProjectCard = styled(GatsbyLink)`
-  ${tw`px-11 py-6 w-full rounded-xl transition-all duration-500 transform no-underline flex items-center`}
+  ${tw`px-11 py-6 w-full rounded-xl transition-all duration-500 transform no-underline flex items-center max-h-screen`}
+  min-height: 36rem;
   box-shadow: 0px 10px 15px 0px #e0e0e0;
-  min-height: 90vh;
   background-color: var(--background);
 
   &:hover {

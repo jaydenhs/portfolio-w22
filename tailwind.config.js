@@ -23,6 +23,9 @@ module.exports = {
           900: 'var(--gray900)',
         },
       },
+      spacing: {
+        128: '32rem',
+      },
       scale: {
         '-1': '-1',
       },
