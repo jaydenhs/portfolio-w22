@@ -77,30 +77,7 @@ const ObjectWrapper = styled.span(
   `
 );
 
-const Wrapper = styled.div`
-  //have to overwrite react tooltip styles or else they break on refresh
-  .__react_component_tooltip {
-    border-radius: 3px;
-    display: inline-block;
-    font-size: 13px;
-    left: -999em;
-    opacity: 0;
-    padding: 8px 21px;
-    position: fixed;
-    pointer-events: none;
-    transition: opacity 0.3s ease-out;
-    top: -999em;
-    visibility: hidden;
-    z-index: 999;
-  }
-
-  .__react_component_tooltip.show {
-    opacity: 0.9;
-    margin-left: 0;
-    margin-top: 0;
-    visibility: visible;
-  }
-`;
+const Wrapper = styled.div``;
 
 const Tooltip = styled(ReactTooltip)`
   border: 5px solid var(--primaryLight) !important;
