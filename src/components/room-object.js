@@ -38,8 +38,8 @@ const RoomObject = ({
           return (
             <div
               key={i}
-              data-tip={src}
-              data-for={src}
+              data-tip={src_array[0]}
+              data-for={src_array[0]}
               className={`absolute h-auto ${className_array[i]}`}
               style={{
                 width: `${width_array[i]}%`,
@@ -57,7 +57,7 @@ const RoomObject = ({
       </ObjectWrapper>
       {tooltip && (
         <Tooltip
-          id={src}
+          id={src_array[0]}
           aria-haspopup="true"
           place={place}
           type="light"
