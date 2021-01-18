@@ -33,7 +33,7 @@ const RoomObject = ({
     // for (var i = 0; i < all.length; i++) {
     //   all[i].style.setProperty('opacity', '0.95', 'important');
     // }
-  }, []);
+  }, [id]);
 
   return (
     <Wrapper>
@@ -84,6 +84,7 @@ const ObjectWrapper = styled.span(
 );
 
 const Wrapper = styled.div`
+  //have to overwrite react tooltip styles or else they break on refresh
   .__react_component_tooltip {
     border-radius: 3px;
     display: inline-block;
