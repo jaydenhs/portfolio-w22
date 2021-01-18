@@ -15,10 +15,6 @@ const RoomObject = ({
 }) => {
   let place = top > 50 ? 'top' : 'bottom';
 
-  //generate unique key for tooltip association
-  var crypto = require('crypto');
-  var id = crypto.randomBytes(20).toString('hex');
-
   // convert all illustration-specific props to arrays (or else we can't map over strings)
   // could simply wrap all inputs in [], but that's inefficient for inputs
   let src_array = Array.isArray(src) ? src : [src];
@@ -33,7 +29,7 @@ const RoomObject = ({
     // for (var i = 0; i < all.length; i++) {
     //   all[i].style.setProperty('opacity', '0.95', 'important');
     // }
-  }, [id]);
+  }, []);
 
   return (
     <Wrapper>
@@ -42,8 +38,8 @@ const RoomObject = ({
           return (
             <div
               key={i}
-              data-tip={id}
-              data-for={id}
+              data-tip={src}
+              data-for={src}
               className={`absolute h-auto ${className_array[i]}`}
               style={{
                 width: `${width_array[i]}%`,
@@ -61,7 +57,7 @@ const RoomObject = ({
       </ObjectWrapper>
       {tooltip && (
         <Tooltip
-          id={id}
+          id={src}
           aria-haspopup="true"
           place={place}
           type="light"
