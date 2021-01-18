@@ -8,6 +8,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Header from '@components/header';
+import Footer from '@components/footer';
 import Helmet from 'react-helmet';
 import { siteMetadata } from '@root/gatsby-config';
 
@@ -28,6 +29,9 @@ const Layout = ({ children, title, maxWidth }) => {
         >
           {children}
         </main>
+        <div style={{ maxWidth: 960 }} className="mx-auto">
+          <Footer />
+        </div>
       </div>
     </>
   );

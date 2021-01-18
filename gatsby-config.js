@@ -3,6 +3,11 @@ module.exports = {
     title: `Jayden Hsiao's Portfolio`,
     description: `Product designer and front-end engineer`,
     author: `Jayden Hsiao`,
+    social: {
+      email: `j3hsiao@uwaterloo.ca`,
+      github: `https://github.com/jaydenhs`,
+      linkedin: `www.linkedin.com/in/jaydenh`,
+    },
   },
   plugins: [
     `gatsby-plugin-styled-components`,
