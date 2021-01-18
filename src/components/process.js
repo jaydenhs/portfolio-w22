@@ -16,7 +16,7 @@ const Process = ({ data }) => {
                 <Image src={image} style={style} />
               </div>
               {/* can't use space-x-# class because the flex direction reverses (margin on wrong side) */}
-              <div className="mx-3"></div>
+              <div className="mx-2"></div>
               <div className="w-1/3">
                 <h3 className="mb-2">{title}</h3>
                 <p>{description}</p>

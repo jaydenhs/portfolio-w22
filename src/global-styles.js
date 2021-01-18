@@ -38,6 +38,15 @@ const GlobalStyles = createGlobalStyle`
     ${tw`text-xl`}
   }
 
+  ul {
+    list-style: circle;
+    margin-left: 0;
+    padding-left: 1rem;
+    ${tw`space-y-2`}
+  }
+
+
+
   p {
     line-height: 1.4;
     letter-spacing: -0.01rem;

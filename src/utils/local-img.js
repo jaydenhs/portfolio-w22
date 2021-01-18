@@ -23,8 +23,16 @@ const Image = ({ src, ...rest }) => {
   var extension = GetExtension(src);
 
   if (extension === 'svg') {
-    var svg_src = require(`@static/images/about/${src}`);
+    let svg_src = require(`@static/images/about/${src}`);
     return <img src={svg_src} {...rest} />;
+  } else if (extension === 'webm') {
+    console.log({ src });
+    let webm_src = require(`@posts/boba-buds/images/${src}`);
+    return (
+      <video autoPlay="autoplay" loop="loop" muted playsInline {...rest}>
+        <source src={webm_src} type="video/webm" />
+      </video>
+    );
   } else if (extension === 'webp') {
     const src = allImageSharp.nodes.find((n) => n.fluid.originalName === src)
       .original.src;

@@ -9,7 +9,7 @@ const PieChart = ({ data, title }) => {
     if (hovered === i) {
       return {
         ...entry,
-        color: 'var(--primary)',
+        // color: 'var(--primary)',
       };
     }
     return entry;
@@ -60,6 +60,7 @@ const PieChart = ({ data, title }) => {
         />
       </div>
       <ReactTooltip
+        aria-haspopup="true"
         id="chart"
         getContent={() =>
           typeof hovered === 'number'

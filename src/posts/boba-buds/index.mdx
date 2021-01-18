@@ -14,6 +14,7 @@ thumbnail: 'bb_thumbnail.png'
 import PieChart from '@components/pie-chart';
 import Image from '@utils/local-img';
 import Video from './images/personalizing_the_homepage.webm';
+import MediaWithPoints from '@components/media-with-points';
 
 In my first hackathon, I partnered with two of my classmates to streamline the
 boba purchasing experience and inspire a stronger community of boba lovers. In
@@ -46,14 +47,14 @@ responses** from other StarterHacks participants, classmates, and friends.
     ]}
   />
   <PieChart
-    title={'Do you like trying new flavours of bubble tea?'}
+    title={'Has a long line every deterred you from buying bubble tea?'}
     data={[
       { title: 'Yes', value: 147, color: '#2194BB' },
       { title: 'No', value: 37, color: '#9E2875' },
     ]}
   />
   <PieChart
-    title={'Do you like trying new flavours of bubble tea?'}
+    title={'Have you ever posted about bubble tea on social media?'}
     data={[
       { title: 'Yes', value: 97, color: '#2194BB' },
       { title: 'No', value: 37, color: '#9E2875' },
@@ -84,10 +85,6 @@ and user flow of our mobile application!
 
 <Image src={'sketch.jpg'} />
 
-<video autoPlay="autoplay" loop="loop" muted playsInline>
-  <source src={Video} type="video/webm" />
-</video>
-
 # Prototyping the Platform
 
 From this, we were able to transition these concepts and ideas into visual
@@ -95,28 +92,36 @@ elements within a medium-fidelity Figma prototype!
 
 # Personalizing a Homepage
 
-When designing Boba Buds' homepage, we wanted to focus on fostering community
-and collaboration. Thus, we implemented:
+<MediaWithPoints media={"home.webm"}>
+
+### When designing Boba Buds' homepage, we wanted to focus on **fostering community and collaboration.**
 
 - simple call-to-action buttons to prompt user interactions such as saving their
   favourite drinks and reviews for later reference
+
 - a compact card display of the creator's information, caption, picture, and
   location to minimize the effort needed to view new content.
 
+</MediaWithPoints>
+
 # Inspiring Drink Discovery
 
-Boba Buds' search page was all about inspiring the discovery of other users and
-their drinks. Thus, we implemented:
+<MediaWithPoints media={"search.webm"}>
+
+### Boba Buds' search page was all about **inspiring the discovery of other users and their drinks.**
 
 - a condensed grid display to maximize the amount of visually-appealing content
   available for the user to select
 - filtering options such as 'New' and 'Controversial' which enable increased
   exploration based on the user's preferences
 
+</MediaWithPoints>
+
 # Crafting a Customization Experience
 
-The goal of Boba Buds' order page was to motivate users to conveniently express
-and share their creativity through their drinks. Thus, we implemented:
+<MediaWithPoints media={"order.webm"}>
+
+### The goal of Boba Buds' order page was to motivate users to conveniently **express and share their creativity** through their drinks.
 
 - filtering options based on rating, wait times, and distance to provide users
   full control over their purchases
@@ -125,29 +130,41 @@ and share their creativity through their drinks. Thus, we implemented:
 - a clear 'review your details' page to encourage users to share their
   refreshing recipes with their friends and followers
 
+</MediaWithPoints>
+
 # Designing the Transaction Tab
 
-When designing Boba Buds' transaction tab, our team sought to minimize the
-stress and anxiety associated with payment and waiting for one's order. Thus, we
-implemented:
+<MediaWithPoints media={"transactions.webm"}>
+
+### When designing Boba Buds' transactions tab, our team sought to **minimize the stress and anxiety** associated with payment and waiting for one's order.
 
 - a top navigation bar to allow users to efficiently switch between viewing the
   past or present orders
 - visual summaries which quickly present the order's name, number, location, and
   details in an easy-to-scan format to the user
 
+</MediaWithPoints>
+
 # Presenting the Profile
 
-Our team designed Boba Buds' profile page with the objective of empowering the
-user to personalize their posts and view their favourite locations, drinks, and
-reviews. Thus, we implemented:
+<MediaWithPoints media={"profile.webm"}>
+
+### Our team designed Boba Buds' profile page with the objective of **empowering the user to personalize** their posts and view their favourite locations, drinks, and reviews.
 
 - simple card layouts that visually group and showcase digestible portions of
   information to expedite the user's browsing process
 - distinct typography and headings to facilitate the user's tracking of their
   followers, who they follow, and the number of posts they have made
 
+</MediaWithPoints>
+
 # Hard Work Pays Off
 
 After a challenging twenty-four hours of ideating, researching, sketching,
 planning, designing, and pitching, it was time to view the results!
+
+<Image src={'bb_win.jpg'} />
+
+Our team had won Best Pitch out of over a thousand hackers! After the event,
+Patrick Icasas, the marketing manager of GrowthDriver.io and one of the
+adjudicators, made this statement:
