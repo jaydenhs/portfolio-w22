@@ -1,7 +1,9 @@
 ---
 title: 'Jostens Photo Contest'
 slug: '/jostens'
-description: 'Won an award in the 2019 Jostens Canada Photo Contest and was featured in New York City’s Caelum Gallery.'
+description:
+  'Won an award in the 2019 Jostens Canada Photo Contest and was featured in New
+  York City’s Caelum Gallery.'
 category: 'Competition Project'
 tags: 'Photography'
 section: 'Additional'
@@ -9,4 +11,18 @@ rank: '1'
 thumbnail: '../service-ontario/images/thumbnail.webm'
 ---
 
-Wow Jostens :)
+import Image from '@utils/local-img';
+import FullBleed from '@components/full-bleed-container';
+import PhotoLayout from '@components/photo-layout';
+
+# Here is a selection of a few favourites from my collection!
+
+<FullBleed>
+  <PhotoLayout
+    src_array={[
+      'A Ripple in Time.jpg',
+      'Defying Gravity.jpg',
+      'Exhaustion.jpg',
+    ]}
+  />
+</FullBleed>

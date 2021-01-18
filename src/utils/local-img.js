@@ -3,7 +3,8 @@ import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 import GetExtension from '@utils/get-extension';
 
-const Image = ({ src, alt, style, imgStyle, className }) => {
+const Image = ({ src, ...rest }) => {
+  console.log({ ...rest });
   const { allImageSharp } = useStaticQuery(graphql`
     query {
       allImageSharp {
@@ -24,24 +25,18 @@ const Image = ({ src, alt, style, imgStyle, className }) => {
 
   if (extension === 'svg') {
     var svg_src = require(`@static/images/about/${src}`);
-    return <img src={svg_src} alt={alt} style={style} className={className} />;
+    return <img src={svg_src} {...rest} />;
   } else if (extension === 'webp') {
     const src = allImageSharp.nodes.find((n) => n.fluid.originalName === src)
       .original.src;
-    return <img src={src} alt={alt} style={style} className={className} />;
+    return <img src={src} {...rest} />;
   } else {
     const fluid = allImageSharp.nodes.find((n) => n.fluid.originalName === src)
       .fluid;
 
     return (
       <figure>
-        <Img
-          fluid={fluid}
-          alt={alt}
-          style={style}
-          className={className}
-          imgStyle={imgStyle}
-        />
+        <Img fluid={fluid} {...rest} />
       </figure>
     );
   }
