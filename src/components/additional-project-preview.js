@@ -29,13 +29,12 @@ export default function MainProjectPreview({
 }
 
 const ProjectCard = styled(GatsbyLink)`
-  ${tw`w-full rounded-xl transition-all duration-500 transform no-underline flex flex-col`}
-  box-shadow: 0px 10px 15px 0px #e0e0e0;
-  background-color: var(--background);
+  ${tw`w-full rounded-xl transition-all duration-500 transform no-underline flex flex-col bg-surface`}
+  box-shadow: 0px 10px 15px 0px var(--boxShadow1);
 
   &:hover {
     ${tw`-translate-y-1.5`}
-    box-shadow: 0px 12px 17px 0px #d1d1d1;
+    box-shadow: 0px 12px 17px 0px var(--boxShadow2);
   }
 `;
 

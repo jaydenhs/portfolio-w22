@@ -4,9 +4,24 @@ export const COLORS = {
     light: 'hsl(0deg, 0%, 10%)', // grey-ish
     dark: 'hsl(0deg, 0%, 90%)', // white
   },
+
   background: {
     light: 'hsl(0deg, 0%, 100%)', // white
     dark: '#121212', // recommended material design surface colour
+  },
+
+  surface: {
+    light: 'hsl(0deg, 0%, 100%)', // same as background
+    dark: 'hsl(0, 0%, 18%)', // lighter grey
+  },
+
+  boxShadow1: {
+    light: '#e0e0e0',
+    dark: '#0a0a0a',
+  },
+  boxShadow2: {
+    light: '#d1d1d1',
+    dark: '#000',
   },
 
   //shaders
@@ -39,11 +54,6 @@ export const COLORS = {
   primaryLight: {
     light: 'hsl(var(--primaryHS) var(--light))', // blue #4895ea
     dark: 'hsl(var(--primaryHS) var(--light))', // orange #fbc15e
-  },
-
-  surface: {
-    light: 'hsl(0deg, 0%, 10%)', // white
-    dark: '#121212', // dark, dark grey
   },
 
   translucent: {
