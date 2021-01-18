@@ -166,9 +166,10 @@ const About = () => {
           top={[45.903, 52.1]}
           className={['', 'z-10']}
         >
-          <Tooltip_Img src="keyboard_tooltip.jpg" />I absolutely love music! You
-          can often find me jamming out on the piano 🎹, improvising on the
-          saxophone 🎷, or performing acapella on-campus! 🎤
+          <Tooltip_Img src="jayden_tooltip.jpg" />
+          Hi, I'm Jayden! 👋🏽 As a product designer 📱, I strive to improve the
+          lives of others through the skills that I have been blessed with!
+          Thanks for checking out my portfolio! 😊
         </RoomObject>
         <RoomObject src="table.svg" width={22.36} left={17.067} top={54.91} />
         <RoomObject

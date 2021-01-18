@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ReactTooltip from 'react-tooltip';
 import Img from '@utils/local-img';
 import styled, { keyframes, css } from 'styled-components';
@@ -26,6 +26,14 @@ const RoomObject = ({
   let left_array = Array.isArray(left) ? left : [left];
   let top_array = Array.isArray(top) ? top : [top];
   let className_array = Array.isArray(className) ? className : [className];
+
+  useEffect(() => {
+    ReactTooltip.rebuild();
+    // var all = document.getElementsByClassName('__react_component_tooltip');
+    // for (var i = 0; i < all.length; i++) {
+    //   all[i].style.setProperty('opacity', '0.95', 'important');
+    // }
+  }, []);
 
   return (
     <>
