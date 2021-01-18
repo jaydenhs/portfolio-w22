@@ -4,6 +4,7 @@ import { MDXProvider } from '@mdx-js/react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import styled from 'styled-components';
 import Layout from '@components/layout';
+import Quote from '@components/quote';
 import tw from 'twin.macro';
 
 //move all headings down one hierarchy for simplicity writing mdx (less #'s)
@@ -25,6 +26,7 @@ const components = {
   td: (props) => (
     <td {...props} className="align-top text-gray-700 pr-4 pb-1" />
   ),
+  blockquote: (props) => <Quote {...props} />,
 };
 
 export default function PostLayout({
