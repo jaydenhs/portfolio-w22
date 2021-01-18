@@ -7,8 +7,55 @@ description:
 category: 'Hackathon'
 tags: 'UI Design, UX Research'
 section: 'Additional'
-rank: '2'
+rank: '1'
 thumbnail: 'boba_buds.png'
 ---
 
-Boba Buds!
+import PieChart from '@components/pie-chart';
+
+In my first hackathon, I partnered with two of my classmates to streamline the
+boba purchasing experience and inspire a stronger community of boba lovers. In
+twenty-four hours, I interviewed hackathon participants, conducted competitive
+analysis of popular applications, created a medium-fidelity prototype in Figma,
+and exhibited our solution to a panel of judges in an **award-winning** pitch.
+
+# Research
+
+## Step 1: Understanding the Perception of Boba
+
+Due to the limited timeline of this project, we decided to limit our target
+demographic to young adults. Thus, to discover how other customers interact with
+their boba, we sent out a Google Forms survey and gathered over **184
+responses** from other StarterHacks participants, classmates, and friends.
+
+<div className="grid grid-cols-2 gap-10 my-4">
+  <PieChart
+    title={'Have you had bubble tea in the last 3 days?'}
+    data={[
+      { title: 'Yes', value: 123, color: '#2194BB' },
+      { title: 'No', value: 61, color: '#9E2875' },
+    ]}
+  />
+  <PieChart
+    title={'Do you like trying new flavours of bubble tea?'}
+    data={[
+      { title: 'Yes', value: 137, color: '#2194BB' },
+      { title: 'No', value: 47, color: '#9E2875' },
+    ]}
+  />
+  <PieChart
+    title={'Do you like trying new flavours of bubble tea?'}
+    data={[
+      { title: 'Yes', value: 147, color: '#2194BB' },
+      { title: 'No', value: 37, color: '#9E2875' },
+    ]}
+  />
+  <PieChart
+    title={'Do you like trying new flavours of bubble tea?'}
+    data={[
+      { title: 'Yes', value: 97, color: '#2194BB' },
+      { title: 'No', value: 37, color: '#9E2875' },
+    ]}
+  />
+
+</div>
