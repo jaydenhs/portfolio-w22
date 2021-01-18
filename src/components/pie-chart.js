@@ -62,6 +62,8 @@ const PieChart = ({ data, title }) => {
       <ReactTooltip
         aria-haspopup="true"
         id="chart"
+        type="light"
+        effect="float"
         getContent={() =>
           typeof hovered === 'number'
             ? makeTooltipContent(dataMap[hovered])

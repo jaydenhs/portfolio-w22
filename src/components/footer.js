@@ -26,7 +26,7 @@ const Footer = () => {
         rel="noopener noreferrer"
         className="text-primary-light"
       >
-        View my life credits
+        view my life credits!
       </a>
     </footer>
   );
