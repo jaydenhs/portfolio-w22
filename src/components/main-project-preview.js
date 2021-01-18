@@ -11,7 +11,7 @@ export default function MainProjectPreview({
       description,
       category,
       tags,
-      thumbnail: { publicURL },
+      preview: { publicURL },
     },
   },
 }) {
@@ -19,8 +19,8 @@ export default function MainProjectPreview({
     <ProjectCard to={`${slug}`}>
       <Wave />
       <Details>
-        <h2 className="mb-2">{title}</h2>
-        <p className="uppercase text-md mb-1">
+        <h3 className="mb-1.5">{title}</h3>
+        <p className="uppercase text-md mb-2.5">
           <b>{category}</b> <span className="px-0.5">•</span> {tags}
         </p>
         <p>{description}</p>

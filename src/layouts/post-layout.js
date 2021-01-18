@@ -100,14 +100,6 @@ const Wrapper = styled.div`
     ${tw`text-3xl`}
   }
 
-  h3 {
-    ${tw`text-2xl font-bold`}
-  }
-
-  h4 {
-    ${tw`text-xl`}
-  }
-
   p {
     ${tw`leading-relaxed`}
   }

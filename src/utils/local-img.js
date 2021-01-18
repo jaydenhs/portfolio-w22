@@ -4,7 +4,6 @@ import Img from 'gatsby-image';
 import GetExtension from '@utils/get-extension';
 
 const Image = ({ src, ...rest }) => {
-  console.log({ ...rest });
   const { allImageSharp } = useStaticQuery(graphql`
     query {
       allImageSharp {

@@ -16,19 +16,30 @@ const GlobalStyles = createGlobalStyle`
   }
 
   h1 {
-    font-size: 3rem;
+    ${tw`text-5xl`}
+    /* font-size: 3rem; */
     line-height: 1.2;
     /* letter-spacing: -0.07rem; */
   }
 
   h2 {
-    font-size: 1.5rem;
+    /* font-size: 1.5rem; */
+    ${tw`text-5xl`}
     line-height: 1.2;
     /* letter-spacing: -0.03rem; */
   }
 
+  h3 {
+    ${tw`text-2xl font-bold`}
+    line-height: 1.2;
+  }
+
+  h4 {
+    ${tw`text-xl`}
+  }
+
   p {
-    line-height: 1.35;
+    line-height: 1.4;
     letter-spacing: -0.01rem;
   }
 

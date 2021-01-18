@@ -14,14 +14,12 @@ const IndexPage = (props) => {
     <Layout title="Portfolio">
       <Hero />
 
-      <h1 className="mb-5">Work</h1>
+      <h2 className="mb-5">Work</h2>
       <MainProjectPreviewWrapper>
         {mainProjects.map(({ node }, i) => (
           <MainProjectPreview project={node} key={i} />
         ))}
       </MainProjectPreviewWrapper>
-
-      <h1 className="mb-5">Additional Projects</h1>
 
       <AdditionalProjectPreviewWrapper>
         {additionalProjects.map(({ node }, i) => (
@@ -33,11 +31,11 @@ const IndexPage = (props) => {
 };
 
 const MainProjectPreviewWrapper = styled.div.attrs({
-  className: 'space-y-4 mb-10',
+  className: 'space-y-4 mb-16',
 })``;
 
 const AdditionalProjectPreviewWrapper = styled.div`
-  ${tw`flex justify-between`}
+  ${tw`flex space-x-6`}
 `;
 
 export const pageQuery = graphql`
@@ -54,7 +52,7 @@ export const pageQuery = graphql`
             description
             category
             tags
-            thumbnail {
+            preview {
               publicURL
             }
           }
@@ -75,9 +73,8 @@ export const pageQuery = graphql`
             description
             category
             tags
-            thumbnail {
-              publicURL
-            }
+            rank
+            thumbnail
           }
         }
       }
