@@ -25,10 +25,6 @@ const RoomObject = ({
 
   useEffect(() => {
     ReactTooltip.rebuild();
-    // var all = document.getElementsByClassName('__react_component_tooltip');
-    // for (var i = 0; i < all.length; i++) {
-    //   all[i].style.setProperty('opacity', '0.95', 'important');
-    // }
   }, []);
 
   return (
@@ -38,6 +34,8 @@ const RoomObject = ({
           return (
             <div
               key={i}
+              // do NOT use randomly generated crypto key for data-tip
+              // unless you want react-tooltip to break on subsequent refreshes :,)
               data-tip={src_array[0]}
               data-for={src_array[0]}
               className={`absolute h-auto ${className_array[i]}`}

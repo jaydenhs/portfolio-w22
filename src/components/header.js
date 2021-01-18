@@ -3,10 +3,11 @@ import { Link as GatsbyLink } from 'gatsby';
 import styled, { css } from 'styled-components';
 import tw from 'twin.macro';
 import DarkToggle from '@components/dark-toggle';
+import Resume from '@static/resume.pdf';
 
 const links = [
   { text: 'Portfolio', url: '', colour: `var(--primary)` },
-  { text: 'About', url: 'about', colour: '#fbc15e' },
+  { text: 'About', url: 'about', colour: 'var(--secondary)' },
   { text: 'Resume', url: 'resume', colour: '#000' },
 ];
 
@@ -17,9 +18,17 @@ const Header = ({ title }) => {
       <ItemWrapper>
         {links.map(({ text, url, colour }, index) => {
           let match = title === text;
+          let isResume = url === 'resume';
+
           return (
-            <Item to={`/${url}`} key={index} match={match} colour={colour}>
-              {text}
+            <Item key={index} match={match} colour={colour}>
+              {isResume ? (
+                <a href={Resume} target="_blank" rel="noopener noreferrer">
+                  {text}
+                </a>
+              ) : (
+                <GatsbyLink to={`/${url}`}>{text}</GatsbyLink>
+              )}
             </Item>
           );
         })}
@@ -63,8 +72,8 @@ const ItemWrapper = styled.main.attrs({
 })``;
 
 //import in Link as GatsbyLink, create styled-component based on that
-const Item = styled(GatsbyLink)(
-  ({ match }) => css`
+const Item = styled.span(
+  ({ match, colour }) => css`
     ${tw`text-xl no-underline transition-all pb-4 relative duration-300`}
 
     //if the current location matches the destination of the link, show that colour
