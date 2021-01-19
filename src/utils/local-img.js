@@ -27,7 +27,7 @@ const Image = ({ src, ...rest }) => {
     return <img src={svg_src} {...rest} />;
   } else if (extension === 'webm') {
     console.log({ src });
-    let webm_src = require(`@posts/boba-buds/images/${src}`);
+    let webm_src = require(`@posts/${src}`);
     return (
       <video autoPlay="autoplay" loop="loop" muted playsInline {...rest}>
         <source src={webm_src} type="video/webm" />

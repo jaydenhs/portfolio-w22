@@ -2,17 +2,11 @@ import React from 'react';
 import { Link as GatsbyLink } from 'gatsby';
 import styled from 'styled-components';
 import tw from 'twin.macro';
+import Image from '@utils/local-img';
 
 export default function MainProjectPreview({
   project: {
-    frontmatter: {
-      title,
-      slug,
-      description,
-      category,
-      tags,
-      preview: { publicURL },
-    },
+    frontmatter: { title, slug, description, category, tags, thumbnail },
   },
 }) {
   return (
@@ -25,21 +19,20 @@ export default function MainProjectPreview({
         </p>
         <p>{description}</p>
       </Details>
+      <div className="mx-2" />
       <VideoWrapper>
-        <video autoPlay="autoplay" loop="loop" muted playsInline>
-          <source src={publicURL} type="video/webm" />
-        </video>
+        <Image src={thumbnail} />
       </VideoWrapper>
     </ProjectCard>
   );
 }
 
 const VideoWrapper = styled.div`
-  ${tw`w-1/2 ml-4 z-10`}
+  ${tw`w-1/2 z-10`}
 `;
 
 const ProjectCard = styled(GatsbyLink)`
-  ${tw`px-11 py-6 w-full rounded-xl transition-all duration-500 transform no-underline flex items-center max-h-screen bg-surface`}
+  ${tw`px-11 py-6 w-full rounded-xl transition-all duration-500 transform no-underline flex even:flex-row-reverse items-center max-h-screen bg-surface`}
   min-height: 36rem;
   box-shadow: 0px 10px 15px 0px var(--boxShadow1);
 
