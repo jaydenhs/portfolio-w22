@@ -20,7 +20,7 @@ const Layout = ({ children, title, maxWidth }) => {
         htmlAttributes={{ lang: 'en' }}
       />
       <div className="mx-auto px-5 pb-10">
-        <div style={{ maxWidth: 960 }} className="mx-auto">
+        <div style={{ maxWidth: 960 }} className="mx-auto mb-4">
           <Header title={title} />
         </div>
         <main

@@ -7,7 +7,7 @@ const MediaWithPoints = ({ media, children }) => {
       className="flex mx-auto items-center even:flex-row-reverse"
       style={{ maxWidth: 960 }}
     >
-      <Image src={media} className="max-h-screen" />
+      <Image src={media} className="max-h-screen max-w-xs" />
       {/* can't use space-x-# class because the flex direction reverses (margin on wrong side) */}
       <div className="mx-5"></div>
       <div className="flex-grow space-y-2">{children}</div>
