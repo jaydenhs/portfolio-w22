@@ -1,15 +1,15 @@
 import React from 'react';
-import { Link as GatsbyLink } from 'gatsby';
 import styled, { css } from 'styled-components';
 import tw from 'twin.macro';
 import DarkToggle from '@components/dark-toggle';
 import Resume from '@static/resume.pdf';
 import HeadRoom from 'react-headroom';
+import AutoLink from '@components/auto-link';
 
 const links = [
-  { text: 'Portfolio', url: '', colour: `var(--primary)` },
-  { text: 'About', url: 'about', colour: 'var(--secondary)' },
-  { text: 'Resume', url: 'resume', colour: '#000' },
+  { text: 'Portfolio', url: '/', colour: `var(--primary)` },
+  { text: 'About', url: '/about', colour: 'var(--secondary)' },
+  { text: 'Resume', url: Resume, colour: '#000' },
 ];
 
 const Header = ({ title }) => {
@@ -19,8 +19,6 @@ const Header = ({ title }) => {
       style={{
         background: 'var(--background)',
         zIndex: '999',
-
-        // boxShadow: '1px 1px 1px rgba(0,0,0,0.25)',
       }}
     >
       <Wrapper>
@@ -28,17 +26,9 @@ const Header = ({ title }) => {
         <ItemWrapper>
           {links.map(({ text, url, colour }, index) => {
             let match = title === text;
-            let isResume = url === 'resume';
-
             return (
-              <Item key={index} match={match} colour={colour}>
-                {isResume ? (
-                  <a href={Resume} target="_blank" rel="noopener noreferrer">
-                    {text}
-                  </a>
-                ) : (
-                  <GatsbyLink to={`/${url}`}>{text}</GatsbyLink>
-                )}
+              <Item to={url} key={index} match={match} colour={colour}>
+                {text}
               </Item>
             );
           })}
@@ -53,11 +43,11 @@ const Header = ({ title }) => {
 
 const Logo = () => (
   //resize to smaller logo at mobile
-  <GatsbyLink to="/">
+  <AutoLink to="/">
     <svg className="w-8 h-8 md:w-10 md:h-10">
       <circle cx="50%" cy="50%" r="50%" className="fill-current text-primary" />
     </svg>
-  </GatsbyLink>
+  </AutoLink>
 );
 
 const Wrapper = styled.main`
@@ -83,8 +73,8 @@ const ItemWrapper = styled.main.attrs({
     'space-x-4 ml-auto mr-4 md:space-x-12 md:mr-12 lg:space-x-16 md:mr-16',
 })``;
 
-//import in Link as GatsbyLink, create styled-component based on that
-const Item = styled.span(
+//import in Link as AutoLink, create styled-component based on that
+const Item = styled(AutoLink)(
   ({ match, colour }) => css`
     ${tw`text-xl no-underline transition-all pb-4 relative duration-300`}
 

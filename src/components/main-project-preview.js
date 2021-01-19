@@ -3,6 +3,7 @@ import { Link as GatsbyLink } from 'gatsby';
 import styled from 'styled-components';
 import tw from 'twin.macro';
 import Image from '@utils/local-img';
+import AutoLink from '@components/auto-link';
 
 export default function MainProjectPreview({
   project: {
@@ -31,7 +32,7 @@ const VideoWrapper = styled.div`
   ${tw`w-1/2 z-10`}
 `;
 
-const ProjectCard = styled(GatsbyLink)`
+const ProjectCard = styled(AutoLink)`
   ${tw`px-11 py-6 w-full rounded-xl transition-all duration-500 transform no-underline flex even:flex-row-reverse items-center max-h-screen bg-surface`}
   min-height: 36rem;
   box-shadow: 0px 10px 15px 0px var(--boxShadow1);

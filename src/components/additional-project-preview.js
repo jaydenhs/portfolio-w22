@@ -36,7 +36,7 @@ export default function MainProjectPreview({
           </p>
           {inProgress && (
             <div className="mb-4 mt-1">
-              <span className="px-4 text-sm text-gray-800 py-2 bg-primary-light rounded-full">
+              <span className="px-3 text-sm text-gray-800 py-1.5 bg-primary-light rounded-full">
                 Case study in progress
               </span>
             </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { siteMetadata } from '@root/gatsby-config';
+import AutoLink from '@components/auto-link';
 
 const Footer = () => {
   const social = siteMetadata.social;
@@ -9,17 +10,10 @@ const Footer = () => {
       <p className="mb-3">Let's keep the conversation going!</p>
       <div className="flex space-x-6 mb-3">
         {Object.entries(social).map(([name, link], index) => {
-          console.log({ link });
           return (
-            <a
-              href={link}
-              key={index}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-lg"
-            >
+            <AutoLink to={link} key={index} className="text-lg">
               {name}
-            </a>
+            </AutoLink>
           );
         })}
       </div>
