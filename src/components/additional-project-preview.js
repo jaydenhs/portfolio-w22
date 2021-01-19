@@ -6,7 +6,16 @@ import Image from '@utils/local-img';
 
 export default function MainProjectPreview({
   project: {
-    frontmatter: { title, slug, description, category, tags, rank, thumbnail },
+    frontmatter: {
+      title,
+      slug,
+      description,
+      category,
+      tags,
+      rank,
+      thumbnail,
+      inProgress,
+    },
   },
 }) {
   return (
@@ -25,6 +34,13 @@ export default function MainProjectPreview({
           <p className="uppercase text-md mb-2.5">
             <b>{category}</b> <span className="px-0.5">•</span> {tags}
           </p>
+          {inProgress && (
+            <div className="mb-4 mt-1">
+              <span className="px-4 text-sm text-gray-800 py-2 bg-primary-light rounded-full">
+                Case study in progress
+              </span>
+            </div>
+          )}
           <p>{description}</p>
         </Details>
       </ProjectCard>

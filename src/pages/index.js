@@ -88,6 +88,7 @@ export const pageQuery = graphql`
             tags
             rank
             thumbnail
+            inProgress
           }
         }
       }
