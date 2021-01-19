@@ -1,8 +1,8 @@
 import React from 'react';
-import { Link as GatsbyLink } from 'gatsby';
 import styled from 'styled-components';
 import tw from 'twin.macro';
 import Image from '@utils/local-img';
+import AutoLink from '@components/auto-link';
 
 export default function MainProjectPreview({
   project: {
@@ -48,7 +48,7 @@ export default function MainProjectPreview({
   );
 }
 
-const ProjectCard = styled(GatsbyLink)`
+const ProjectCard = styled(AutoLink)`
   ${tw`rounded-xl transition-all duration-500 transform no-underline flex flex-col bg-surface`}
   color: var(--text) !important;
   box-shadow: 0px 10px 15px 0px var(--boxShadow1);
