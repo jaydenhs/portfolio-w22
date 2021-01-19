@@ -4,6 +4,7 @@ import styled, { css } from 'styled-components';
 import tw from 'twin.macro';
 import DarkToggle from '@components/dark-toggle';
 import Resume from '@static/resume.pdf';
+import HeadRoom from 'react-headroom';
 
 const links = [
   { text: 'Portfolio', url: '', colour: `var(--primary)` },
@@ -13,30 +14,40 @@ const links = [
 
 const Header = ({ title }) => {
   return (
-    <Wrapper>
-      <Logo />
-      <ItemWrapper>
-        {links.map(({ text, url, colour }, index) => {
-          let match = title === text;
-          let isResume = url === 'resume';
+    <HeadRoom
+      className="mx-auto z-50"
+      style={{
+        background: 'var(--background)',
+        zIndex: '999',
 
-          return (
-            <Item key={index} match={match} colour={colour}>
-              {isResume ? (
-                <a href={Resume} target="_blank" rel="noopener noreferrer">
-                  {text}
-                </a>
-              ) : (
-                <GatsbyLink to={`/${url}`}>{text}</GatsbyLink>
-              )}
-            </Item>
-          );
-        })}
-      </ItemWrapper>
+        // boxShadow: '1px 1px 1px rgba(0,0,0,0.25)',
+      }}
+    >
+      <Wrapper>
+        <Logo />
+        <ItemWrapper>
+          {links.map(({ text, url, colour }, index) => {
+            let match = title === text;
+            let isResume = url === 'resume';
 
-      <DarkToggle />
-      {/* <FocusIndicator /> */}
-    </Wrapper>
+            return (
+              <Item key={index} match={match} colour={colour}>
+                {isResume ? (
+                  <a href={Resume} target="_blank" rel="noopener noreferrer">
+                    {text}
+                  </a>
+                ) : (
+                  <GatsbyLink to={`/${url}`}>{text}</GatsbyLink>
+                )}
+              </Item>
+            );
+          })}
+        </ItemWrapper>
+
+        <DarkToggle />
+        {/* <FocusIndicator /> */}
+      </Wrapper>
+    </HeadRoom>
   );
 };
 
@@ -49,9 +60,10 @@ const Logo = () => (
   </GatsbyLink>
 );
 
-const Wrapper = styled.main.attrs({
-  className: 'flex items-center my-4',
-})``;
+const Wrapper = styled.main`
+  ${tw`flex items-center mt-4 mb-2 px-5 mx-auto`}
+  max-width: 960px;
+`;
 
 // const FocusIndicator = styled.span`
 //   position: absolute;

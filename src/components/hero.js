@@ -50,7 +50,7 @@ const Hero = () => {
 
   return (
     <HeroWrapper>
-      <div className="w-3/5 mt-16 relative z-50">
+      <div className="w-3/5 mt-16 relative z-20">
         <h1>Hello! I'm Jayden, a</h1>
         <TypistWrapper
           avgTypingDelay={avgTypingDelay}
