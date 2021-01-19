@@ -8,6 +8,7 @@ import Image from '@utils/local-img';
 
 var words = [
   'Product Designer',
+  'Front End Developer',
   'Photographer',
   'Pianist',
   'Acapella Enthusiast',
@@ -16,6 +17,7 @@ var words = [
 
 var images = [
   'product_designer.jpg',
+  'front_end_dev.jpg',
   'photographer.jpg',
   'pianist.png',
   'acapella_enthusiast.jpg',

@@ -4,9 +4,9 @@ module.exports = {
     description: `Product designer and front-end engineer`,
     author: `Jayden Hsiao`,
     social: {
-      email: `j3hsiao@uwaterloo.ca`,
+      email: `mailto:j3hsiao@uwaterloo.ca`,
       github: `https://github.com/jaydenhs`,
-      linkedin: `www.linkedin.com/in/jaydenh`,
+      linkedin: `https://www.linkedin.com/in/jaydenh`,
     },
   },
   plugins: [

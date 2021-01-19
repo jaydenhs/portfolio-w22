@@ -3,16 +3,22 @@ import { siteMetadata } from '@root/gatsby-config';
 
 const Footer = () => {
   const social = siteMetadata.social;
-  console.log({ social });
   return (
     <footer className="flex flex-col items-center mt-16">
       <h3 className="mb-2">Like what you see?</h3>
       <p className="mb-3">Let's keep the conversation going!</p>
-      <div className="flex space-x-4 mb-3">
-        {Object.entries(social).map(([social, link], index) => {
+      <div className="flex space-x-6 mb-3">
+        {Object.entries(social).map(([name, link], index) => {
+          console.log({ link });
           return (
-            <a href={link} target="_blank" rel="noopener noreferrer">
-              {social}
+            <a
+              href={link}
+              key={index}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-lg"
+            >
+              {name}
             </a>
           );
         })}
