@@ -22,9 +22,20 @@ const IndexPage = (props) => {
       </MainProjectPreviewWrapper>
 
       <AdditionalProjectPreviewWrapper>
-        {additionalProjects.map(({ node }, i) => (
-          <AdditionalProjectPreview project={node} key={i} />
-        ))}
+        <Column>
+          {additionalProjects
+            .filter((a, i) => i % 2 === 0)
+            .map(({ node }, i) => (
+              <AdditionalProjectPreview project={node} key={i} />
+            ))}
+        </Column>
+        <Column>
+          {additionalProjects
+            .filter((a, i) => i % 2 === 1)
+            .map(({ node }, i) => (
+              <AdditionalProjectPreview project={node} key={i} />
+            ))}
+        </Column>
       </AdditionalProjectPreviewWrapper>
     </Layout>
   );
@@ -35,7 +46,11 @@ const MainProjectPreviewWrapper = styled.div.attrs({
 })``;
 
 const AdditionalProjectPreviewWrapper = styled.div`
-  ${tw`flex space-x-6`}
+  ${tw`grid grid-cols-2 gap-x-6`}
+`;
+
+const Column = styled.div`
+  ${tw`space-y-6`}
 `;
 
 export const pageQuery = graphql`

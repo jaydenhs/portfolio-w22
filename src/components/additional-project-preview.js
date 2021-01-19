@@ -10,7 +10,7 @@ export default function MainProjectPreview({
   },
 }) {
   return (
-    <div className="w-1/2">
+    <Wrapper>
       {rank === '1' && <h2 className="mb-6">Additional Projects</h2>}
       <ProjectCard to={`${slug}`}>
         <div className="w-full">
@@ -24,12 +24,17 @@ export default function MainProjectPreview({
           <p>{description}</p>
         </Details>
       </ProjectCard>
-    </div>
+    </Wrapper>
   );
 }
 
+const Wrapper = styled.div`
+  /* width: 49%; */
+`;
+
 const ProjectCard = styled(GatsbyLink)`
-  ${tw`w-full rounded-xl transition-all duration-500 transform no-underline flex flex-col bg-surface`}
+  ${tw`rounded-xl transition-all duration-500 transform no-underline flex flex-col bg-surface`}
+  color: var(--text) !important;
   box-shadow: 0px 10px 15px 0px var(--boxShadow1);
 
   &:hover {

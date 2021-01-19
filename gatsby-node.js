@@ -2,9 +2,10 @@ const path = require('path');
 exports.createPages = async ({ graphql, actions, reporter }) => {
   // Destructure the createPage function from the actions object
   const { createPage } = actions;
+  // Use regex to only create pages who have internal slugs (start with /)
   const result = await graphql(`
     query {
-      allMdx {
+      allMdx(filter: { frontmatter: { slug: { regex: "/^\\\\//" } } }) {
         edges {
           node {
             id
@@ -19,6 +20,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   if (result.errors) {
     reporter.panicOnBuild('🚨  ERROR: Loading "createPages" query');
   }
+
   // Create blog post pages.
   const posts = result.data.allMdx.edges;
   // you'll call `createPage` for each result
