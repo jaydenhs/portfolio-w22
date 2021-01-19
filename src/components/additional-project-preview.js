@@ -10,11 +10,15 @@ export default function MainProjectPreview({
   },
 }) {
   return (
-    <Wrapper>
+    <div>
       {rank === '1' && <h2 className="mb-6">Additional Projects</h2>}
       <ProjectCard to={`${slug}`}>
         <div className="w-full">
-          <Image src={thumbnail} className="rounded-t-xl" />
+          <Image
+            src={thumbnail}
+            className="rounded-t-xl"
+            style={{ background: '#E0E0E0' }}
+          />
         </div>
         <Details>
           <h3 className="mb-1.5">{title}</h3>
@@ -24,13 +28,9 @@ export default function MainProjectPreview({
           <p>{description}</p>
         </Details>
       </ProjectCard>
-    </Wrapper>
+    </div>
   );
 }
-
-const Wrapper = styled.div`
-  /* width: 49%; */
-`;
 
 const ProjectCard = styled(GatsbyLink)`
   ${tw`rounded-xl transition-all duration-500 transform no-underline flex flex-col bg-surface`}

@@ -42,7 +42,7 @@ const IndexPage = (props) => {
 };
 
 const MainProjectPreviewWrapper = styled.div.attrs({
-  className: 'space-y-4 mb-16',
+  className: 'space-y-6 mb-16',
 })``;
 
 const AdditionalProjectPreviewWrapper = styled.div`

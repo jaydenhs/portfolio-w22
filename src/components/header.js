@@ -61,7 +61,7 @@ const Logo = () => (
 );
 
 const Wrapper = styled.main`
-  ${tw`flex items-center mt-4 mb-2 px-5 mx-auto`}
+  ${tw`flex items-center my-4 px-5 mx-auto`}
   max-width: 960px;
 `;
 
