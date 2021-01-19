@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ReactTooltip from 'react-tooltip';
+import styled from 'styled-components';
 import { PieChart as PieChartPkg } from 'react-minimal-pie-chart';
 
 const PieChart = ({ data, title }) => {
@@ -44,7 +45,7 @@ const PieChart = ({ data, title }) => {
           labelPosition={100 - lineWidth / 2}
           labelStyle={{
             fill: 'var(--background)',
-            opacity: 0.9,
+            opacity: 1,
             pointerEvents: 'none',
           }}
           // onClick={(_, index) => {
@@ -59,7 +60,7 @@ const PieChart = ({ data, title }) => {
           // viewBoxSize={[400, 400]}
         />
       </div>
-      <ReactTooltip
+      <Tooltip
         aria-haspopup="true"
         id="chart"
         type="light"
@@ -73,5 +74,12 @@ const PieChart = ({ data, title }) => {
     </div>
   );
 };
+
+const Tooltip = styled(ReactTooltip)`
+  border: 5px solid var(--primaryLight) !important;
+  border-radius: 1rem !important;
+  padding: 1rem !important;
+  /* width: max(20%, 12rem); */
+`;
 
 export default PieChart;

@@ -45,8 +45,6 @@ const GlobalStyles = createGlobalStyle`
     ${tw`space-y-2`}
   }
 
-
-
   p {
     line-height: 1.4;
     letter-spacing: -0.01rem;
@@ -118,7 +116,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   .__react_component_tooltip.show {
-    opacity: 0.9;
+    opacity: 0.95 !important;
     margin-left: 0;
     margin-top: 0;
     visibility: visible;
