@@ -5,7 +5,7 @@ import RoomObject from '@components/room-object';
 import styled from 'styled-components';
 import tw from 'twin.macro';
 
-// require("../../images/remine.svg"),
+import Scene from '@components/3d-room';
 
 const About = () => {
   return (
@@ -15,6 +15,7 @@ const About = () => {
         Welcome to my room — hover over any of the glowing dots to learn more
         about me!
       </p>
+      {/* <Scene /> */}
       <div className="relative">
         <Img src={'walls.svg'} />
         <RoomObject
@@ -203,7 +204,6 @@ const About = () => {
           top={60.726}
         />
       </div>
-      {/* <Img src={'bed.png'} /> */}
     </Layout>
   );
 };
