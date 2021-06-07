@@ -123,7 +123,16 @@ class Scene extends React.Component {
      */
     const renderer = new THREE.WebGLRenderer({
       alpha: true,
+      antialias: true,
     });
+    renderer.physicallyCorrectLights = true;
+    renderer.outputEncoding = THREE.sRGBEncoding;
+    renderer.toneMapping = THREE.ReinhardToneMapping;
+    renderer.toneMappingExposure = 3;
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    renderer.setSize(sizes.width, sizes.height);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setClearColor(0x000000);
 
     gui
@@ -144,10 +153,24 @@ class Scene extends React.Component {
      */
     const clock = new THREE.Clock();
 
-    const tick = () => {
-      // requestAnimationFrame(animate.bind(this));
+    const points = [
+      {
+        position: new THREE.Vector3(1, -1, -0.6),
+        element: document.querySelector('.point-0'),
+      },
+    ];
 
+    const tick = () => {
       const elapsedTime = clock.getElapsedTime();
+
+      for (const point of points) {
+        const screenPosition = point.position.clone();
+        screenPosition.project(camera);
+
+        const translateX = screenPosition.x * sizes.width * 0.5;
+        const translateY = -(screenPosition.y * sizes.height * 0.5);
+        point.element.style.transform = `translate(${translateX}px, ${translateY}px)`;
+      }
 
       // Update controls
       controls.update();
@@ -173,6 +196,11 @@ class Scene extends React.Component {
   render() {
     return (
       <>
+        <div
+          ref={(ref) => (this.mount = ref)}
+          className="mx-auto"
+          style={{ width: '60%', height: `80vh` }}
+        ></div>
         <Point className="point-0 visible">
           <Label>1</Label>
           <Text>
@@ -180,11 +208,6 @@ class Scene extends React.Component {
             informations.
           </Text>
         </Point>
-        <div
-          ref={(ref) => (this.mount = ref)}
-          className="mx-auto"
-          style={{ width: '60%', height: `80vh` }}
-        ></div>
       </>
     );
   }
