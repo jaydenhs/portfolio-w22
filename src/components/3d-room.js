@@ -3,186 +3,190 @@ import styled, { css } from 'styled-components';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-import * as dat from 'dat.gui';
 
+const isBrowser = typeof window !== 'undefined';
 class Scene extends React.Component {
   componentDidMount() {
-    // Canvas
-    const canvas = this.mount;
+    if (isBrowser) {
+      const dat = require('dat.gui');
 
-    // Scene
-    const scene = new THREE.Scene();
+      // Canvas
+      const canvas = this.mount;
 
-    // Debug
-    const gui = new dat.GUI({ width: 400 });
-    const controlsFolder = gui.addFolder('Controls');
-    // controlsFolder.open();
+      // Scene
+      const scene = new THREE.Scene();
 
-    const debugParameters = {
-      getCameraPosition: () => {
-        console.log(camera.position);
-      },
-      logControls: () => {
-        console.log(controls);
-      },
-      canvasTransparent: false,
-    };
+      // Debug
+      const gui = new dat.GUI({ width: 400 });
+      const controlsFolder = gui.addFolder('Controls');
+      // controlsFolder.open();
 
-    /**
-     * Models
-     */
-    const gltfLoader = new GLTFLoader();
+      const debugParameters = {
+        getCameraPosition: () => {
+          console.log(camera.position);
+        },
+        logControls: () => {
+          console.log(controls);
+        },
+        canvasTransparent: false,
+      };
 
-    gltfLoader.load('/models/room.glb', (glb) => {
-      // move center of the room to the origin
-      var bbox = new THREE.Box3().setFromObject(glb.scene);
-      glb.scene.position.set(0, -bbox.max.y / 2, 0);
+      /**
+       * Models
+       */
+      const gltfLoader = new GLTFLoader();
 
-      scene.add(glb.scene);
-    });
+      gltfLoader.load('/models/room.glb', (glb) => {
+        // move center of the room to the origin
+        var bbox = new THREE.Box3().setFromObject(glb.scene);
+        glb.scene.position.set(0, -bbox.max.y / 2, 0);
 
-    /**
-     * Lights
-     */
-    const directionalLight = new THREE.DirectionalLight('#ffffff', 1.5);
-    directionalLight.castShadow = true;
-    directionalLight.shadow.camera.far = 15;
-    directionalLight.shadow.mapSize.set(1024, 1024);
-    directionalLight.shadow.normalBias = 0.05;
-    directionalLight.position.set(7, 7, 7);
-    scene.add(directionalLight);
+        scene.add(glb.scene);
+      });
 
-    /**
-     * Sizes
-     */
-    const sizes = {
-      width: this.mount.offsetWidth,
-      height: this.mount.offsetHeight,
-    };
+      /**
+       * Lights
+       */
+      const directionalLight = new THREE.DirectionalLight('#ffffff', 1.5);
+      directionalLight.castShadow = true;
+      directionalLight.shadow.camera.far = 15;
+      directionalLight.shadow.mapSize.set(1024, 1024);
+      directionalLight.shadow.normalBias = 0.05;
+      directionalLight.position.set(7, 7, 7);
+      scene.add(directionalLight);
 
-    window.addEventListener('resize', () => {
-      sizes.width = this.mount.offsetWidth;
-      sizes.height = this.mount.offsetHeight;
+      /**
+       * Sizes
+       */
+      const sizes = {
+        width: this.mount.offsetWidth,
+        height: this.mount.offsetHeight,
+      };
 
-      camera.aspect = sizes.width / sizes.height;
-      camera.updateProjectionMatrix();
+      window.addEventListener('resize', () => {
+        sizes.width = this.mount.offsetWidth;
+        sizes.height = this.mount.offsetHeight;
 
+        camera.aspect = sizes.width / sizes.height;
+        camera.updateProjectionMatrix();
+
+        renderer.setSize(sizes.width, sizes.height);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      });
+
+      /**
+       * Camera
+       */
+      // Base camera
+      const aspectRatio = sizes.width / sizes.height;
+      const camera = new THREE.OrthographicCamera(
+        -7 * aspectRatio,
+        7 * aspectRatio,
+        7,
+        -7,
+        0.001,
+        100
+      );
+      camera.position.set(6.1, 10.2, 6.1);
+      gui.add(debugParameters, 'getCameraPosition');
+      scene.add(camera);
+
+      /**
+       * Orbit Controls
+       */
+      const controls = new OrbitControls(camera, canvas);
+      // controls.enablePan = false;
+      controls.enableDamping = true;
+
+      // Zoom
+      controls.minZoom = 1;
+      controls.maxZoom = 1.4;
+      controls.zoomSpeed = 0.2;
+      controlsFolder.add(controls, 'minZoom', 0, 2, 0.01);
+      controlsFolder.add(controls, 'maxZoom', 0, 2, 0.01);
+      controlsFolder.add(controls, 'zoomSpeed', 0, 1, 0.01);
+
+      // Horizontal Rotation
+      /// limit horizontal rotation to the edges of the room
+      const azimuthAngleBuffer = 0.1;
+      controls.maxAzimuthAngle = Math.PI / 2 - azimuthAngleBuffer;
+      controls.minAzimuthAngle = 0 + azimuthAngleBuffer;
+      controls.rotateSpeed = 0.25;
+      controlsFolder.add(controls, 'rotateSpeed', 0, 1, 0.01);
+
+      // Vertical Rotation
+      /// limit vertical rotation to the edges of the room
+      const polarAngleBuffer = 0.1;
+      controls.maxPolarAngle = Math.PI / 2 - polarAngleBuffer;
+      controls.minPolarAngle = Math.PI / 4 + polarAngleBuffer;
+      controlsFolder.add(debugParameters, 'logControls');
+
+      /**
+       * Renderer
+       */
+      const renderer = new THREE.WebGLRenderer({
+        alpha: true,
+        antialias: true,
+      });
+      renderer.physicallyCorrectLights = true;
+      renderer.outputEncoding = THREE.sRGBEncoding;
+      renderer.toneMapping = THREE.ReinhardToneMapping;
+      renderer.toneMappingExposure = 3;
+      renderer.shadowMap.enabled = true;
+      renderer.shadowMap.type = THREE.PCFSoftShadowMap;
       renderer.setSize(sizes.width, sizes.height);
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    });
+      renderer.setClearColor(0x000000);
 
-    /**
-     * Camera
-     */
-    // Base camera
-    const aspectRatio = sizes.width / sizes.height;
-    const camera = new THREE.OrthographicCamera(
-      -7 * aspectRatio,
-      7 * aspectRatio,
-      7,
-      -7,
-      0.001,
-      100
-    );
-    camera.position.set(6.1, 10.2, 6.1);
-    gui.add(debugParameters, 'getCameraPosition');
-    scene.add(camera);
+      gui
+        .add(debugParameters, 'canvasTransparent')
+        .onChange(() =>
+          debugParameters.canvasTransparent
+            ? renderer.setClearAlpha(0)
+            : renderer.setClearAlpha(1)
+        );
+      renderer.setSize(sizes.width, sizes.height);
+      this.mount.appendChild(renderer.domElement);
 
-    /**
-     * Orbit Controls
-     */
-    const controls = new OrbitControls(camera, canvas);
-    // controls.enablePan = false;
-    controls.enableDamping = true;
+      const axesHelper = new THREE.AxesHelper();
+      scene.add(axesHelper);
 
-    // Zoom
-    controls.minZoom = 1;
-    controls.maxZoom = 1.4;
-    controls.zoomSpeed = 0.2;
-    controlsFolder.add(controls, 'minZoom', 0, 2, 0.01);
-    controlsFolder.add(controls, 'maxZoom', 0, 2, 0.01);
-    controlsFolder.add(controls, 'zoomSpeed', 0, 1, 0.01);
+      /**
+       * Animate
+       */
+      const clock = new THREE.Clock();
 
-    // Horizontal Rotation
-    /// limit horizontal rotation to the edges of the room
-    const azimuthAngleBuffer = 0.1;
-    controls.maxAzimuthAngle = Math.PI / 2 - azimuthAngleBuffer;
-    controls.minAzimuthAngle = 0 + azimuthAngleBuffer;
-    controls.rotateSpeed = 0.25;
-    controlsFolder.add(controls, 'rotateSpeed', 0, 1, 0.01);
+      const points = [
+        {
+          position: new THREE.Vector3(1, -1, -0.6),
+          element: document.querySelector('.point-0'),
+        },
+      ];
 
-    // Vertical Rotation
-    /// limit vertical rotation to the edges of the room
-    const polarAngleBuffer = 0.1;
-    controls.maxPolarAngle = Math.PI / 2 - polarAngleBuffer;
-    controls.minPolarAngle = Math.PI / 4 + polarAngleBuffer;
-    controlsFolder.add(debugParameters, 'logControls');
+      const tick = () => {
+        const elapsedTime = clock.getElapsedTime();
 
-    /**
-     * Renderer
-     */
-    const renderer = new THREE.WebGLRenderer({
-      alpha: true,
-      antialias: true,
-    });
-    renderer.physicallyCorrectLights = true;
-    renderer.outputEncoding = THREE.sRGBEncoding;
-    renderer.toneMapping = THREE.ReinhardToneMapping;
-    renderer.toneMappingExposure = 3;
-    renderer.shadowMap.enabled = true;
-    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-    renderer.setSize(sizes.width, sizes.height);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    renderer.setClearColor(0x000000);
+        for (const point of points) {
+          const screenPosition = point.position.clone();
+          screenPosition.project(camera);
 
-    gui
-      .add(debugParameters, 'canvasTransparent')
-      .onChange(() =>
-        debugParameters.canvasTransparent
-          ? renderer.setClearAlpha(0)
-          : renderer.setClearAlpha(1)
-      );
-    renderer.setSize(sizes.width, sizes.height);
-    this.mount.appendChild(renderer.domElement);
+          const translateX = screenPosition.x * sizes.width * 0.5;
+          const translateY = -(screenPosition.y * sizes.height * 0.5);
+          point.element.style.transform = `translate(${translateX}px, ${translateY}px)`;
+        }
 
-    const axesHelper = new THREE.AxesHelper();
-    scene.add(axesHelper);
+        // Update controls
+        controls.update();
 
-    /**
-     * Animate
-     */
-    const clock = new THREE.Clock();
+        // Render
+        renderer.render(scene, camera);
 
-    const points = [
-      {
-        position: new THREE.Vector3(1, -1, -0.6),
-        element: document.querySelector('.point-0'),
-      },
-    ];
+        // Call tick again on the next frame
+        window.requestAnimationFrame(tick);
+      };
 
-    const tick = () => {
-      const elapsedTime = clock.getElapsedTime();
-
-      for (const point of points) {
-        const screenPosition = point.position.clone();
-        screenPosition.project(camera);
-
-        const translateX = screenPosition.x * sizes.width * 0.5;
-        const translateY = -(screenPosition.y * sizes.height * 0.5);
-        point.element.style.transform = `translate(${translateX}px, ${translateY}px)`;
-      }
-
-      // Update controls
-      controls.update();
-
-      // Render
-      renderer.render(scene, camera);
-
-      // Call tick again on the next frame
-      window.requestAnimationFrame(tick);
-    };
-
-    tick();
+      tick();
+    }
   }
 
   onWindowResize() {
