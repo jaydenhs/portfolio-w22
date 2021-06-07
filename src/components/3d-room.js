@@ -1,4 +1,5 @@
 import React from 'react';
+import styled, { css } from 'styled-components';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
@@ -15,7 +16,7 @@ class Scene extends React.Component {
     // Debug
     const gui = new dat.GUI({ width: 400 });
     const controlsFolder = gui.addFolder('Controls');
-    controlsFolder.open();
+    // controlsFolder.open();
 
     const debugParameters = {
       getCameraPosition: () => {
@@ -24,6 +25,7 @@ class Scene extends React.Component {
       logControls: () => {
         console.log(controls);
       },
+      canvasTransparent: false,
     };
 
     /**
@@ -31,11 +33,10 @@ class Scene extends React.Component {
      */
     const gltfLoader = new GLTFLoader();
 
-    // let mixer = null;
     gltfLoader.load('/models/room.glb', (glb) => {
-      // move corner of room to the origin
+      // move center of the room to the origin
       var bbox = new THREE.Box3().setFromObject(glb.scene);
-      glb.scene.position.set(bbox.max.x, 0, bbox.max.z);
+      glb.scene.position.set(0, -bbox.max.y / 2, 0);
 
       scene.add(glb.scene);
     });
@@ -50,9 +51,6 @@ class Scene extends React.Component {
     directionalLight.shadow.normalBias = 0.05;
     directionalLight.position.set(7, 7, 7);
     scene.add(directionalLight);
-
-    // gui.add(directionalLight.position, 'x', -5, 5, 0.01);
-    // gui.add(directionalLight, 'intensity', 0, 5, 0.01);
 
     /**
      * Sizes
@@ -77,32 +75,24 @@ class Scene extends React.Component {
      * Camera
      */
     // Base camera
-    // const camera = new THREE.PerspectiveCamera(
-    //   75,
-    //   sizes.width / sizes.height,
-    //   0.1,
-    //   10000
-    // );
     const aspectRatio = sizes.width / sizes.height;
     const camera = new THREE.OrthographicCamera(
       -7 * aspectRatio,
       7 * aspectRatio,
       7,
       -7,
-      0.1,
+      0.001,
       100
     );
-    camera.position.set(7, 5, 7);
-
+    camera.position.set(6.1, 10.2, 6.1);
     gui.add(debugParameters, 'getCameraPosition');
-
     scene.add(camera);
 
     /**
      * Orbit Controls
      */
     const controls = new OrbitControls(camera, canvas);
-    controls.enablePan = false;
+    // controls.enablePan = false;
     controls.enableDamping = true;
 
     // Zoom
@@ -125,9 +115,8 @@ class Scene extends React.Component {
     /// limit vertical rotation to the edges of the room
     const polarAngleBuffer = 0.1;
     controls.maxPolarAngle = Math.PI / 2 - polarAngleBuffer;
-    controls.minPolarAngle = Math.PI / 5 + polarAngleBuffer;
-
-    gui.add(debugParameters, 'logControls');
+    controls.minPolarAngle = Math.PI / 4 + polarAngleBuffer;
+    controlsFolder.add(debugParameters, 'logControls');
 
     /**
      * Renderer
@@ -135,12 +124,20 @@ class Scene extends React.Component {
     const renderer = new THREE.WebGLRenderer({
       alpha: true,
     });
-    // gui.add(renderer.parameters, 'alpha');
+    renderer.setClearColor(0x000000);
+
+    gui
+      .add(debugParameters, 'canvasTransparent')
+      .onChange(() =>
+        debugParameters.canvasTransparent
+          ? renderer.setClearAlpha(0)
+          : renderer.setClearAlpha(1)
+      );
     renderer.setSize(sizes.width, sizes.height);
     this.mount.appendChild(renderer.domElement);
 
     const axesHelper = new THREE.AxesHelper();
-    // scene.add(axesHelper);
+    scene.add(axesHelper);
 
     /**
      * Animate
@@ -175,12 +172,78 @@ class Scene extends React.Component {
 
   render() {
     return (
-      <div
-        ref={(ref) => (this.mount = ref)}
-        style={{ width: `100%`, height: `100vh` }}
-      ></div>
+      <>
+        <Point className="point-0 visible">
+          <Label>1</Label>
+          <Text>
+            Front and top screen with HUD aggregating terrain and battle
+            informations.
+          </Text>
+        </Point>
+        <div
+          ref={(ref) => (this.mount = ref)}
+          className="mx-auto"
+          style={{ width: '60%', height: `80vh` }}
+        ></div>
+      </>
     );
   }
 }
+
+const Text = styled.div`
+  position: absolute;
+  top: 30px;
+  left: -120px;
+  width: 200px;
+  padding: 20px;
+  border-radius: 4px;
+  background: #00000077;
+  border: 1px solid #ffffff77;
+  color: #ffffff;
+  line-height: 1.3em;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 100;
+  font-size: 14px;
+
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+`;
+
+const Label = styled.div`
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #00000077;
+  border: 1px solid #ffffff77;
+  color: #ffffff;
+  font-family: Helvetica, Arial, sans-serif;
+  text-align: center;
+  line-height: 40px;
+  font-weight: 100;
+  font-size: 14px;
+
+  cursor: help;
+  transform: scale(0, 0);
+  transition: transform 0.3s;
+`;
+
+const Point = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  &.visible ${Label} {
+    transform: scale(1, 1);
+  }
+
+  &:hover ${Text} {
+    opacity: 1;
+    pointer-events: all;
+  }
+`;
 
 export default Scene;
