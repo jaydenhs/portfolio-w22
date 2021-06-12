@@ -168,7 +168,7 @@ class Scene extends React.Component {
 
       const points = [
         {
-          position: new THREE.Vector3(-3, -0.5, 3),
+          position: new THREE.Vector3(-3, -0.5, 3.25),
           element: document.querySelector('.point-0'),
         },
       ];
@@ -187,7 +187,7 @@ class Scene extends React.Component {
           // console.log(screenPosition.x);
           // console.log(screenPosition.y);
           const translateX = screenPosition.x * sizes.width * 0.5;
-          const translateY = -((screenPosition.y - 0.75) * sizes.height * 0.5);
+          const translateY = -(screenPosition.y * sizes.height * 0.5);
           // point.element.style.transform = `translate(${translateX}px`;
           point.element.style.transform = `translate(${translateX}px, ${translateY}px)`;
         }
@@ -214,7 +214,10 @@ class Scene extends React.Component {
 
   render() {
     return (
-      <>
+      <div
+        className="relative"
+        // style={{ width: '550px', height: `550px` }}
+      >
         <div
           ref={(ref) => (this.mount = ref)}
           className="mx-auto"
@@ -227,7 +230,7 @@ class Scene extends React.Component {
             informations.
           </Text>
         </Point>
-      </>
+      </div>
     );
   }
 }
