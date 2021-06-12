@@ -11,9 +11,7 @@ const About = () => {
         Welcome to my room — hover over any of the glowing dots to learn more
         about me!
       </p>
-      <ClientOnly>
-        <Scene />
-      </ClientOnly>
+      <Scene />
     </Layout>
   );
 };

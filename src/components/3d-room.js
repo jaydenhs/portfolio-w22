@@ -19,6 +19,7 @@ class Scene extends React.Component {
       // Debug
       const gui = new dat.GUI({ width: 400 });
       const controlsFolder = gui.addFolder('Controls');
+      gui.close();
       // controlsFolder.open();
 
       const debugParameters = {
@@ -64,10 +65,15 @@ class Scene extends React.Component {
       };
 
       window.addEventListener('resize', () => {
+        console.log('resized');
+        console.log(this.mount.offsetWidth, this.mount.offsetHeight);
+
         sizes.width = this.mount.offsetWidth;
         sizes.height = this.mount.offsetHeight;
 
-        camera.aspect = sizes.width / sizes.height;
+        // aspectRatio = sizes.width / sizes.height;
+        // camera.left = -7 * aspectRatio;
+        // camera.right = -7 * aspectRatio;
         camera.updateProjectionMatrix();
 
         renderer.setSize(sizes.width, sizes.height);
@@ -78,7 +84,7 @@ class Scene extends React.Component {
        * Camera
        */
       // Base camera
-      const aspectRatio = sizes.width / sizes.height;
+      let aspectRatio = sizes.width / sizes.height;
       const camera = new THREE.OrthographicCamera(
         -7 * aspectRatio,
         7 * aspectRatio,
@@ -87,6 +93,12 @@ class Scene extends React.Component {
         0.001,
         100
       );
+      // const camera = new THREE.PerspectiveCamera(
+      //   75,
+      //   sizes.width / sizes.height,
+      //   0.1,
+      //   100
+      // );
       camera.position.set(6.1, 10.2, 6.1);
       gui.add(debugParameters, 'getCameraPosition');
       scene.add(camera);
@@ -141,9 +153,7 @@ class Scene extends React.Component {
       gui
         .add(debugParameters, 'canvasTransparent')
         .onChange(() =>
-          debugParameters.canvasTransparent
-            ? renderer.setClearAlpha(0)
-            : renderer.setClearAlpha(1)
+          renderer.setClearAlpha(debugParameters.canvasTransparent ? 0 : 1)
         );
       renderer.setSize(sizes.width, sizes.height);
       this.mount.appendChild(renderer.domElement);
@@ -158,7 +168,7 @@ class Scene extends React.Component {
 
       const points = [
         {
-          position: new THREE.Vector3(1, -1, -0.6),
+          position: new THREE.Vector3(-3, -0.5, 3),
           element: document.querySelector('.point-0'),
         },
       ];
@@ -166,17 +176,21 @@ class Scene extends React.Component {
       const tick = () => {
         const elapsedTime = clock.getElapsedTime();
 
+        // Update controls
+        controls.update();
+        camera.updateProjectionMatrix();
+
         for (const point of points) {
           const screenPosition = point.position.clone();
           screenPosition.project(camera);
 
+          // console.log(screenPosition.x);
+          // console.log(screenPosition.y);
           const translateX = screenPosition.x * sizes.width * 0.5;
-          const translateY = -(screenPosition.y * sizes.height * 0.5);
+          const translateY = -((screenPosition.y - 0.75) * sizes.height * 0.5);
+          // point.element.style.transform = `translate(${translateX}px`;
           point.element.style.transform = `translate(${translateX}px, ${translateY}px)`;
         }
-
-        // Update controls
-        controls.update();
 
         // Render
         renderer.render(scene, camera);
@@ -190,6 +204,7 @@ class Scene extends React.Component {
   }
 
   onWindowResize() {
+    console.log('window resized');
     if (this.mount) {
       camera.aspect = this.mount.offsetWidth / this.mount.offsetHeight;
       camera.updateProjectionMatrix();
@@ -203,7 +218,7 @@ class Scene extends React.Component {
         <div
           ref={(ref) => (this.mount = ref)}
           className="mx-auto"
-          style={{ width: '60%', height: `80vh` }}
+          style={{ width: '550px', height: `550px` }}
         ></div>
         <Point className="point-0 visible">
           <Label>1</Label>
