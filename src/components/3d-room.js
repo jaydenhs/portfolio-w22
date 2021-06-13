@@ -5,9 +5,25 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 
 const isBrowser = typeof window !== 'undefined';
+
+let points = [
+  {
+    position: new THREE.Vector3(-3, -0.5, 3.25),
+    hoverText:
+      'Front and top screen with HUD aggregating terrain and battle informations.',
+  },
+  {
+    position: new THREE.Vector3(-0.5, 4, -4),
+    hoverText: 'Second point hover text',
+  },
+];
 class Scene extends React.Component {
   componentDidMount() {
     if (isBrowser) {
+      for (const [index, point] of points.entries()) {
+        point.element = document.querySelector(`.point-${index}`);
+      }
+
       const dat = require('dat.gui');
 
       // Canvas
@@ -29,7 +45,7 @@ class Scene extends React.Component {
         logControls: () => {
           console.log(controls);
         },
-        canvasTransparent: false,
+        canvasTransparent: true,
       };
 
       /**
@@ -166,13 +182,6 @@ class Scene extends React.Component {
        */
       const clock = new THREE.Clock();
 
-      const points = [
-        {
-          position: new THREE.Vector3(-3, -0.5, 3.25),
-          element: document.querySelector('.point-0'),
-        },
-      ];
-
       const tick = () => {
         const elapsedTime = clock.getElapsedTime();
 
@@ -184,11 +193,8 @@ class Scene extends React.Component {
           const screenPosition = point.position.clone();
           screenPosition.project(camera);
 
-          // console.log(screenPosition.x);
-          // console.log(screenPosition.y);
           const translateX = screenPosition.x * sizes.width * 0.5;
           const translateY = -(screenPosition.y * sizes.height * 0.5);
-          // point.element.style.transform = `translate(${translateX}px`;
           point.element.style.transform = `translate(${translateX}px, ${translateY}px)`;
         }
 
@@ -214,22 +220,18 @@ class Scene extends React.Component {
 
   render() {
     return (
-      <div
-        className="relative"
-        // style={{ width: '550px', height: `550px` }}
-      >
+      <div className="relative">
         <div
           ref={(ref) => (this.mount = ref)}
           className="mx-auto"
           style={{ width: '550px', height: `550px` }}
         ></div>
-        <Point className="point-0 visible">
-          <Label>1</Label>
-          <Text>
-            Front and top screen with HUD aggregating terrain and battle
-            informations.
-          </Text>
-        </Point>
+        {points.map(({ hoverText }, index) => (
+          <Point className={`point-${index} visible`} key={index}>
+            <Label>1</Label>
+            <Text>{hoverText}</Text>
+          </Point>
+        ))}
       </div>
     );
   }
@@ -272,7 +274,7 @@ const Label = styled.div`
   font-size: 14px;
 
   cursor: help;
-  transform: scale(0, 0);
+  /* transform: scale(0, 0); */
   transition: transform 0.3s;
 `;
 
@@ -281,9 +283,9 @@ const Point = styled.div`
   top: 50%;
   left: 50%;
 
-  &.visible ${Label} {
+  /* &.visible ${Label} {
     transform: scale(1, 1);
-  }
+  } */
 
   &:hover ${Text} {
     opacity: 1;
