@@ -6,6 +6,7 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 
 const isBrowser = typeof window !== 'undefined';
 
+// outside to be accessible within componentDidMount and render
 let points = [
   {
     position: new THREE.Vector3(-3, -0.5, 3.25),
@@ -19,13 +20,11 @@ let points = [
 ];
 class Scene extends React.Component {
   componentDidMount() {
+    // only if ran within a browser, code requires window / document
     if (isBrowser) {
-      for (const [index, point] of points.entries()) {
-        point.element = document.querySelector(`.point-${index}`);
-      }
-
-      const dat = require('dat.gui');
-
+      /**
+       * Foundation
+       */
       // Canvas
       const canvas = this.mount;
 
@@ -33,11 +32,10 @@ class Scene extends React.Component {
       const scene = new THREE.Scene();
 
       // Debug
+      const dat = require('dat.gui');
       const gui = new dat.GUI({ width: 400 });
       const controlsFolder = gui.addFolder('Controls');
-      gui.close();
-      // controlsFolder.open();
-
+      const helpersFolder = gui.addFolder('Helpers');
       const debugParameters = {
         getCameraPosition: () => {
           console.log(camera.position);
@@ -47,20 +45,39 @@ class Scene extends React.Component {
         },
         canvasTransparent: true,
       };
+      gui.close();
+
+      // Helpers
+      const axesHelper = new THREE.AxesHelper();
+      helpersFolder.add(axesHelper, 'visible').name('Origin axes visible');
+      scene.add(axesHelper);
 
       /**
-       * Models
+       * Objects
        */
+      // Room
       const gltfLoader = new GLTFLoader();
-
       gltfLoader.load('/models/room.glb', (glb) => {
         // move center of the room to the origin
-        const bbox = new THREE.Box3().setFromObject(glb.scene);
-        glb.scene.position.set(0, -bbox.max.y / 2, 0);
+        const boundingBox = new THREE.Box3().setFromObject(glb.scene);
+        const boundingBoxHelper = new THREE.Box3Helper(boundingBox, 0xffff00);
+        helpersFolder
+          .add(boundingBoxHelper, 'visible')
+          .name('Model bounding box visible');
+
+        scene.add(boundingBoxHelper);
+
+        // offset scene position (floor thickness not accounted for)
+        glb.scene.position.set(0, -boundingBox.max.y / 2 - 0.475, 0);
         glb.scene.scale.set(1.13, 1.13, 1.13);
 
         scene.add(glb.scene);
       });
+
+      // Tooltips
+      for (const [index, point] of points.entries()) {
+        point.element = document.querySelector(`.point-${index}`);
+      }
 
       /**
        * Lights
@@ -82,25 +99,25 @@ class Scene extends React.Component {
       };
 
       window.addEventListener('resize', () => {
-        console.log('resized');
-        console.log(this.mount.offsetWidth, this.mount.offsetHeight);
+        // Leave as non-resizing for now
+        // console.log('resized');
+        // console.log(this.mount.offsetWidth, this.mount.offsetHeight);
 
-        sizes.width = this.mount.offsetWidth;
-        sizes.height = this.mount.offsetHeight;
+        // sizes.width = this.mount.offsetWidth;
+        // sizes.height = this.mount.offsetHeight;
 
-        // aspectRatio = sizes.width / sizes.height;
-        // camera.left = -7 * aspectRatio;
-        // camera.right = -7 * aspectRatio;
-        camera.updateProjectionMatrix();
+        // // aspectRatio = sizes.width / sizes.height;
+        // // camera.left = -7 * aspectRatio;
+        // // camera.right = -7 * aspectRatio;
+        // camera.updateProjectionMatrix();
 
-        renderer.setSize(sizes.width, sizes.height);
+        // renderer.setSize(sizes.width, sizes.height);
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
       });
 
       /**
        * Camera
        */
-      // Base camera
       let aspectRatio = sizes.width / sizes.height;
       const camera = new THREE.OrthographicCamera(
         -7 * aspectRatio,
@@ -110,12 +127,6 @@ class Scene extends React.Component {
         0.001,
         100
       );
-      // const camera = new THREE.PerspectiveCamera(
-      //   75,
-      //   sizes.width / sizes.height,
-      //   0.1,
-      //   100
-      // );
       camera.position.set(9, 4, 9);
       gui.add(debugParameters, 'getCameraPosition');
       scene.add(camera);
@@ -124,7 +135,8 @@ class Scene extends React.Component {
        * Orbit Controls
        */
       const controls = new OrbitControls(camera, canvas);
-      // controls.enablePan = false;
+      controls.enablePan = false;
+      controlsFolder.add(controls, 'enablePan');
       controls.enableDamping = true;
 
       // Zoom
@@ -167,17 +179,16 @@ class Scene extends React.Component {
       renderer.setSize(sizes.width, sizes.height);
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
       renderer.setClearColor(0x000000);
+      renderer.setSize(sizes.width, sizes.height);
+      renderer.setClearAlpha(debugParameters.canvasTransparent ? 0 : 1);
+      this.mount.appendChild(renderer.domElement);
 
       gui
         .add(debugParameters, 'canvasTransparent')
+        .name('Canvas transparent')
         .onChange(() =>
           renderer.setClearAlpha(debugParameters.canvasTransparent ? 0 : 1)
         );
-      renderer.setSize(sizes.width, sizes.height);
-      this.mount.appendChild(renderer.domElement);
-
-      const axesHelper = new THREE.AxesHelper();
-      scene.add(axesHelper);
 
       /**
        * Animate

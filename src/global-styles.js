@@ -121,6 +121,11 @@ const GlobalStyles = createGlobalStyle`
     margin-top: 0;
     visibility: visible;
   }
+
+  // Target dat.gui
+  .dg.main {
+    background-color: black;
+  }
 `;
 
 export default GlobalStyles;
