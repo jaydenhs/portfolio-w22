@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
@@ -55,8 +55,9 @@ class Scene extends React.Component {
 
       gltfLoader.load('/models/room.glb', (glb) => {
         // move center of the room to the origin
-        var bbox = new THREE.Box3().setFromObject(glb.scene);
+        const bbox = new THREE.Box3().setFromObject(glb.scene);
         glb.scene.position.set(0, -bbox.max.y / 2, 0);
+        glb.scene.scale.set(1.13, 1.13, 1.13);
 
         scene.add(glb.scene);
       });
@@ -115,7 +116,7 @@ class Scene extends React.Component {
       //   0.1,
       //   100
       // );
-      camera.position.set(6.1, 10.2, 6.1);
+      camera.position.set(9, 4, 9);
       gui.add(debugParameters, 'getCameraPosition');
       scene.add(camera);
 
@@ -127,8 +128,8 @@ class Scene extends React.Component {
       controls.enableDamping = true;
 
       // Zoom
-      controls.minZoom = 1;
-      controls.maxZoom = 1.4;
+      controls.minZoom = 0.9;
+      controls.maxZoom = 1;
       controls.zoomSpeed = 0.2;
       controlsFolder.add(controls, 'minZoom', 0, 2, 0.01);
       controlsFolder.add(controls, 'maxZoom', 0, 2, 0.01);
@@ -144,9 +145,10 @@ class Scene extends React.Component {
 
       // Vertical Rotation
       /// limit vertical rotation to the edges of the room
+      // max = bottom, min = top
       const polarAngleBuffer = 0.1;
       controls.maxPolarAngle = Math.PI / 2 - polarAngleBuffer;
-      controls.minPolarAngle = Math.PI / 4 + polarAngleBuffer;
+      controls.minPolarAngle = Math.PI / 3 + polarAngleBuffer;
       controlsFolder.add(debugParameters, 'logControls');
 
       /**
@@ -209,22 +211,13 @@ class Scene extends React.Component {
     }
   }
 
-  onWindowResize() {
-    console.log('window resized');
-    if (this.mount) {
-      camera.aspect = this.mount.offsetWidth / this.mount.offsetHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(this.mount.offsetWidth, this.mount.offsetHeight);
-    }
-  }
-
   render() {
     return (
       <div className="relative">
         <div
           ref={(ref) => (this.mount = ref)}
           className="mx-auto"
-          style={{ width: '550px', height: `550px` }}
+          style={{ width: '800px', height: `800px` }}
         ></div>
         {points.map(({ hoverText }, index) => (
           <Point className={`point-${index} visible`} key={index}>
