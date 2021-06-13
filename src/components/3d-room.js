@@ -8,7 +8,7 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 const isBrowser = typeof window !== 'undefined';
 
 // outside to be accessible within componentDidMount and render
-let points = [
+let tooltips = [
   {
     position: new THREE.Vector3(-3, -0.5, 3.25),
     hoverText:
@@ -77,8 +77,8 @@ class Scene extends React.Component {
       });
 
       // Tooltips
-      for (const [index, point] of points.entries()) {
-        point.element = document.querySelector(`.point-${index}`);
+      for (const [index, tooltip] of tooltips.entries()) {
+        tooltip.element = document.querySelector(`.tooltip-${index}`);
       }
 
       /**
@@ -204,13 +204,13 @@ class Scene extends React.Component {
         controls.update();
         camera.updateProjectionMatrix();
 
-        for (const point of points) {
-          const screenPosition = point.position.clone();
+        for (const tooltip of tooltips) {
+          const screenPosition = tooltip.position.clone();
           screenPosition.project(camera);
 
           const translateX = screenPosition.x * sizes.width * 0.5;
           const translateY = -(screenPosition.y * sizes.height * 0.5);
-          point.element.style.transform = `translate(${translateX}px, ${translateY}px)`;
+          tooltip.element.style.transform = `translate(${translateX}px, ${translateY}px)`;
         }
 
         // Render
@@ -232,40 +232,31 @@ class Scene extends React.Component {
           className="mx-auto"
           style={{ width: '800px', height: `800px` }}
         ></div>
-        {points.map(({ hoverText }, index) => (
-          <Point className={`point-${index} visible`} key={index}>
-            <Text>{hoverText}</Text>
-          </Point>
+        {tooltips.map(({ hoverText }, index) => (
+          <TooltipContainer className={`tooltip-${index} visible`} key={index}>
+            <Content>{hoverText}</Content>
+          </TooltipContainer>
         ))}
       </div>
     );
   }
 }
 
-const Text = styled.div`
-  position: absolute;
-  top: 1.5rem;
-  transform: translateX(-50%);
+const Content = styled.div`
+  ${tw`absolute top-6 transform -translate-x-1/2 p-4 rounded-md`}
   width: max(20%, 12rem);
-  padding: 1rem;
-  border-radius: 0.5rem;
-  background: white;
-  border: 5px solid var(--primaryLight);
-  color: black;
-  font-size: 0.875rem;
 
-  opacity: 0;
-  transition: opacity 0.3s;
-  pointer-events: none;
+  ${tw`bg-white border-4 border-solid border-primary-light text-sm`}
+  ${tw`opacity-0 transition-opacity duration-300`}
+  ${tw`pointer-events-none`}
 `;
 
-const Point = styled.div`
+const TooltipContainer = styled.div`
   ${tw`absolute top-1/2 left-1/2 rounded-full p-2 bg-white`}
   ${tw`border-3 border-solid border-primary`}
 
-  &:hover ${Text} {
-    opacity: 1;
-    pointer-events: all;
+  &:hover ${Content} {
+    ${tw`opacity-100 pointer-events-auto`}
   }
 `;
 
