@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import tw from 'twin.macro';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
@@ -61,6 +62,7 @@ class Scene extends React.Component {
         // move center of the room to the origin
         const boundingBox = new THREE.Box3().setFromObject(glb.scene);
         const boundingBoxHelper = new THREE.Box3Helper(boundingBox, 0xffff00);
+        boundingBoxHelper.visible = false;
         helpersFolder
           .add(boundingBoxHelper, 'visible')
           .name('Model bounding box visible');
@@ -136,8 +138,8 @@ class Scene extends React.Component {
        */
       const controls = new OrbitControls(camera, canvas);
       controls.enablePan = false;
-      controlsFolder.add(controls, 'enablePan');
       controls.enableDamping = true;
+      controlsFolder.add(controls, 'enablePan');
 
       // Zoom
       controls.minZoom = 0.9;
@@ -232,7 +234,6 @@ class Scene extends React.Component {
         ></div>
         {points.map(({ hoverText }, index) => (
           <Point className={`point-${index} visible`} key={index}>
-            <Label>1</Label>
             <Text>{hoverText}</Text>
           </Point>
         ))}
@@ -243,53 +244,24 @@ class Scene extends React.Component {
 
 const Text = styled.div`
   position: absolute;
-  top: 30px;
-  left: -120px;
-  width: 200px;
-  padding: 20px;
-  border-radius: 4px;
-  background: #00000077;
-  border: 1px solid #ffffff77;
-  color: #ffffff;
-  line-height: 1.3em;
-  font-family: Helvetica, Arial, sans-serif;
-  font-weight: 100;
-  font-size: 14px;
+  top: 1.5rem;
+  transform: translateX(-50%);
+  width: max(20%, 12rem);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background: white;
+  border: 5px solid var(--primaryLight);
+  color: black;
+  font-size: 0.875rem;
 
   opacity: 0;
   transition: opacity 0.3s;
   pointer-events: none;
 `;
 
-const Label = styled.div`
-  position: absolute;
-  top: -20px;
-  left: -20px;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: #00000077;
-  border: 1px solid #ffffff77;
-  color: #ffffff;
-  font-family: Helvetica, Arial, sans-serif;
-  text-align: center;
-  line-height: 40px;
-  font-weight: 100;
-  font-size: 14px;
-
-  cursor: help;
-  /* transform: scale(0, 0); */
-  transition: transform 0.3s;
-`;
-
 const Point = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-
-  /* &.visible ${Label} {
-    transform: scale(1, 1);
-  } */
+  ${tw`absolute top-1/2 left-1/2 rounded-full p-2 bg-white`}
+  ${tw`border-3 border-solid border-primary`}
 
   &:hover ${Text} {
     opacity: 1;
