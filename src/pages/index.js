@@ -16,9 +16,12 @@ const IndexPage = (props) => {
 
       <h2 className="mb-5">Work</h2>
       <MainProjectPreviewWrapper>
-        {mainProjects.map(({ node }, i) => (
-          <MainProjectPreview project={node} key={i} />
-        ))}
+        {mainProjects.map(
+          ({ node }, i) =>
+            !node.frontmatter.hidden && (
+              <MainProjectPreview project={node} key={i} />
+            )
+        )}
       </MainProjectPreviewWrapper>
 
       <AdditionalProjectPreviewWrapper>
@@ -68,6 +71,10 @@ export const pageQuery = graphql`
             category
             tags
             thumbnail
+            hidden
+
+            videoWidth
+            detailsWidth
           }
         }
       }

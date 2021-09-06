@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 import GetExtension from '@utils/get-extension';
 
-const Image = ({ src, ...rest }) => {
+const Image = ({ src, caption, ...rest }) => {
   const { allImageSharp } = useStaticQuery(graphql`
     query {
       allImageSharp {
@@ -28,9 +28,12 @@ const Image = ({ src, ...rest }) => {
   } else if (extension === 'webm') {
     let webm_src = require(`@posts/${src}`);
     return (
-      <video autoPlay="autoplay" loop="loop" muted playsInline {...rest}>
-        <source src={webm_src} type="video/webm" />
-      </video>
+      <figure className="flex flex-col items-center">
+        <video autoPlay="autoplay" loop="loop" muted playsInline {...rest}>
+          <source src={webm_src} type="video/webm" />
+        </video>
+        <caption className="mt-2 text-gray-400">{caption}</caption>
+      </figure>
     );
   } else if (extension === 'webp') {
     const src = allImageSharp.nodes.find((n) => n.fluid.originalName === src)
@@ -41,8 +44,12 @@ const Image = ({ src, ...rest }) => {
       .fluid;
 
     return (
-      <figure>
-        <Img fluid={fluid} {...rest} />
+      <figure className="flex flex-col items-center">
+        {/* have to wrap gatsby-img in div or else it shrinks to 0x0px https://github.com/gatsbyjs/gatsby/issues/12818#issuecomment-477856069 */}
+        <div className="w-full">
+          <Img fluid={fluid} {...rest} />
+        </div>
+        <figcaption className="mt-2 text-gray-400">{caption}</figcaption>
       </figure>
     );
   }

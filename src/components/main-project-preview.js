@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link as GatsbyLink } from 'gatsby';
 import styled from 'styled-components';
 import tw from 'twin.macro';
 import Image from '@utils/local-img';
@@ -7,21 +6,34 @@ import AutoLink from '@components/auto-link';
 
 export default function MainProjectPreview({
   project: {
-    frontmatter: { title, slug, description, category, tags, thumbnail },
+    frontmatter: {
+      title,
+      slug,
+      description,
+      tags,
+      thumbnail,
+      videoWidth,
+      detailsWidth,
+    },
   },
 }) {
+  // set half and half defaults if no class is provided, can't use default prop values in destructuring since gql assigns missing fields null, not undefined
+  videoWidth ??= 'w-1/2';
+  detailsWidth ??= 'w-1/2';
+
   return (
     <ProjectCard to={`${slug}`}>
       <Wave />
-      <Details>
+      <Details className={detailsWidth}>
         <h3 className="mb-1.5">{title}</h3>
         <p className="uppercase text-md mb-2.5">
-          <b>{category}</b> <span className="px-0.5">•</span> {tags}
+          {/* <b>{category}</b> <span className="px-0.5">•</span>  */}
+          {tags}
         </p>
         <p>{description}</p>
       </Details>
       <div className="mx-2" />
-      <VideoWrapper>
+      <VideoWrapper className={videoWidth}>
         <Image src={thumbnail} />
       </VideoWrapper>
     </ProjectCard>
@@ -29,11 +41,11 @@ export default function MainProjectPreview({
 }
 
 const VideoWrapper = styled.div`
-  ${tw`w-1/2 z-10`}
+  ${tw`z-10`}
 `;
 
 const ProjectCard = styled(AutoLink)`
-  ${tw`px-11 py-6 w-full rounded-xl transition-all duration-500 transform no-underline flex even:flex-row-reverse items-center max-h-screen bg-surface`}
+  ${tw`px-11 py-6 w-full rounded-xl transition-all duration-500 transform no-underline flex odd:flex-row-reverse items-center max-h-screen bg-surface`}
   min-height: 36rem;
   box-shadow: 0px 10px 15px 0px var(--boxShadow1);
 
@@ -42,14 +54,14 @@ const ProjectCard = styled(AutoLink)`
     box-shadow: 0px 12px 17px 0px var(--boxShadow2);
   }
 
-  &:nth-child(even) .wave {
-    //flip wave for even project card
+  &:nth-child(odd) .wave {
+    //flip wave for odd project card
     ${tw`transform -scale-x-1`}
   }
 `;
 
 const Details = styled.div`
-  ${tw`flex flex-col w-1/2 z-10`}
+  ${tw`flex flex-col z-10`}
 `;
 
 const Wave = () => (

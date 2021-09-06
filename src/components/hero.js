@@ -82,8 +82,8 @@ const Hero = () => {
             Systems Design Engineering student at the University of Waterloo.
           </div>
           <div>
-            Previously a Product Designer at Ontario Digital Service and a UX/UI
-            Designer at TD Labs.
+            Previously a Product Designer at StructionSite, TD Labs, and Ontario
+            Digital Service.
           </div>
         </Details>
       </div>

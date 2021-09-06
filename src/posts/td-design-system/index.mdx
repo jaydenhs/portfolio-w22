@@ -7,7 +7,7 @@ description:
 category: 'Case Study'
 tags: 'UI Design, Design-Dev Collaboration'
 section: 'Main'
-rank: '2'
+rank: '3'
 thumbnail: 'td_ds_thumbnail.png'
 ---
 
@@ -27,6 +27,7 @@ import ImageGrid from '@components/image-grid';
 import BeforeAndAfter from '@components/before-and-after';
 import Quote from '@components/quote';
 import Learning from '@components/learning';
+import NumberedList from '@components/numbered-list';
 
 As a UX/UI design intern at TD's Innovation Lab, I was tasked with rapidly
 prototyping experiences that could impact millions of users.
@@ -138,41 +139,22 @@ Building my first design system has been nothing short of an amazing opportunity
 to develop my ability to design beautiful and functional user interfaces. Here
 were some of my takeaways:
 
-<div className="divide-y divide-gray200">
-
-  <Learning title={"Invest in best practices"}>
-
-Prioritizing quality over efficiency when creating the building blocks of this
-design system was one of the best decisions I could have made. Yes, it took me
-time to implement the whole library of Material Design icons and structure an
-intricate master component hierarchy to optimize for Figma's new variants
-update, but being able to easily choose from over 1000+ instantly-scaled,
-automatically-coloured icons and 200+ flexible, responsive components saved our
-team even more time.
-
-  </Learning>
-
-  <Learning title={"Use your own product"}>
-
-When creating a design system, it can be easy to lose usability in the name of
-"optimizing the library." Using my own components within my own design workflows
-helped me identify and fix unintuitive or difficult features.
-
-  </Learning>
-
-  <Learning title={"I love designing interfaces!"}>
-
-Coming into this internship, I wasn't sure where my opinion stood on user
-interface design. But building this design system from the ground up really
-helped me appreciate the art of it!
-
-Whether it be creating vertical rhythm with consistent grids and line heights,
-nudging tracking amounts based on font size to optimize for iOS displays,
-balancing key and ambient lighting in drop shadow styles, adding 2px offsets to
-darkened focus borders to maintain appropriate contrast ratios, or simply just
-ctrl + clicking, shift + entering, and tabbing my way to Figma mastery, I
-discovered my love for user interface design!
-
-  </Learning>
-
-</div>
+<NumberedList
+  data={[
+    {
+      title: 'Invest in best practices',
+      description:
+        "Prioritizing quality over efficiency when creating the building blocks of this design system was one of the best decisions I could have made. Yes, it took me time to implement the whole library of Material Design icons and structure an intricate master component hierarchy to optimize for Figma's new variants update, but being able to easily choose from over 1000+ instantly-scaled, automatically-coloured icons and 200+ flexible, responsive components saved our team even more time.",
+    },
+    {
+      title: 'Use your own product',
+      description:
+        'When creating a design system, it can be easy to lose usability in the name of "optimizing the library." Using my own components within my own design workflows helped me identify and fix unintuitive or difficult features.',
+    },
+    {
+      title: 'I love designing interfaces!',
+      description:
+        "Coming into this internship, I wasn't sure where my opinion stood on user interface design. But building this design system from the ground up really helped me appreciate the art of it! \n Whether it be creating vertical rhythm with consistent grids and line heights, nudging tracking amounts based on font size to optimize for iOS displays, balancing key and ambient lighting in drop shadow styles, adding 2px offsets to darkened focus borders to maintain appropriate contrast ratios, or simply just ctrl + clicking, shift + entering, and tabbing my way to Figma mastery, I discovered my love for user interface design!",
+    },
+  ]}
+/>

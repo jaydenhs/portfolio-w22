@@ -24,9 +24,7 @@ const PainPoints = ({ data }) => {
               <h3 className="mb-4">{title}</h3>
               <div className="space-y-9">
                 {quotes.map((node, index) => {
-                  // console.log({ node });
                   alternate = !alternate;
-                  console.log({ node });
                   return (
                     <SpeechBubble key={index}>
                       {/* must use markdown renderer because we're mapping through an array instead of passing in children */}

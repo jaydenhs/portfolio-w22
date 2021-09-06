@@ -1,6 +1,6 @@
 import React from 'react';
 import Layout from '@components/layout';
-import Scene from '@components/3d-room';
+// import Scene from '@components/3d-room';
 import ClientOnly from '@utils/client-only';
 
 const About = () => {
@@ -11,7 +11,7 @@ const About = () => {
         Welcome to my room — hover over any of the glowing dots to learn more
         about me!
       </p>
-      <Scene />
+      {/* <Scene /> */}
     </Layout>
   );
 };

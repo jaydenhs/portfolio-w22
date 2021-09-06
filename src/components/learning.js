@@ -12,7 +12,7 @@ const Learning = ({ title, children }) => {
   return (
     <>
       <div className="py-8">
-        <div className="flex space-x-4 items-center mb-4">
+        <div className="flex space-x-4 items-start">
           <div className="flex flex-col items-center">
             <span className="flex items-center w-16 h-16 rounded-full bg-primary text-background">
               <span className="mx-auto pt-0.5 text-3xl font-bold">
@@ -20,9 +20,11 @@ const Learning = ({ title, children }) => {
               </span>
             </span>
           </div>
-          <h2 className="mt-0.5">{title}</h2>
+          <div>
+            <h3 className="mt-0.5 mb-1">{title}</h3>
+            {children}
+          </div>
         </div>
-        {children}
       </div>
     </>
   );

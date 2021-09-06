@@ -58,7 +58,7 @@ class Scene extends React.Component {
        */
       // Room
       const gltfLoader = new GLTFLoader();
-      gltfLoader.load('/models/room.glb', (glb) => {
+      gltfLoader.load('/models/about_room_v5.gltf', (glb) => {
         // move center of the room to the origin
         const boundingBox = new THREE.Box3().setFromObject(glb.scene);
         const boundingBoxHelper = new THREE.Box3Helper(boundingBox, 0xffff00);
@@ -126,7 +126,7 @@ class Scene extends React.Component {
         7 * aspectRatio,
         7,
         -7,
-        0.001,
+        0.1,
         100
       );
       camera.position.set(9, 4, 9);
@@ -143,8 +143,8 @@ class Scene extends React.Component {
 
       // Zoom
       controls.minZoom = 0.9;
-      controls.maxZoom = 1;
-      controls.zoomSpeed = 0.2;
+      controls.maxZoom = 5;
+      controls.zoomSpeed = 5;
       controlsFolder.add(controls, 'minZoom', 0, 2, 0.01);
       controlsFolder.add(controls, 'maxZoom', 0, 2, 0.01);
       controlsFolder.add(controls, 'zoomSpeed', 0, 1, 0.01);

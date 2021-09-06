@@ -17,17 +17,20 @@ const Footer = () => {
           );
         })}
       </div>
-      <p className="text-gray-500 mb-1">
+      <p className="text-gray-500 mb-1.5">
         Designed and developed with love 🖤💛 © Jayden Hsiao 2021
       </p>
-      <a
+      <p className="text-gray-300 mb-1">
+        (love as in Figma, GatsbyJS, GraphQL, Markdown JSX, TailwindCSS,
+        styled-components, and twin.macro)
+      </p>
+      <AutoLink
         href="https://jaydenhs.github.io/life-credits/"
         target="_blank"
         rel="noopener noreferrer"
-        className="text-primary-light"
       >
         view my life credits!
-      </a>
+      </AutoLink>
     </footer>
   );
 };

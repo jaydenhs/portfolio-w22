@@ -7,6 +7,9 @@ import Layout from '@components/layout';
 import Quote from '@components/quote';
 import tw from 'twin.macro';
 
+import Image from '@utils/local-img';
+import FullBleed from '@components/full-bleed-container';
+
 //move all headings down one hierarchy for simplicity writing mdx (less #'s)
 //apply all classNames that are specific to content within the flow here
 const components = {
@@ -27,12 +30,13 @@ const components = {
     <td {...props} className="align-top text-gray-700 pr-4 pb-1" />
   ),
   blockquote: (props) => <Quote {...props} />,
+  ol: (props) => <ol {...props} className="list-decimal pl-8" />,
 };
 
 export default function PostLayout({
   data: {
     mdx: {
-      frontmatter: { title },
+      frontmatter: { title, thumbnail, thumbnailOnPage },
       body,
     },
   },
@@ -40,6 +44,11 @@ export default function PostLayout({
   return (
     <Layout title={title} maxWidth={false}>
       <Wrapper>
+        {thumbnailOnPage && (
+          <FullBleed>
+            <Image src={thumbnail} className="mx-auto w-2/3 mb-4" />
+          </FullBleed>
+        )}
         <h1>{title}</h1>
         <MDXProvider components={components}>
           <MDXRenderer>{body}</MDXRenderer>
@@ -56,6 +65,8 @@ export const pageQuery = graphql`
       body
       frontmatter {
         title
+        thumbnail
+        thumbnailOnPage
       }
     }
   }
