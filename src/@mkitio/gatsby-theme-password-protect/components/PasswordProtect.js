@@ -42,7 +42,10 @@ const PasswordProtect = () => {
   };
 
   return (
-    <div className="h-screen bg-gray-700 flex flex-col justify-center items-center text-white">
+    <dialog
+      className="h-screen w-screen flex flex-col justify-center items-center text-white"
+      style={{ backgroundColor: 'hsl(0deg, 0%, 30%)' }}
+    >
       <h4>Locked case study</h4>
       <h1 className="mb-4">Enter password</h1>
 
@@ -75,7 +78,7 @@ const PasswordProtect = () => {
           <AutoLink to={siteMetadata.social.email}> through email</AutoLink>
         </p>
       </form>
-    </div>
+    </dialog>
   );
 };
 
