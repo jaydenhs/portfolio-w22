@@ -1,3 +1,7 @@
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
 module.exports = {
   siteMetadata: {
     title: `Jayden Hsiao's Portfolio`,
@@ -9,7 +13,13 @@ module.exports = {
       linkedin: `https://www.linkedin.com/in/jaydenh`,
     },
   },
-  flags: { PRESERVE_WEBPACK_CACHE: true },
+  flags: {
+    PRESERVE_WEBPACK_CACHE: true,
+    FAST_DEV: true,
+    QUERY_ON_DEMAND: true,
+    LAZY_IMAGES: true,
+    FAST_REFRESH: true,
+  },
   plugins: [
     `gatsby-plugin-styled-components`,
     //mdx post generation
@@ -48,6 +58,13 @@ module.exports = {
           '@undraw': 'static/undraw',
         },
         extensions: ['js'],
+      },
+    },
+    {
+      resolve: '@mkitio/gatsby-theme-password-protect',
+      options: {
+        password: process.env.PASSWORD, // delete or `undefined` to disable password protection
+        pagePaths: ['/structionsite'],
       },
     },
     // `gatsby-plugin-offline`,
