@@ -9,6 +9,7 @@ module.exports = {
       linkedin: `https://www.linkedin.com/in/jaydenh`,
     },
   },
+  flags: { PRESERVE_WEBPACK_CACHE: true },
   plugins: [
     `gatsby-plugin-styled-components`,
     //mdx post generation
