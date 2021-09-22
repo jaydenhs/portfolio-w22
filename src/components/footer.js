@@ -11,7 +11,7 @@ const Footer = () => {
       <div className="flex space-x-6 mb-3">
         {Object.entries(social).map(([name, link], index) => {
           return (
-            <AutoLink to={link} key={index} className="text-lg">
+            <AutoLink to={link} key={index} className="text-lg capitalize">
               {name}
             </AutoLink>
           );
@@ -29,7 +29,7 @@ const Footer = () => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        view my life credits!
+        View my life credits!
       </AutoLink>
     </footer>
   );

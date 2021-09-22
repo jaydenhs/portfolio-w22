@@ -26,10 +26,10 @@ export default function MainProjectPreview({
       <Wave />
       <Details className={detailsWidth}>
         <h3 className="mb-1.5">{title}</h3>
-        <p className="uppercase text-md mb-2.5">
-          {/* <b>{category}</b> <span className="px-0.5">•</span>  */}
+        {/* <p className="uppercase text-md mb-2.5">
+          <b>{category}</b> <span className="px-0.5">•</span>
           {tags}
-        </p>
+        </p> */}
         <p>{description}</p>
       </Details>
       <div className="mx-2" />

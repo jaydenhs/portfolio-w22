@@ -27,12 +27,11 @@ import FigmaEmbed from '@components/figma-embed';
 import HighlightedSection from '@components/highlighted-section';
 import NumberedList from '@components/numbered-list';
 
-| Role                   | Team                    | Duration           |
-| ---------------------- | ----------------------- | ------------------ |
-| Product design         | 1 developer             | July - August 2021 |
-| Technical exploration  | 1 design mentor         |                    |
-| Shipping to production | 1 product manager       |
-|                        | 1 product designer (me) |
+| Role           | Team              | Duration           |
+| -------------- | ----------------- | ------------------ |
+| Product design | 1 developer       | July - August 2021 |
+|                | 1 design mentor   |                    |
+|                | 1 product manager |
 
 # Context
 
@@ -41,10 +40,10 @@ StructionSite. This case study focuses on my redesign of the project onboarding
 experience within SmartTrack, a product which automatically tracks construction
 work.
 
-This is what the current experience looked like:
+This is what the experience looked like:
 
 <FullBleed>
-  <Image src={'pilot-process.png'} className="w-3/5 mx-auto" />
+  <Image src={'pilot-process.png'} className="mt-3 mb-1 w-3/5 mx-auto" />
 </FullBleed>
 
 The SmartTrack project setup took the bulk of the time, often taking two weeks
@@ -56,7 +55,7 @@ or more. The process was composed of two steps:
 <FullBleed>
   <Image
     src={'structionsite/images/current-setup-process.webm'}
-    className="mt-2 mx-auto w-3/4"
+    className="mt-3 mb-2 mx-auto w-3/4"
     caption="What the current project setup process looked like"
   />
 </FullBleed>
@@ -66,9 +65,10 @@ or more. The process was composed of two steps:
 <HighlightedSection>
 
 With customer files containing thousands of vectors, this painfully manual
-process was wasting hundreds of our internal team's valuable hours. This delay
-resulted in trial customers failing to see the value of SmartTrack, leading to
-high average customer acquisition cost and lost sales opportunities.
+process was wasting **hundreds of our internal team's valuable hours**. This
+delay resulted in trial customers failing to see the value of SmartTrack,
+leading to **high average customer acquisition cost and lost sales
+opportunities**.
 
 </HighlightedSection>
 
@@ -138,7 +138,7 @@ Before sketching out any designs, I first needed to validate if such an import
 feature was possible. I created a simple file in one of the most popular
 construction tracking programs and opened the exported PDF in Notepad.
 
-To my delight, it had all of the information I needed:
+To my delight, it had **all of the information I needed**:
 
 <FullBleed>
   <Image
@@ -155,10 +155,10 @@ the most impactful file import option. After discussing with our customer
 success manager, I discovered that over 90% of our current SmartTrack customers
 submitted files from a different program.
 
-To maximize the value gained from a first iteration of this feature, I decided
-to pivot to importing from this more popular program instead.
+To **maximize the value** gained from a first iteration of this feature, I
+decided to pivot to importing from this more popular program instead.
 
-<Image src={'pivoting-to-ost.png'} className="w-3/4 mx-auto" />
+<Image src={'pivoting-to-ost.png'} className="mb-2 w-3/4 mx-auto" />
 
 Through a similar process as before, I validated that necessary information was
 available within this program's exports.
@@ -170,7 +170,7 @@ This also gave me the perfect opportunity to receive early feedback from
 stakeholders and validate feasibility with developers.
 
 <FullBleed>
-  <Image src={'import-user-flow-1.png'} className="w-3/5 mx-auto" />
+  <Image src={'import-user-flow-1.png'} className="mt-2 w-3/5 mx-auto" />
 </FullBleed>
 
 # Presenting the Concept
@@ -181,13 +181,9 @@ To communicate this user flow, I created a simple set of designs:
   <Image src={'import-initial-mockups.png'} className="w-4/5 mx-auto" />
 </FullBleed>
 
-After presenting these designs at my weekly product and design team meeting, our
-Chief Strategy Officer said this:
-
-> This is revolutionary! How did you even know that was possible?
-
-The project was green-lit for production, and I was provided with one engineer
-to pair with for a week.
+After incorporating feedback from our weekly product and design team meeting,
+the project was **green-lit for production** and I was provided with one
+engineer to pair with for a week.
 
 # Refining for Production
 
@@ -199,12 +195,13 @@ Takeoff file, and there were non-trivial loading times.
 Thus, I needed to revise my user flow to:
 
 <FullBleed>
-  <Image src={'import-user-flow-2.png'} className="w-4/5 mx-auto" />
+  <Image src={'import-user-flow-2.png'} className="w-4/5 mx-auto mt-2" />
 </FullBleed>
 
 # Adapting the UI
 
-These revisions resulted in the introduction of an intermediary user flow:
+These revisions resulted in the introduction of an intermediary user flow. Use
+the arrows in the prototype below to navigate through my design decisions:
 
 <FullBleed>
   <FigmaEmbed

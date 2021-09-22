@@ -15,10 +15,10 @@ import FullBleed from '@components/full-bleed-container';
 const components = {
   h1: (props) => (
     <>
-      <h2 {...props} className="mt-7" /> <hr className="mb-2" />
+      <h2 {...props} className="mt-12" /> <hr className="mb-2" />
     </>
   ),
-  h2: (props) => <h3 {...props} className="mt-4 mb-0" />,
+  h2: (props) => <h3 {...props} className="mt-6 mb-0" />,
   h3: (props) => <h4 {...props} className="mb-0.5" />,
   p: (props) => <p {...props} />,
   table: (props) => <table {...props} className="my-1 text-left" />,
@@ -30,7 +30,7 @@ const components = {
     <td {...props} className="align-top text-gray-700 pr-4 pb-1" />
   ),
   blockquote: (props) => <Quote {...props} />,
-  ol: (props) => <ol {...props} className="list-decimal pl-8" />,
+  ol: (props) => <ol {...props} className="list-decimal pl-8 space-y-1" />,
 };
 
 export default function PostLayout({

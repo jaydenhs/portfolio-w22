@@ -5,6 +5,7 @@ import Typist from 'react-typist';
 import { Fade } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css';
 import Image from '@utils/local-img';
+import AutoLink from '@components/auto-link';
 
 var words = [
   'Product Designer',
@@ -82,8 +83,8 @@ const Hero = () => {
             Systems Design Engineering student at the University of Waterloo.
           </div>
           <div>
-            Previously a Product Designer at StructionSite, TD Labs, and Ontario
-            Digital Service.
+            Previously a Product Designer at <AutoLink to="https://structionsite.com/">StructionSite</AutoLink>, <AutoLink to="https://tdlab.io/">TD Bank</AutoLink>, and <AutoLink to="https://www.ontario.ca/page/ontario-digital-service">the Ontario
+            Digital Service</AutoLink>.
           </div>
         </Details>
       </div>
