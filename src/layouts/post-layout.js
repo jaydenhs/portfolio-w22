@@ -45,18 +45,17 @@ export default function PostLayout({
   return (
     <Layout title={title} maxWidth={false}>
       <Wrapper>
-        {/* {thumbnailOnPage && (
-          <FullBleed>
-            <Image src={thumbnail} className="mx-auto w-2/3 mb-4" />
-          </FullBleed>
-        )} */}
-        <motion.img
-          transition={{ duration: 0.8, ease: [0.6, 0.01, -0.05, 0.95] }}
-          initial={false}
-          className="full-bleed"
-          layoutId={title}
-          src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=1.00xw:0.669xh;0,0.190xh&resize=1200:*"
-        />
+        <div
+          className="full-bleed overflow-hidden mb-4"
+          style={{ height: "75vh" }}
+        >
+          <motion.img
+            layoutId={title}
+            transition={{ duration: 0.9, ease: [0.6, 0.01, -0.05, 0.95] }}
+            className="w-full"
+            src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=1.00xw:0.669xh;0,0.190xh&resize=1200:*"
+          />
+        </div>
 
         <h1>{title}</h1>
         <MDXProvider components={components}>

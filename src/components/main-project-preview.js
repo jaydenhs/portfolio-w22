@@ -3,7 +3,7 @@ import styled from "styled-components";
 import tw from "twin.macro";
 import Image from "@utils/local-img";
 import AutoLink from "@components/auto-link";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 export default function MainProjectPreview({
   project: {
@@ -12,14 +12,13 @@ export default function MainProjectPreview({
 }) {
   return (
     <ProjectCard to={`${slug}`}>
-      <AnimatePresence initial={false}>
+      <div className="overflow-hidden h-128">
         <motion.img
-          // transition={{ duration: 0 }}
+          className="h-full object-cover"
           layoutId={title}
-          animate={{ y: 0 }}
           src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=1.00xw:0.669xh;0,0.190xh&resize=1200:*"
         />
-      </AnimatePresence>
+      </div>
       <div className="px-11 py-6 flex justify-between w-full">
         <div className="flex flex-col">
           <p>{role}</p>
@@ -39,11 +38,6 @@ const ProjectCard = styled(AutoLink)`
   &:hover {
     ${tw`-translate-y-1.5`}
     box-shadow: 0px 12px 17px 0px var(--boxShadow2);
-  }
-
-  &:nth-child(odd) .wave {
-    //flip wave for odd project card
-    ${tw`transform -scale-x-1`}
   }
 `;
 
