@@ -1,11 +1,11 @@
-import React from 'react';
-import { graphql } from 'gatsby';
-import tw from 'twin.macro';
-import Layout from '@components/layout';
-import MainProjectPreview from '@components/main-project-preview';
-import AdditionalProjectPreview from '@components/additional-project-preview';
-import Hero from '@components/hero';
-import styled from 'styled-components';
+import React from "react";
+import { graphql } from "gatsby";
+import tw from "twin.macro";
+import Layout from "@components/layout";
+import MainProjectPreview from "@components/main-project-preview";
+import AdditionalProjectPreview from "@components/additional-project-preview";
+import Hero from "@components/hero";
+import styled from "styled-components";
 
 const IndexPage = (props) => {
   const mainProjects = props.data.main.edges;
@@ -16,12 +16,9 @@ const IndexPage = (props) => {
 
       <h2 className="mb-5">Work</h2>
       <MainProjectPreviewWrapper>
-        {mainProjects.map(
-          ({ node }, i) =>
-            !node.frontmatter.hidden && (
-              <MainProjectPreview project={node} key={i} />
-            )
-        )}
+        {mainProjects.map(({ node }, i) => (
+          <MainProjectPreview project={node} key={i} />
+        ))}
       </MainProjectPreviewWrapper>
 
       <AdditionalProjectPreviewWrapper>
@@ -45,7 +42,7 @@ const IndexPage = (props) => {
 };
 
 const MainProjectPreviewWrapper = styled.div.attrs({
-  className: 'space-y-6 mb-16',
+  className: "space-y-6 mb-16",
 })``;
 
 const AdditionalProjectPreviewWrapper = styled.div`
@@ -60,20 +57,16 @@ export const pageQuery = graphql`
   query {
     main: allMdx(
       sort: { fields: frontmatter___rank, order: ASC }
-      filter: { frontmatter: { rank: { ne: "0" }, section: { eq: "Main" } } }
+      filter: { frontmatter: { hidden: { ne: true }, section: { eq: "Main" } } }
     ) {
       edges {
         node {
           frontmatter {
-            title
             slug
-            category
-            tags
+            title
+            company
+            role
             thumbnail
-            hidden
-
-            videoWidth
-            detailsWidth
           }
         }
       }

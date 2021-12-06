@@ -37,7 +37,7 @@ const components = {
 export default function PostLayout({
   data: {
     mdx: {
-      frontmatter: { title, thumbnail, thumbnailOnPage },
+      frontmatter: { title, thumbnail },
       body,
     },
   },
@@ -75,7 +75,6 @@ export const pageQuery = graphql`
       frontmatter {
         title
         thumbnail
-        thumbnailOnPage
       }
     }
   }
