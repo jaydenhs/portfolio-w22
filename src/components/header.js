@@ -1,15 +1,14 @@
-import React from 'react';
-import styled, { css } from 'styled-components';
-import tw from 'twin.macro';
-import DarkToggle from '@components/dark-toggle';
-import Resume from '@static/resume.pdf';
-import HeadRoom from 'react-headroom';
-import AutoLink from '@components/auto-link';
+import React from "react";
+import styled, { css } from "styled-components";
+import tw from "twin.macro";
+import Resume from "@static/resume.pdf";
+import HeadRoom from "react-headroom";
+import AutoLink from "@components/auto-link";
 
 const links = [
-  { text: 'Portfolio', url: '/', colour: `var(--primary)` },
-  { text: 'About', url: '/about', colour: 'var(--secondary)' },
-  { text: 'Resume', url: Resume, colour: '#000' },
+  { text: "Portfolio", url: "/", colour: `var(--primary)` },
+  { text: "About", url: "/about", colour: "var(--secondary)" },
+  { text: "Resume", url: Resume, colour: "#000" },
 ];
 
 const Header = ({ title }) => {
@@ -17,8 +16,8 @@ const Header = ({ title }) => {
     <HeadRoom
       className="mx-auto z-50"
       style={{
-        background: 'var(--background)',
-        zIndex: '999',
+        background: "var(--background)",
+        zIndex: "999",
       }}
     >
       <Wrapper>
@@ -33,8 +32,6 @@ const Header = ({ title }) => {
             );
           })}
         </ItemWrapper>
-
-        <DarkToggle />
         {/* <FocusIndicator /> */}
       </Wrapper>
     </HeadRoom>
@@ -70,7 +67,7 @@ const Wrapper = styled.main`
 
 const ItemWrapper = styled.main.attrs({
   className:
-    'space-x-4 ml-auto mr-4 md:space-x-12 md:mr-12 lg:space-x-16 md:mr-16',
+    "space-x-4 ml-auto mr-4 md:space-x-12 md:mr-12 lg:space-x-16 md:mr-16",
 })``;
 
 //import in Link as AutoLink, create styled-component based on that
@@ -83,7 +80,7 @@ const Item = styled(AutoLink)(
     ${match ? tw`text-primary` : tw`text-gray-500`}
 
     &:before {
-      content: '';
+      content: "";
       left: -10%;
       width: 120%;
       ${tw`h-1 bottom-0 absolute rounded-t-xl duration-300`}

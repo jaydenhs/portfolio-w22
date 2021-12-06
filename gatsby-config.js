@@ -64,6 +64,5 @@ module.exports = {
         pagePaths: ['/structionsite'],
       },
     },
-    // `gatsby-plugin-offline`,
   ],
 };

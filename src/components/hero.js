@@ -8,21 +8,11 @@ import Image from '@utils/local-img';
 import AutoLink from '@components/auto-link';
 
 var words = [
-  'Product Designer',
-  'Front End Developer',
-  'Photographer',
+  'Design Technologist',
+  'Yoga Enthusiast',
   'Pianist',
-  'Acapella Enthusiast',
-  'Friend',
-];
-
-var images = [
-  'product_designer.jpg',
-  'front_end_dev.jpg',
-  'photographer.jpg',
-  'pianist.png',
-  'acapella_enthusiast.jpg',
-  'friend.jpg',
+  'Photographer',
+  'Friend'
 ];
 
 var longest = words.reduce(function (a, b) {
@@ -33,21 +23,7 @@ let num;
 let avgTypingDelay = 90;
 
 const Hero = () => {
-  const slideRef = useRef();
   const [key, setKey] = useState(0);
-
-  useEffect(() => {
-    num = 1;
-  });
-
-  function transition() {
-    //only transition every other slide and if slideRef.current exists
-    num % 2 === 0 &&
-      slideRef.current !== null &&
-      slideRef.current.goNext() &&
-      (num = 1);
-    num++;
-  }
 
   return (
     <HeroWrapper>
@@ -59,7 +35,6 @@ const Hero = () => {
           key={key}
           //update key when typing is finished to restart loop
           onTypingDone={() => setKey(key + 1)}
-          onLineTyped={() => transition()}
           className="text-primary mb-8"
         >
           {words.map((value, index) => {
@@ -83,19 +58,11 @@ const Hero = () => {
             Systems Design Engineering student at the University of Waterloo.
           </div>
           <div>
-            Previously a Product Designer at <AutoLink to="https://structionsite.com/">StructionSite</AutoLink>, <AutoLink to="https://tdlab.io/">TD Bank</AutoLink>, and <AutoLink to="https://www.ontario.ca/page/ontario-digital-service">the Ontario
+            Incoming Design Technologist at <AutoLink to ="http://shopify.dev/">Shopify</AutoLink>. Previously a Product Designer at <AutoLink to="https://structionsite.com/">StructionSite</AutoLink>, <AutoLink to="https://tdlab.io/">TD Bank</AutoLink>, and <AutoLink to="https://www.ontario.ca/page/ontario-digital-service">the Ontario
             Digital Service</AutoLink>.
           </div>
         </Details>
       </div>
-
-      <SlideContainer>
-        <Fade ref={slideRef} transitionDuration={500} arrows={false}>
-          {images.map((value, index) => {
-            return <StyledImage src={value} key={index} />;
-          })}
-        </Fade>
-      </SlideContainer>
     </HeroWrapper>
   );
 };
@@ -117,21 +84,6 @@ const Details = styled.p`
   text-shadow: 0px 0px 3px var(--background), 0px 0px 4px var(--background),
     0px 0px 5px var(--background);
   ${tw`text-xl space-y-2`}
-`;
-
-const SlideContainer = styled.div`
-  width: 30rem;
-  height: 28rem;
-  opacity: var(--translucent);
-  ${tw`absolute top-1/2 right-0 transform -translate-y-1/2 overflow-hidden`}
-`;
-
-const StyledImage = styled(Image).attrs({
-  // className: 'object-cover',
-  imgStyle: { objectFit: 'cover', objectPosition: '50% 50%' },
-})`
-  width: 30rem;
-  height: 28rem;
 `;
 
 export default Hero;

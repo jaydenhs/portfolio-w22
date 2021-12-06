@@ -1,6 +1,10 @@
-# Jayden's Winter 2021 Portfolio
+# Jayden's Winter 2022 Portfolio
 
-Created with Gatsby, GraphQL querying from MDX, and Tailwind CSS + styled-components (with babel twin.macro plugin).
+Still a work in progress!
+I'm redesiging my portfolio to achieve three things:
 
-Based on the amazing Josh Comeau's dark mode starter:
-https://github.com/joshwcomeau/dark-mode-minimal
+1. Better developer experience
+2. Differentiate myself creatively
+3. Engaging consumer experience
+
+Created with Gatsby, GraphQL querying from MDX, Tailwind CSS + styled-components (with babel twin.macro plugin), Framer Motion, and Three.js.

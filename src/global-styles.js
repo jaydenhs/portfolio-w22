@@ -126,10 +126,6 @@ const GlobalStyles = createGlobalStyle`
   .dg.main {
     background-color: black;
   }
-
-  .invert-on-dark {
-    filter: var(--invert);
-  }
 `;
 
 export default GlobalStyles;
