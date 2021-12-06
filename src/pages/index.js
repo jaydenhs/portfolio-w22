@@ -67,7 +67,6 @@ export const pageQuery = graphql`
           frontmatter {
             title
             slug
-            description
             category
             tags
             thumbnail

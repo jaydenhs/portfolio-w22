@@ -1,14 +1,15 @@
-import React from 'react';
-import { graphql } from 'gatsby';
-import { MDXProvider } from '@mdx-js/react';
-import { MDXRenderer } from 'gatsby-plugin-mdx';
-import styled from 'styled-components';
-import Layout from '@components/layout';
-import Quote from '@components/quote';
-import tw from 'twin.macro';
+import React from "react";
+import { graphql } from "gatsby";
+import { MDXProvider } from "@mdx-js/react";
+import { MDXRenderer } from "gatsby-plugin-mdx";
+import styled from "styled-components";
+import Layout from "@components/layout";
+import Quote from "@components/quote";
+import tw from "twin.macro";
+import { motion } from "framer-motion";
 
-import Image from '@utils/local-img';
-import FullBleed from '@components/full-bleed-container';
+import Image from "@utils/local-img";
+import FullBleed from "@components/full-bleed-container";
 
 //move all headings down one hierarchy for simplicity writing mdx (less #'s)
 //apply all classNames that are specific to content within the flow here
@@ -44,11 +45,19 @@ export default function PostLayout({
   return (
     <Layout title={title} maxWidth={false}>
       <Wrapper>
-        {thumbnailOnPage && (
+        {/* {thumbnailOnPage && (
           <FullBleed>
             <Image src={thumbnail} className="mx-auto w-2/3 mb-4" />
           </FullBleed>
-        )}
+        )} */}
+        <motion.img
+          transition={{ duration: 0.8, ease: [0.6, 0.01, -0.05, 0.95] }}
+          initial={false}
+          className="full-bleed"
+          layoutId={title}
+          src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=1.00xw:0.669xh;0,0.190xh&resize=1200:*"
+        />
+
         <h1>{title}</h1>
         <MDXProvider components={components}>
           <MDXRenderer>{body}</MDXRenderer>

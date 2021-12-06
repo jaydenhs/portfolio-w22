@@ -59,7 +59,8 @@ module.exports = {
     {
       resolve: '@mkitio/gatsby-theme-password-protect',
       options: {
-        password: process.env.PASSWORD, // delete or `undefined` to disable password protection
+        // password: process.env.PASSWORD, // delete or `undefined` to disable password protection
+        password: undefined,
         // password: 'test', // delete or `undefined` to disable password protection
         pagePaths: ['/structionsite'],
       },
