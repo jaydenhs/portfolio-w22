@@ -10,11 +10,10 @@ section: "Main"
 rank: "2"
 
 embeddedImagesLocal:
-  - './images/zoom-and-slack.png'
-  - './images/data-mapping.jpg'
+  - "./images/zoom-and-slack.png"
+  - "./images/data-mapping.jpg"
+  - "./images/pilot-process.png"
 ---
-
-import Image from "@utils/local-img";
 
 import FullBleed from "@components/full-bleed-container";
 import AutoLink from "@components/auto-link";
@@ -25,7 +24,8 @@ import FigmaEmbed from "@components/figma-embed";
 import HighlightedSection from "@components/highlighted-section";
 import NumberedList from "@components/numbered-list";
 
-import { getImage, GatsbyImage } from 'gatsby-plugin-image';
+import QueriedImage from "@components/image";
+import { getImage, GatsbyImage } from "gatsby-plugin-image";
 
 | Role           | Team              | Duration           |
 | -------------- | ----------------- | ------------------ |
@@ -43,10 +43,8 @@ work.
 This is what the experience looked like:
 
 <FullBleed>
-  <GatsbyImage alt='Sam in a destroyed mall' image={getImage(props.localImages.find((n) => n.childImageSharp.gatsbyImageData.images.fallback.src.includes("zoom-and-slack")))} />
+  <QueriedImage localImages={props.localImages} filename={"pilot-process"} className="w-4/5 mx-auto" />
 </FullBleed>
-
-<GatsbyImage alt='Sam in a destroyed mall' image={getImage(props.localImages.find((n) => n.childImageSharp.gatsbyImageData.images.fallback.src.includes("data-mapping")))} />
 
 The SmartTrack project setup took the bulk of the time, often taking two weeks
 or more. The process was composed of two steps:

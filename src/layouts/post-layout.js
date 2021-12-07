@@ -11,6 +11,9 @@ import { motion } from "framer-motion";
 import Image from "@utils/local-img";
 import FullBleed from "@components/full-bleed-container";
 
+const transition = { duration: 1.4, ease: [0.6, 0.01, -0.05, 0.9] };
+const ease = [0.6, 0.01, -0.05, 0.9];
+
 //move all headings down one hierarchy for simplicity writing mdx (less #'s)
 //apply all classNames that are specific to content within the flow here
 const components = {
@@ -42,7 +45,7 @@ export default function PostLayout({
     },
   },
 }) {
-  console.log(embeddedImagesLocal)
+  console.log(embeddedImagesLocal);
   return (
     <Layout title={title} maxWidth={false}>
       <Wrapper>
@@ -52,16 +55,24 @@ export default function PostLayout({
         >
           <motion.img
             layoutId={title}
-            transition={{ duration: 0.9, ease: [0.6, 0.01, -0.05, 0.95] }}
+            transition={{ duration: 1.2, ease: ease }}
             className="w-full"
             src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=1.00xw:0.669xh;0,0.190xh&resize=1200:*"
           />
         </div>
-
-        <h1>{title}</h1>
-        <MDXProvider components={components}>
-          <MDXRenderer localImages={embeddedImagesLocal}>{body}</MDXRenderer>
-        </MDXProvider>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{
+            opacity: 1,
+            y: 0,
+            transition: { delay: 1.2, ...transition },
+          }}
+        >
+          <h1>{title}</h1>
+        </motion.div>
+          <MDXProvider components={components}>
+            <MDXRenderer localImages={embeddedImagesLocal}>{body}</MDXRenderer>
+          </MDXProvider>
       </Wrapper>
     </Layout>
   );

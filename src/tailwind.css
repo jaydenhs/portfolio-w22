@@ -2,20 +2,53 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: 'ProximaNova';
-  src: url('../static/fonts/proxima-nova-regular.otf') format('opentype');
-  font-weight: normal;
-}
+@layer base {
+  @font-face {
+    font-family: 'ProximaNova';
+    src: url('../static/fonts/proxima-nova-regular.otf') format('opentype');
+    font-weight: normal;
+  }
 
-@font-face {
-  font-family: 'ProximaNova';
-  src: url('../static/fonts/proxima-nova-bold.otf') format('opentype');
-  font-weight: bold;
-}
+  @font-face {
+    font-family: 'ProximaNova';
+    src: url('../static/fonts/proxima-nova-bold.otf') format('opentype');
+    font-weight: bold;
+  }
 
-@font-face {
-  font-family: 'Bookmania';
-  src: url('../static/fonts/bookmania-bold.otf') format('opentype');
-  font-weight: 700;
+  @font-face {
+    font-family: 'Bookmania';
+    src: url('../static/fonts/bookmania-bold.otf') format('opentype');
+    font-weight: 700;
+  }
+
+  h1 {
+    @apply text-5xl;
+    line-height: 1.2;
+  }
+
+  h2 {
+    @apply text-4xl;
+    line-height: 1.2;
+  }
+
+  h3 {
+    @apply text-2xl font-bold;
+    line-height: 1.2;
+  }
+
+  h4 {
+    @apply text-xl;
+  }
+
+  body {
+    box-sizing: border-box;
+    font-family: "Proxima Nova", "Open Sans", "Gill Sans MT", "Gill Sans", Corbel, Arial, sans-serif;
+    background: var(--background);
+    color: var(--text);
+  }
+
+  h1, h2 {
+    font-family:'Bookmania', Georgia, 'Times New Roman', Times, serif;
+    font-weight: 700;
+  }
 }

@@ -51,7 +51,7 @@ const Image = ({ src, caption, ...rest }) => {
       //   </div>
       //   <figcaption className="mt-2 text-gray-400">{caption}</figcaption>
       // </figure>
-      <p>Old Image!</p>
+      <p>local-img.js</p>
     )
   }
 

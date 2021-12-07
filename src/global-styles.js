@@ -3,40 +3,7 @@ import tw from 'twin.macro';
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
-  body {
-    box-sizing: border-box;
-    font-family: "Proxima Nova", "Open Sans", "Gill Sans MT", "Gill Sans", Corbel, Arial, sans-serif;
-    background: var(--background);
-    color: var(--text);
-  }
 
-  h1, h2 {
-    font-family:'Bookmania', Georgia, 'Times New Roman', Times, serif;
-    font-weight: 700;
-  }
-
-  h1 {
-    ${tw`text-5xl`}
-    /* font-size: 3rem; */
-    line-height: 1.2;
-    /* letter-spacing: -0.07rem; */
-  }
-
-  h2 {
-    /* font-size: 1.5rem; */
-    ${tw`text-5xl`}
-    line-height: 1.2;
-    /* letter-spacing: -0.03rem; */
-  }
-
-  h3 {
-    ${tw`text-2xl font-bold`}
-    line-height: 1.2;
-  }
-
-  h4 {
-    ${tw`text-xl`}
-  }
 
   ul {
     list-style: circle;

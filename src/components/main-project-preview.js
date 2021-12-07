@@ -3,7 +3,7 @@ import styled from "styled-components";
 import tw from "twin.macro";
 import Image from "@utils/local-img";
 import AutoLink from "@components/auto-link";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function MainProjectPreview({
   project: {
@@ -15,17 +15,24 @@ export default function MainProjectPreview({
       <div className="overflow-hidden h-128">
         <motion.img
           className="h-full object-cover"
+          transition={{ duration: 1.4, ease: [0.6, 0.01, -0.05, 0.9] }}
+          key="key1"
           layoutId={title}
           src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=1.00xw:0.669xh;0,0.190xh&resize=1200:*"
         />
       </div>
-      <div className="px-11 py-6 flex justify-between w-full">
+      <motion.div
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 3, ease: "easeInOut" }}
+        className="px-11 py-6 flex justify-between w-full"
+      >
         <div className="flex flex-col">
           <p>{role}</p>
           <h3>{company}</h3>
         </div>
         <p className="w-2/3">{title}</p>
-      </div>
+      </motion.div>
     </ProjectCard>
   );
 }
