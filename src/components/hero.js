@@ -2,9 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
 import Typist from 'react-typist';
-import { Fade } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css';
-import Image from '@utils/local-img';
 import AutoLink from '@components/auto-link';
 
 var words = [

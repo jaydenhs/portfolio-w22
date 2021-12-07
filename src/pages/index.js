@@ -7,11 +7,15 @@ import AdditionalProjectPreview from "@components/additional-project-preview";
 import Hero from "@components/hero";
 import styled from "styled-components";
 
+import { StaticImage } from "gatsby-plugin-image";
+
 const IndexPage = (props) => {
   const mainProjects = props.data.main.edges;
   const additionalProjects = props.data.additional.edges;
   return (
     <Layout title="Portfolio">
+      {/* <StaticImage src="../posts/boba-buds/images/bb_syde.jpg" alt="A kitten" /> */}
+
       <Hero />
 
       <h2 className="mb-5">Work</h2>

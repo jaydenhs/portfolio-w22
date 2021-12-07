@@ -1,25 +1,31 @@
 ---
-slug: '/structionsite'
-role: 'Product Design'
-company: 'StructionSite'
-title: 'Delivering an import feature for a construction tracking tool which saved users thousands of hours'
-category: 'Case Study'
-thumbnail: 'structionsite/images/project-card-thumbnail.webm'
+slug: "/structionsite"
+role: "Product Design"
+company: "StructionSite"
+title: "Delivering an import feature for a construction tracking tool which saved users thousands of hours"
+category: "Case Study"
+thumbnail: "structionsite/images/project-card-thumbnail.webm"
 
-section: 'Main'
-rank: '2'
+section: "Main"
+rank: "2"
+
+embeddedImagesLocal:
+  - './images/zoom-and-slack.png'
+  - './images/data-mapping.jpg'
 ---
 
-import Image from '@utils/local-img';
+import Image from "@utils/local-img";
 
-import FullBleed from '@components/full-bleed-container';
-import AutoLink from '@components/auto-link';
-import Note from '@components/note';
-import Accordion from '@components/accordion';
-import Learning from '@components/learning';
-import FigmaEmbed from '@components/figma-embed';
-import HighlightedSection from '@components/highlighted-section';
-import NumberedList from '@components/numbered-list';
+import FullBleed from "@components/full-bleed-container";
+import AutoLink from "@components/auto-link";
+import Note from "@components/note";
+import Accordion from "@components/accordion";
+import Learning from "@components/learning";
+import FigmaEmbed from "@components/figma-embed";
+import HighlightedSection from "@components/highlighted-section";
+import NumberedList from "@components/numbered-list";
+
+import { getImage, GatsbyImage } from 'gatsby-plugin-image';
 
 | Role           | Team              | Duration           |
 | -------------- | ----------------- | ------------------ |
@@ -37,8 +43,10 @@ work.
 This is what the experience looked like:
 
 <FullBleed>
-  <Image src={'pilot-process.png'} className="mt-3 mb-1 w-3/5 mx-auto" />
+  <GatsbyImage alt='Sam in a destroyed mall' image={getImage(props.localImages.find((n) => n.childImageSharp.gatsbyImageData.images.fallback.src.includes("zoom-and-slack")))} />
 </FullBleed>
+
+<GatsbyImage alt='Sam in a destroyed mall' image={getImage(props.localImages.find((n) => n.childImageSharp.gatsbyImageData.images.fallback.src.includes("data-mapping")))} />
 
 The SmartTrack project setup took the bulk of the time, often taking two weeks
 or more. The process was composed of two steps:
@@ -48,7 +56,7 @@ or more. The process was composed of two steps:
 
 <FullBleed>
   <Image
-    src={'structionsite/images/current-setup-process.webm'}
+    src={"structionsite/images/current-setup-process.webm"}
     className="mt-3 mb-2 mx-auto w-3/4"
     caption="What the current project setup process looked like"
   />
@@ -100,19 +108,19 @@ three goals:
 <NumberedList
   data={[
     {
-      title: 'Maximize efficiency',
+      title: "Maximize efficiency",
       description:
-        'The most critical goal was to reduce the time required to setup each customer project. The shorter the process, the lower our customer acquisition cost becomes.',
+        "The most critical goal was to reduce the time required to setup each customer project. The shorter the process, the lower our customer acquisition cost becomes.",
     },
     {
-      title: 'Improve intuitiveness',
+      title: "Improve intuitiveness",
       description:
         "Aligning the mental model of SmartTrack's features, modes, and tooling with construction industry standards would improve setup accuracy.",
     },
     {
-      title: 'Reduce frustration',
+      title: "Reduce frustration",
       description:
-        'Users are able to easily amend mistakes and accomplish their tasks without interruption.',
+        "Users are able to easily amend mistakes and accomplish their tasks without interruption.",
     },
   ]}
 />
@@ -136,7 +144,7 @@ To my delight, it had **all of the information I needed**:
 
 <FullBleed>
   <Image
-    src={'data-mapping.jpg'}
+    src={"data-mapping.jpg"}
     caption="Vertices and properties were available as plain text in Bluebeam Revu's exports"
     className="w-3/4 mx-auto"
   />
@@ -152,7 +160,7 @@ submitted files from a different program.
 To **maximize the value** gained from a first iteration of this feature, I
 decided to pivot to importing from this more popular program instead.
 
-<Image src={'pivoting-to-ost.png'} className="mb-2 w-3/4 mx-auto" />
+<Image src={"pivoting-to-ost.png"} className="mb-2 w-3/4 mx-auto" />
 
 Through a similar process as before, I validated that necessary information was
 available within this program's exports.
@@ -164,7 +172,7 @@ This also gave me the perfect opportunity to receive early feedback from
 stakeholders and validate feasibility with developers.
 
 <FullBleed>
-  <Image src={'import-user-flow-1.png'} className="mt-2 w-3/5 mx-auto" />
+  <Image src={"import-user-flow-1.png"} className="mt-2 w-3/5 mx-auto" />
 </FullBleed>
 
 # Presenting the Concept
@@ -172,7 +180,7 @@ stakeholders and validate feasibility with developers.
 To communicate this user flow, I created a simple set of designs:
 
 <FullBleed>
-  <Image src={'import-initial-mockups.png'} className="w-4/5 mx-auto" />
+  <Image src={"import-initial-mockups.png"} className="w-4/5 mx-auto" />
 </FullBleed>
 
 After incorporating feedback from our weekly product and design team meeting,
@@ -189,7 +197,7 @@ Takeoff file, and there were non-trivial loading times.
 Thus, I needed to revise my user flow to:
 
 <FullBleed>
-  <Image src={'import-user-flow-2.png'} className="w-4/5 mx-auto mt-2" />
+  <Image src={"import-user-flow-2.png"} className="w-4/5 mx-auto mt-2" />
 </FullBleed>
 
 # Adapting the UI
@@ -200,7 +208,7 @@ the arrows in the prototype below to navigate through my design decisions:
 <FullBleed>
   <FigmaEmbed
     src={
-      'https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FEswk9nrt8g3qEOiTKtsDId%2FSetup-Redesign-Materials%3Fpage-id%3D0%253A1%26scaling%3Dscale-down%26node-id%3D2%253A1312%26starting-point-node-id%3D2%253A1312'
+      "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FEswk9nrt8g3qEOiTKtsDId%2FSetup-Redesign-Materials%3Fpage-id%3D0%253A1%26scaling%3Dscale-down%26node-id%3D2%253A1312%26starting-point-node-id%3D2%253A1312"
     }
     hideUI={true}
   />
@@ -214,7 +222,7 @@ concept. They were very, very excited.
 
 <FullBleed>
   <Image
-    src={'structionsite/images/adam-and-james-reaction.webm'}
+    src={"structionsite/images/adam-and-james-reaction.webm"}
     className="mt-2 mx-auto w-3/4"
     caption="The culmination of my live demo to the solutions engineer (left) and customer success manager (right)"
   />
@@ -228,7 +236,7 @@ Their reaction was so positive that I later presented at StructionSite's
 All-Hands meeting, to even louder acclamation.
 
 <FullBleed>
-  <Image src={'zoom-and-slack.png'} />
+  <Image src={"zoom-and-slack.png"} />
 </FullBleed>
 
 # Success!
@@ -240,7 +248,7 @@ excited to set up projects.
 
 <FullBleed>
   <Image
-    src={'success-adam-and-joey.png'}
+    src={"success-adam-and-joey.png"}
     caption="Reactions to the import feature being used on real customer projects, sensitive details have been redacted"
   />
 </FullBleed>
@@ -250,17 +258,17 @@ excited to set up projects.
 <NumberedList
   data={[
     {
-      title: 'Approach the impossible',
+      title: "Approach the impossible",
       description:
-        'Even if a feature seems infeasible, try to prove it out. Some of the best features come from simple experiments.',
+        "Even if a feature seems infeasible, try to prove it out. Some of the best features come from simple experiments.",
     },
     {
-      title: 'Get your hands dirty',
+      title: "Get your hands dirty",
       description:
-        'My software development experience is just as applicable to the early proof-of-concept phases as it is to developer handoff. Leveraging existing data to increase product value is a tool that I will carry forward.',
+        "My software development experience is just as applicable to the early proof-of-concept phases as it is to developer handoff. Leveraging existing data to increase product value is a tool that I will carry forward.",
     },
     {
-      title: 'User joy is the greatest reward',
+      title: "User joy is the greatest reward",
       description:
         "Seeing how this feature has fundamentally improved so many users' lives brings an inescapable smile to my face. It feels so, so good to help others!",
     },

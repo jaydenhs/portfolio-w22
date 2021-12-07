@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
 import Image from '@utils/local-img';
+// import {GatsbyImage} from 'gatsby-plugin-image'
 import AutoLink from '@components/auto-link';
 
 export default function MainProjectPreview({

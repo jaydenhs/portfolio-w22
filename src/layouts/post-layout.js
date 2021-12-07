@@ -37,11 +37,12 @@ const components = {
 export default function PostLayout({
   data: {
     mdx: {
-      frontmatter: { title, thumbnail },
+      frontmatter: { title, thumbnail, embeddedImagesLocal },
       body,
     },
   },
 }) {
+  console.log(embeddedImagesLocal)
   return (
     <Layout title={title} maxWidth={false}>
       <Wrapper>
@@ -59,7 +60,7 @@ export default function PostLayout({
 
         <h1>{title}</h1>
         <MDXProvider components={components}>
-          <MDXRenderer>{body}</MDXRenderer>
+          <MDXRenderer localImages={embeddedImagesLocal}>{body}</MDXRenderer>
         </MDXProvider>
       </Wrapper>
     </Layout>
@@ -74,6 +75,11 @@ export const pageQuery = graphql`
       frontmatter {
         title
         thumbnail
+        embeddedImagesLocal {
+          childImageSharp {
+            gatsbyImageData
+          }
+        }
       }
     }
   }
