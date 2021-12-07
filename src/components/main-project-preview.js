@@ -15,16 +15,16 @@ export default function MainProjectPreview({
       <div className="overflow-hidden h-128">
         <motion.img
           className="h-full object-cover"
-          transition={{ duration: 1.4, ease: [0.6, 0.01, -0.05, 0.9] }}
+          transition={{ duration: 0 }}
           key="key1"
           layoutId={title}
           src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=1.00xw:0.669xh;0,0.190xh&resize=1200:*"
         />
       </div>
       <motion.div
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 3, ease: "easeInOut" }}
+        // animate={{ opacity: 1 }}
+        // exit={{ opacity: 0 }}
+        // transition={{ duration: 3, ease: "easeInOut" }}
         className="px-11 py-6 flex justify-between w-full"
       >
         <div className="flex flex-col">

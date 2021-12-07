@@ -14,12 +14,24 @@ import FullBleed from "@components/full-bleed-container";
 const transition = { duration: 1.4, ease: [0.6, 0.01, -0.05, 0.9] };
 const ease = [0.6, 0.01, -0.05, 0.9];
 
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      delay: 1.2,
+      staggerChildren: 0.5,
+    },
+  },
+};
+
 //move all headings down one hierarchy for simplicity writing mdx (less #'s)
 //apply all classNames that are specific to content within the flow here
 const components = {
   h1: (props) => (
     <>
-      <h2 {...props} className="mt-12" /> <hr className="mb-2" />
+      <h2 {...props} className="mt-12" />
+      <hr className="mb-2" />
     </>
   ),
   h2: (props) => <h3 {...props} className="mt-6 mb-0" />,
@@ -45,35 +57,27 @@ export default function PostLayout({
     },
   },
 }) {
-  console.log(embeddedImagesLocal);
   return (
     <Layout title={title} maxWidth={false}>
-      <Wrapper>
-        <div
-          className="full-bleed overflow-hidden mb-4"
-          style={{ height: "75vh" }}
-        >
-          <motion.img
-            layoutId={title}
-            transition={{ duration: 1.2, ease: ease }}
-            className="w-full"
-            src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=1.00xw:0.669xh;0,0.190xh&resize=1200:*"
-          />
-        </div>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{
-            opacity: 1,
-            y: 0,
-            transition: { delay: 1.2, ...transition },
-          }}
-        >
+      <div
+        className="full-bleed overflow-hidden mb-8"
+        style={{ height: "70vh" }}
+      >
+        <motion.img
+          layoutId={title}
+          transition={{ duration: 1, ease: ease }}
+          className="w-full"
+          src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=1.00xw:0.669xh;0,0.190xh&resize=1200:*"
+        />
+      </div>
+      <motion.div variants={container} initial="hidden" animate="show">
+        <Wrapper>
           <h1>{title}</h1>
-        </motion.div>
           <MDXProvider components={components}>
             <MDXRenderer localImages={embeddedImagesLocal}>{body}</MDXRenderer>
           </MDXProvider>
-      </Wrapper>
+        </Wrapper>
+      </motion.div>
     </Layout>
   );
 }
