@@ -14,15 +14,11 @@ module.exports = {
     },
   },
   plugins: [
+    // Styling
     `gatsby-plugin-styled-components`,
-    //mdx post generation
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `posts`,
-        path: `${__dirname}/src/posts/`,
-      },
-    },
+    "gatsby-plugin-postcss",
+
+    // Images
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -30,8 +26,6 @@ module.exports = {
         path: `${__dirname}/static/images/`,
       },
     },
-
-    //local gatsby-image querying
     {
       resolve: `gatsby-plugin-sharp`,
       options: {
@@ -43,8 +37,23 @@ module.exports = {
       },
     },
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
-    "gatsby-plugin-postcss",
+
+    // Posts
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `posts`,
+        path: `${__dirname}/src/posts/`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        extensions: [".mdx", ".md"],
+      },
+    },
+
+    // Aliases
     {
       resolve: `gatsby-plugin-alias-imports`,
       options: {
@@ -59,15 +68,6 @@ module.exports = {
           "@undraw": "static/undraw",
         },
         extensions: ["js"],
-      },
-    },
-    {
-      resolve: "@mkitio/gatsby-theme-password-protect",
-      options: {
-        // password: process.env.PASSWORD, // delete or `undefined` to disable password protection
-        password: undefined,
-        // password: 'test', // delete or `undefined` to disable password protection
-        pagePaths: ["/structionsite"],
       },
     },
   ],
