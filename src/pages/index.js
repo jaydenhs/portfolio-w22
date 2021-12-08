@@ -18,14 +18,14 @@ const IndexPage = (props) => {
 
       <Hero />
 
-      <h2 className="mb-5">Work</h2>
+      {/* <h2 className="mb-5">Work</h2> */}
       <MainProjectPreviewWrapper>
         {mainProjects.map(({ node }, i) => (
           <MainProjectPreview project={node} key={i} />
         ))}
       </MainProjectPreviewWrapper>
 
-      <AdditionalProjectPreviewWrapper>
+      {/* <AdditionalProjectPreviewWrapper>
         <Column>
           {additionalProjects
             .filter((a, i) => i % 2 === 0)
@@ -40,7 +40,7 @@ const IndexPage = (props) => {
               <AdditionalProjectPreview project={node} key={i} />
             ))}
         </Column>
-      </AdditionalProjectPreviewWrapper>
+      </AdditionalProjectPreviewWrapper> */}
     </Layout>
   );
 };
@@ -70,7 +70,11 @@ export const pageQuery = graphql`
             title
             company
             role
-            thumbnail
+            thumbnail {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
           }
         }
       }
@@ -90,7 +94,6 @@ export const pageQuery = graphql`
             category
             tags
             rank
-            thumbnail
             inProgress
           }
         }

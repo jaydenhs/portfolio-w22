@@ -5,21 +5,19 @@ import Image from "@utils/local-img";
 import AutoLink from "@components/auto-link";
 import { motion, AnimatePresence } from "framer-motion";
 
+import { getImage, GatsbyImage } from "gatsby-plugin-image";
+
 export default function MainProjectPreview({
   project: {
-    frontmatter: { title, slug, company, role },
+    frontmatter: { title, slug, company, role, thumbnail },
   },
 }) {
   return (
     <ProjectCard to={`${slug}`}>
       <div className="overflow-hidden h-128">
-        <motion.img
-          className="h-full object-cover"
-          transition={{ duration: 0 }}
-          key="key1"
-          layoutId={title}
-          src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=1.00xw:0.669xh;0,0.190xh&resize=1200:*"
-        />
+        <motion.div transition={{ duration: 0 }} layoutId={title}>
+          <GatsbyImage image={getImage(thumbnail)} />
+        </motion.div>
       </div>
       <motion.div
         // animate={{ opacity: 1 }}

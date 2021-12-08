@@ -1,4 +1,4 @@
-const path = require('path');
+const path = require("path");
 exports.createPages = async ({ graphql, actions, reporter }) => {
   // Destructure the createPage function from the actions object
   const { createPage } = actions;
@@ -40,8 +40,10 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
-    node: {
-      fs: 'empty',
+    resolve: {
+      fallback: {
+        fs: "empty",
+      },
     },
   });
 };

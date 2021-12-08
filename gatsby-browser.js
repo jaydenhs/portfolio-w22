@@ -7,7 +7,7 @@ import { AnimatePresence, AnimateSharedLayout } from "framer-motion";
 export const wrapRootElement = ({ element }) => {
   return (
     <AnimateSharedLayout>
-      <AnimatePresence exitBeforeEnter onExitComplete={() => console.log("all nodes have exited")}>
+      <AnimatePresence exitBeforeEnter>
         <App>{element}</App>
       </AnimatePresence>
     </AnimateSharedLayout>

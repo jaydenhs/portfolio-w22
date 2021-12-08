@@ -8,6 +8,8 @@ import Quote from "@components/quote";
 import tw from "twin.macro";
 import { motion } from "framer-motion";
 
+import { getImage, GatsbyImage } from "gatsby-plugin-image";
+
 import Image from "@utils/local-img";
 import FullBleed from "@components/full-bleed-container";
 
@@ -60,15 +62,12 @@ export default function PostLayout({
   return (
     <Layout title={title} maxWidth={false}>
       <div
-        className="full-bleed overflow-hidden mb-8"
+        className="overflow-hidden mb-8 flex items-center"
         style={{ height: "70vh" }}
       >
-        <motion.img
-          layoutId={title}
-          transition={{ duration: 1, ease: ease }}
-          className="w-full"
-          src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=1.00xw:0.669xh;0,0.190xh&resize=1200:*"
-        />
+        <motion.div layoutId={title} transition={{ duration: 1, ease: ease }}>
+          <GatsbyImage image={getImage(thumbnail)} />
+        </motion.div>
       </div>
       <motion.div variants={container} initial="hidden" animate="show">
         <Wrapper>
@@ -89,7 +88,11 @@ export const pageQuery = graphql`
       body
       frontmatter {
         title
-        thumbnail
+        thumbnail {
+          childImageSharp {
+            gatsbyImageData
+          }
+        }
         embeddedImagesLocal {
           childImageSharp {
             gatsbyImageData
