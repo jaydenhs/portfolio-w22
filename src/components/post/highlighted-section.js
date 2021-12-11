@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
-import Undraw from '@components/undraw';
+import Undraw from '@post/undraw';
 
 const HighlightedSection = ({ title, children }) => {
   return (

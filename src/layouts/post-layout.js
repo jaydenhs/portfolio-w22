@@ -3,15 +3,12 @@ import { graphql } from "gatsby";
 import { MDXProvider } from "@mdx-js/react";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import styled from "styled-components";
-import Layout from "@components/layout";
-import Quote from "@components/quote";
+import Layout from "@layout/layout";
+import Quote from "@post/quote";
 import tw from "twin.macro";
 import { motion } from "framer-motion";
 
 import { getImage, GatsbyImage } from "gatsby-plugin-image";
-
-import Image from "@utils/local-img";
-import FullBleed from "@components/full-bleed-container";
 
 const transition = { duration: 1.4, ease: [0.6, 0.01, -0.05, 0.9] };
 const ease = [0.6, 0.01, -0.05, 0.9];
@@ -66,7 +63,7 @@ export default function PostLayout({
         style={{ height: "70vh" }}
       >
         <motion.div layoutId={title} transition={{ duration: 1, ease: ease }}>
-          <GatsbyImage image={getImage(thumbnail)} />
+          <GatsbyImage loading="eager" image={getImage(thumbnail)} />
         </motion.div>
       </div>
       <motion.div variants={container} initial="hidden" animate="show">

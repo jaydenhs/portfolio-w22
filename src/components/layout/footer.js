@@ -1,6 +1,6 @@
 import React from 'react';
 import { siteMetadata } from '@root/gatsby-config';
-import AutoLink from '@components/auto-link';
+import AutoLink from '@general/auto-link';
 
 const Footer = () => {
   const social = siteMetadata.social;

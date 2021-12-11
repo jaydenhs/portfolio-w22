@@ -1,13 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
-import Image from "@utils/local-img";
-import AutoLink from "@components/auto-link";
+import AutoLink from "@general/auto-link";
 import { motion, useAnimation } from "framer-motion";
 
 import { getImage, GatsbyImage } from "gatsby-plugin-image";
 
-export default function MainProjectPreview({
+export default function ProjectPreview({
   project: {
     frontmatter: { title, slug, company, role, thumbnail },
   },

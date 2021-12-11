@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 import tw from "twin.macro";
 import Resume from "@static/resume.pdf";
 import HeadRoom from "react-headroom";
-import AutoLink from "@components/auto-link";
+import AutoLink from "@general/auto-link";
 
 const links = [
   { text: "Portfolio", url: "/", colour: `var(--primary)` },

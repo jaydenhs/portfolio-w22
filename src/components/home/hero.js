@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import tw from 'twin.macro';
 import Typist from 'react-typist';
 import 'react-slideshow-image/dist/styles.css';
-import AutoLink from '@components/auto-link';
+import AutoLink from '@general/auto-link';
 
 var words = [
   'Design Technologist',

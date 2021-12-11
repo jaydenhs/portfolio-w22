@@ -1,11 +1,11 @@
 import React from 'react';
-import Layout from '@components/layout';
+import Layout from '@layout/layout';
 import Img from '@utils/local-img';
-import RoomObject from '@components/room-object';
+import RoomObject from '@about/room-object';
 import styled from 'styled-components';
 import tw from 'twin.macro';
 
-import Scene from '@components/3d-room';
+import Scene from '@about/3d-room';
 
 const About = () => {
   return (

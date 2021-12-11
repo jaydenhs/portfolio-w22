@@ -1,6 +1,6 @@
 import React from 'react';
-import Layout from '@components/layout';
-// import Scene from '@components/3d-room';
+import Layout from '@layout/layout';
+// import Scene from '@about/3d-room';
 import ClientOnly from '@utils/client-only';
 
 const About = () => {
