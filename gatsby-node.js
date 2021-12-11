@@ -45,5 +45,15 @@ exports.onCreateWebpackConfig = ({ actions }) => {
         fs: "empty",
       },
     },
+    module: {
+      rules: [
+        {
+          test: /\.gltf$/,
+          use: [
+            `url-loader`,
+          ],
+        },
+      ],
+    },
   });
 };
