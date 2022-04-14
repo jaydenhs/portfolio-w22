@@ -4,7 +4,7 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import * as THREE from 'three'
 
 export default function Model() {
-  const model = useLoader(GLTFLoader, "/models/Fox.glb");
+  const model = useLoader(GLTFLoader, "/models/jayden_model_2.glb");
 
   let mixer
   if (model.animations.length) {

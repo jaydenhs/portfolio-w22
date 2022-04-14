@@ -15,8 +15,8 @@ const About = () => {
         Welcome to my room — hover over any of the glowing dots to learn more
         about me!
       </p>
-      {/* <Scene /> */}
-      <div className="relative">
+      <Scene />
+      {/* <div className="relative">
         <Img src={'walls.svg'} />
         <RoomObject
           src={'diploma.svg'}
@@ -203,7 +203,7 @@ const About = () => {
           left={35.89}
           top={60.726}
         />
-      </div>
+      </div> */}
     </Layout>
   );
 };

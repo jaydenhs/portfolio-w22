@@ -1,16 +1,24 @@
-import React, { useState, useRef, useEffect } from 'react';
-import styled from 'styled-components';
-import tw from 'twin.macro';
-import Typist from 'react-typist';
-import 'react-slideshow-image/dist/styles.css';
-import AutoLink from '@general/auto-link';
+import React, { useState, Suspense } from "react";
+import styled from "styled-components";
+import tw from "twin.macro";
+import Typist from "react-typist";
+import "react-slideshow-image/dist/styles.css";
+import AutoLink from "@general/auto-link";
+
+import Model from "@home/model";
+import { Html, OrbitControls } from "@react-three/drei";
+import {
+  motion,
+  MotionCanvas,
+  LayoutOrthographicCamera,
+} from "framer-motion/three";
 
 var words = [
-  'Design Technologist',
-  'Yoga Enthusiast',
-  'Pianist',
-  'Photographer',
-  'Friend'
+  "Design Technologist",
+  "Yoga Enthusiast",
+  "Pianist",
+  "Photographer",
+  "Friend",
 ];
 
 var longest = words.reduce(function (a, b) {
@@ -56,11 +64,36 @@ const Hero = () => {
             Systems Design Engineering student at the University of Waterloo.
           </div>
           <div>
-            Incoming Design Technologist at <AutoLink to ="http://shopify.dev/">Shopify</AutoLink>. Previously a Product Designer at <AutoLink to="https://structionsite.com/">StructionSite</AutoLink>, <AutoLink to="https://tdlab.io/">TD Bank</AutoLink>, and <AutoLink to="https://www.ontario.ca/page/ontario-digital-service">the Ontario
-            Digital Service</AutoLink>.
+            Incoming Design Technologist at{" "}
+            <AutoLink to="http://shopify.dev/">Shopify</AutoLink>. Previously a
+            Product Designer at{" "}
+            <AutoLink to="https://structionsite.com/">StructionSite</AutoLink>,{" "}
+            <AutoLink to="https://tdlab.io/">TD Bank</AutoLink>, and the{" "}
+            <AutoLink to="https://www.ontario.ca/page/ontario-digital-service">
+              Ontario Digital Service
+            </AutoLink>
+            .
           </div>
         </Details>
       </div>
+
+      <motion.div layoutId={"about-room"} className="w-2/5 h-full bg-black">
+        {/* <MotionCanvas style={{ height: 500, width: "100%" }}>
+          <LayoutOrthographicCamera
+            makeDefault // Registers it as the default camera system-wide (default=false)
+            position={[4, 2, 4]}
+            near={0.01}
+            far={2000}
+            zoom={75}
+          />
+          <color attach="background" args={["black"]} />
+          <ambientLight intensity={0.7} />
+          <OrbitControls />
+          <Suspense fallback={<Html>Loading...</Html>}>
+            <Model />
+          </Suspense>
+        </MotionCanvas> */}
+      </motion.div>
     </HeroWrapper>
   );
 };
